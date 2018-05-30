@@ -1,0 +1,32 @@
+{% extends "templates/base.html" %}
+{% block content %}
+{% if page.previouspage %}
+  <a href="{{ page.previouspage}}" class="govuk-back-link">Back</a>
+  {% endif %}
+
+  <div class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+{# {{ JSON(page, null, 2) | safe}} #}
+<form method="post" action="{{ page.nextpage }}"{% if not page._form %} class="govuk-prose-scope"{% endif %}>
+{% if page._type !== 'page.singlequestion' %}
+<h1>{{ page.heading }}</h1>
+{% endif %}
+{{ page.body }}
+{{ callBlocks(page.components) }}
+{% if page.nextpage %}
+<p>{% from "button/macro.njk" import govukButton %}</p>
+{{ govukButton({
+  text: "Continue"
+}) }}
+{% endif %}
+</form>
+
+
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

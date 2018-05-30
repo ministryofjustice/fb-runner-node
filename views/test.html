@@ -1,0 +1,135 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+
+{# {{ callBlock({
+  _id: 'yeehaw',
+  _type: 'woot.toot.zoot',
+  any: 'thing else'
+}) }} #}
+
+{{ callBlocks([{
+  _id: 'ooa',
+  _type: 'number',
+  name: 'ooa',
+  label: 'Number one'
+},{
+  _id: 'oob',
+  _type: 'number',
+  name: 'oob',
+  label: 'Number two'
+}])}}
+
+{# {% set wong = true %} #}
+{% if wong === undefined %}
+wong is undefined<br>
+{% endif %}
+{# true by default #}
+{% set wibble = wong if wong === false else true %}
+{# true by default #}
+{% set whom = wong if wong === true else false %}
+wong={{ wong }}<br>
+[true] wibble={{ wibble }}<br>
+[false] whomp={{ whom }}<br>
+
+MONKEY.HTML
+
+{% macro dynamicComponent(path, data) %}
+{% set macroPath = path + '/' + path + '.njk' %}
+{% import macroPath as importedMacro %}
+<div>
+dynamicComponent: {{ path }}
+{{ importedMacro[path](data)}}
+</div>
+{% endmacro %}
+
+{{ callBlock({
+  _id: 'shaftoe',
+  _type: 'text',
+  name: 'wool',
+  label: 'DYNAMIC TEXT: Woolen mittens'
+}) }}
+
+{{ callBlock({
+  _id: 'wonk',
+  _type: 'number',
+  name: 'wonk',
+  label: 'DYNAMIC NUMBER: Wonky donkey'
+}) }}
+
+{{ callBlock({
+  _id: 'flip',
+  _type: 'text',
+  name: 'steel',
+  label: 'DYNAMIC TEXT 2: Steel gloves'
+}) }}
+
+{{ callBlock({
+  _id: 'myFirstTextId',
+  _type: 'text',
+  name: 'bar',
+  label: 'No, it really, really was very hard'
+})}}
+
+{{ callMacro('govukInput', {
+  id: 'twasm',
+  name: 'wham',
+  label: {
+    html: '"govukInput" William, it was really nothing'
+  }
+})}}
+
+
+{# {{ macros.number({
+  _type: 'number',
+  name: 'twosh',
+  label: 'Pick a number'
+})}} #}
+
+{% set data = {
+  "_id": "componentId",
+  "_type": "checkboxes",
+  "legend": "Please do select all the countries have you lived in",
+  "name": "countries",
+  "items": [
+    {
+      "_id": "countries--eng",
+      "_type": "checkbox",
+      "name": "eng",
+      "value": "yes",
+      "text": "England"
+    },
+    {
+      "_id": "countries--sco",
+      "_type": "checkbox",
+      "name": "sco",
+      "value": "yes",
+      "text": "Scotland"
+    }
+  ]
+} %}
+{% set data = setObject(data, {legend:'I overrode the legend with setObject'}) %}
+
+{{ callBlock(data) }}
+
+{{ callBlock({
+  _type: 'warningText',
+  html: 'Oy! Muugins!'
+}) }}
+
+
+{% endblock %}
+
+{% block DOCS %}
+
+- form element
+  - heading block
+    - heading
+    - lede
+  - content
+  - components
+  - action[s]
+  - additional components
+
+
+{% endblock %}
