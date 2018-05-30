@@ -4,12 +4,16 @@
   "description": "Form Builder Runner (Node version)",
   "main": "index.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ministryofjustice/fb-runner-node.git"
+    "type": "git",
+    "url": "https://github.com/ministryofjustice/fb-runner-node.git"
   },
   "scripts": {
     "start": "node bin/start.js",
-    "test": "tape lib/**/*.unit.spec.js"
+    "lint": "npm-run-all lint:lib",
+    "lint:lib": "eslint lib",
+    "test": "npm-run-all lint test:all",
+    "test:all": "npm-run-all test:unit",
+    "test:unit": "tape lib/**/*.unit.spec.js"
   },
   "author": "github@alex.fu2k.org",
   "license": "MIT",
@@ -29,7 +33,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
-    "fb-nunjucks-helpers": "git+https://github.com/ministryofjustice/fb-nunjucks-helpers.git#d1e57498fe268f23a250af71214a8d17f5af2b7a",
+    "fb-nunjucks-helpers": "git+https://github.com/ministryofjustice/fb-nunjucks-helpers.git#decab33",
     "fb-specification": "git+https://github.com/ministryofjustice/fb-specification.git#bf30dc4c6e06bc94079f8d762702f5c0428b1352",
     "glob": "^7.1.2",
     "lodash.get": "^4.4.2",
