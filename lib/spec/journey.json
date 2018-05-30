@@ -8,8 +8,7 @@
       "pageGreeting",
       "pagePlanet",
       "pageConfirmation"
-    ],
-    "nextpage": "pageGreeting"
+    ]
   },
   {
     "_id": "pageGreeting",
@@ -39,8 +38,7 @@
           "label": "Just give me a basic Hello World"
         }
       ]
-    }],
-    "nextpage": "pagePlanet"
+    }]
   },
   {
     "_id": "pagePlanet",
@@ -57,8 +55,7 @@
       "operator": "is",
       "value": "Hello World",
       "negated": true
-    },
-    "nextpage": "pageConfirmation"
+    }
   },
   {
     "_id": "pageConfirmation",
