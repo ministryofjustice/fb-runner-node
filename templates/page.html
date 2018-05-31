@@ -12,9 +12,9 @@
 {# {{ JSON(page, null, 2) | safe}} #}
 <form method="post" action="{{ page.nextpage }}"{% if not page._form %} class="govuk-prose-scope"{% endif %}>
 {% if page._type !== 'page.singlequestion' %}
-<h1>{{ page.heading }}</h1>
+<h1>{{ page.heading | safe }}</h1>
 {% endif %}
-{{ page.body }}
+{{ page.body | safe }}
 {{ callBlocks(page.components) }}
 {% if page.nextpage %}
 <p>{% from "button/macro.njk" import govukButton %}</p>
