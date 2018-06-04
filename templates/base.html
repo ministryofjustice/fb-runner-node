@@ -1,29 +1,23 @@
-<!doctype html>
-<html>
-<head>
-{# https://raw.githubusercontent.com/alphagov/govuk-frontend/master/dist/govuk-frontend-0.0.29-alpha.min.css #}
-<link rel="stylesheet" href="/public/stylesheets/govuk-frontend-0.0.29-alpha.min.css">
-{# <link rel="stylesheet" href="/public/stylesheets/govuk-frontend-ie8-0.0.29-alpha.min.css"> #}
-</head>
-<body>
-{% block content %}{% endblock %}
-<script src="/public/javascripts/govuk-frontend-0.0.29-alpha.min.js"></script>
-</body>
-</html>
+{% extends "template.njk" %}
+
+{% block head %}
+{# https://raw.githubusercontent.com/alphagov/govuk-frontend/master/dist/govuk-frontend-0.0.31-alpha.min.css #}
+<link rel="stylesheet" href="/assets/govuk-frontend-0.0.31-alpha.min.css">
+{# <link rel="stylesheet" href="/assets/govuk-frontend-ie8-0.0.31-alpha.min.css"> #}
+{% block styles %}{% endblock %}
+{% endblock %}
+
+{% block main %}
+  <div class="govuk-width-container">
+    {% block beforeContent %}{% endblock %}
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+{% endblock %}
 
 
-{# <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GOV.UK Design System</title>
-    <link href="/stylesheets/main-6d57fb6eccc22d5693f33a2196160d05.css" rel="stylesheet" media="all" />
-
-    <!--[if lt IE 9]>
-      <script src="/javascripts/ie.js"></script>
-    <![endif]-->
-    <script src="/javascripts/vendor/modernizr.js"></script>
-  </head>
-  <body class="app-example-page"> #}
+{% block bodyEnd %}
+<script src="/assets/govuk-frontend-0.0.31-alpha.min.js"></script>
+{% block scripts %}{% endblock %}
+{% endblock %}

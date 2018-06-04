@@ -1,14 +1,15 @@
 {% extends "templates/base.html" %}
+
+{% block beforeContent %}
+{% if page.previouspage -%}
+{{ callMacro('govukBackLink', {
+  "href": page.previouspage,
+  "text": "Back"
+}) }}
+{%- endif %}
+{% endblock %}
+
 {% block content %}
-{% if page.previouspage %}
-  <a href="{{ page.previouspage}}" class="govuk-back-link">Back</a>
-  {% endif %}
-
-  <div class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-
-
 {# {{ JSON(page, null, 2) | safe}} #}
 <form method="post" action="{{ page.nextpage }}"{% if not page._form %} class="govuk-prose-scope"{% endif %}>
 {% if page._type !== 'page.singlequestion' %}
@@ -23,10 +24,4 @@
 }) }}
 {% endif %}
 </form>
-
-
-    </div>
-    </div>
-  </div>
-</div>
 {% endblock %}

@@ -1,6 +1,6 @@
 {
-  "name": "fb-runner",
-  "version": "0.0.1",
+  "name": "fb-runner-node",
+  "version": "0.0.31-alpha",
   "description": "Form Builder Runner (Node version)",
   "main": "index.js",
   "repository": {
@@ -31,7 +31,7 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "@govuk-frontend/frontend": "0.0.29-alpha",
+    "@govuk-frontend/frontend": "0.0.31-alpha",
     "basic-auth": "^2.0.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.2",
