@@ -20,9 +20,12 @@ npm install
 npm start
 ```
 
-## Testing
+## Service data
 
-Run all linting and tests
+By default, the runner expects service data to be mounted at `servicedata` in its root directory.
+
+
+## Testing
 
 ```
 npm test
@@ -34,7 +37,7 @@ Run unit tests only
 npm run test:unit
 ```
 
-Run lintin only
+Run linting only
 ```
 npm run lint
 ```
