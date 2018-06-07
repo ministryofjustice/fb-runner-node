@@ -20,6 +20,25 @@ npm install
 npm start
 ```
 
+## Testing
+
+Run all linting and tests
+
+```
+npm test
+```
+
+Run unit tests only
+
+```
+npm run test:unit
+```
+
+Run lintin only
+```
+npm run lint
+```
+
 ## Faked-up pages
 
 [Start page](http://localhost:3000)
