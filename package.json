@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.31-alpha",
+  "version": "0.0.32-alpha",
   "description": "Form Builder Runner (Node version)",
   "main": "index.js",
   "repository": {
@@ -30,7 +30,6 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "@govuk-frontend/frontend": "0.0.31-alpha",
     "@ministryofjustice/fb-nunjucks-helpers": "0.0.1",
     "@ministryofjustice/fb-runtime-node": "0.0.1",
     "@ministryofjustice/fb-specification": "git+https://github.com/ministryofjustice/fb-specification.git#a695ac6",
@@ -42,6 +41,7 @@
     "express-basic-auth": "^1.1.5",
     "express-session": "^1.15.6",
     "glob": "^7.1.2",
+    "govuk-frontend": "0.0.32",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "morgan": "^1.9.0",
