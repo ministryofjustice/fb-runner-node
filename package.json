@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@ministryofjustice/fb-nunjucks-helpers": "0.0.1",
-    "@ministryofjustice/fb-runtime-node": "0.0.1",
+    "@ministryofjustice/fb-runtime-node": "0.0.2",
     "@ministryofjustice/fb-specification": "git+https://github.com/ministryofjustice/fb-specification.git#a695ac6",
     "@ministryofjustice/fb-utils-node": "^0.1.0",
     "basic-auth": "^2.0.0",
