@@ -43,3 +43,6 @@ jspm_packages
 
 # Yarn files
 .yarnclean
+
+# Visual Studio Code files
+.vscode
