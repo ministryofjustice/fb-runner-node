@@ -6,12 +6,11 @@
       "_id": "pagePlanet--planet",
       "_type": "text",
       "name": "planet",
-      "label": "What is your favourite planet?"
-    }],
-    "show": {
-      "identifier": "greeting",
-      "operator": "is",
-      "value": "Hello World",
-      "negated": true
-    }
+      "label": "What is your favourite planet?",
+      "show": {
+        "identifier": "greeting",
+        "operator": "is",
+        "value": "Hello World"
+      }
+    }]
   }
