@@ -37,9 +37,15 @@
 {%- endif %}
 {{- callBlocks(page.components) -}}
 {% if page.nextpage %}
-<p>{% from "button/macro.njk" import govukButton %}</p>
+{% set buttonHtml = 'Continue' %}
+{% if page._type === 'page.start' %}
+  {% set buttonHtml = 'Start' %}
+  {% set buttonClass = 'govuk-button--start' %}
+{% endif %}
+{% from "button/macro.njk" import govukButton %}
 {{ govukButton({
-  text: "Continue"
+  html: buttonHtml,
+  classes: buttonClass
 }) }}
 {% endif %}
 </form>
