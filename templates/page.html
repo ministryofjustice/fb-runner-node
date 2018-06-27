@@ -1,5 +1,7 @@
 {% extends "templates/base.html" %}
 
+{% from "error-summary/macro.njk" import govukErrorSummary %}
+
 {% block beforeContent %}
 {% if page.previouspage -%}
 {{ callMacro('govukBackLink', {
@@ -7,19 +9,33 @@
   "text": "Back"
 }) }}
 {%- endif %}
+{% if page.errorList %}
+{{ govukErrorSummary({
+  titleHtml: page.errorTitle,
+  errorList: page.errorList
+}) }}
+{% endif %}
 {% endblock %}
 
 {% block content %}
-{% if page.errors %}
-{{ JSON(page.errors, null, 2) | safe}}
-{% endif %}
+<div class="govuk-main-wrapper">
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+
 {# {{ JSON(page, null, 2) | safe}} #}
 <form method="post"{% if page.action %} action="{{ page.action }}"{% endif %}{% if not page._form %} class="govuk-prose-scope"{% endif %}>
 {% if page._type !== 'page.singlequestion' %}
-<h1>{{ page.heading | safe }}</h1>
+{% set headingClass = 'govuk-heading-l' %}
+{% if page._type === 'page.start' %}{% set headingClass = 'govuk-heading-xl' %}{% endif %}
+<h1 class="{{ headingClass }}">{{ page.heading | safe }}</h1>
 {% endif %}
+{% if page.lede -%}
+{{ page.lede | safe }}
+{%- endif %}
+{% if page.body -%}
 {{ page.body | safe }}
-{{ callBlocks(page.components) }}
+{%- endif %}
+{{- callBlocks(page.components) -}}
 {% if page.nextpage %}
 <p>{% from "button/macro.njk" import govukButton %}</p>
 {{ govukButton({
@@ -27,4 +43,8 @@
 }) }}
 {% endif %}
 </form>
+
+</div>
+</div>
+</div>
 {% endblock %}

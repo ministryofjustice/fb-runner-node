@@ -10,6 +10,6 @@
   "exclusiveMinimum": "Your answer must be greater than {minimum}",
   "pattern": "Your answer does not match this pattern ({pattern})",
   "required": "Please answer this question",
-  "requiredCheckboxGroup": "Please choose at least one of the options",
-  "requiredRadioGroup": "Please choose one of the answers"
+  "required.checkboxes": "Please choose at least one of the options",
+  "required.radios": "Please choose one of the answers"
 }

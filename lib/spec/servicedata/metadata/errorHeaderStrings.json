@@ -2,7 +2,7 @@
   "_type": "strings",
   "_id": "errorHeaderStrings",
   "format": "Your answer for “{control}” is not in the correct format",
-  "heading": "There {app:errors:length, plural, 1 {was a problem} other {were problems}} on the page",
+  "heading": "There {errorCount, plural, 1 {was a problem} other {were problems}} on the page",
   "maximum": "Your answer for “{control}” is greater than or equal to the maximum allowed {maximum}",
   "minimum": "Your answer for “{control}” is less than or equal to the minimum allowed {minimum}",
   "exclusiveMaximum": "Your answer for “{control}” is greater than the maximum allowed {maximum}",
@@ -11,6 +11,6 @@
   "minLength": "Your answer for {control} is too short ({minLength} characters at least)",
   "pattern": "Your answer for “{control}” does not match the pattern ({pattern})",
   "required": "Please answer the question “{control}”",
-  "requiredCheckboxGroup": "Please choose at least one of the options for “{control}”",
-  "requiredRadioGroup": "Please choose one of the answers for “{control}”"
+  "required.checkboxes": "Please choose at least one of the options for “{control}”",
+  "required.radios": "Please choose one of the answers for “{control}”"
 }
