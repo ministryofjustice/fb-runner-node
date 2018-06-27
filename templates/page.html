@@ -10,8 +10,11 @@
 {% endblock %}
 
 {% block content %}
+{% if page.errors %}
+{{ JSON(page.errors, null, 2) | safe}}
+{% endif %}
 {# {{ JSON(page, null, 2) | safe}} #}
-<form method="post" action="{{ page.nextpage }}"{% if not page._form %} class="govuk-prose-scope"{% endif %}>
+<form method="post"{% if page.action %} action="{{ page.action }}"{% endif %}{% if not page._form %} class="govuk-prose-scope"{% endif %}>
 {% if page._type !== 'page.singlequestion' %}
 <h1>{{ page.heading | safe }}</h1>
 {% endif %}
