@@ -10,7 +10,7 @@
       "show": {
         "identifier": "greeting",
         "operator": "is",
-        "value": "Hello World",
+        "value": "helloworld",
         "negated": true
       }
     }]
