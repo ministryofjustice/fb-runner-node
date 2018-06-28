@@ -9,7 +9,10 @@ module.exports = () => ({
     { pattern: 'dist/**/*', load: false }
   ],
   tests: [
-    'lib/**/*.unit.spec.js'
+    'lib/**/*.unit.spec.js',
+    "!lib/middleware/routes-cached.unit.spec.js",
+    "!lib/middleware/routes-static/*.unit.spec.js",
+    "!lib/constants/*.unit.spec.js",
   ],
   env: {
     type: 'node'
