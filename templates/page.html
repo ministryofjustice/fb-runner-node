@@ -18,17 +18,27 @@
 {% endblock %}
 
 {% block content %}
+{% if page._type === 'page.confirmation' %}
+{% from "panel/macro.njk" import govukPanel %}
+{{ govukPanel({
+  titleHtml: page.heading,
+  html: page.lede
+}) }}
+{% endif %}
+
 <div class="govuk-main-wrapper">
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
 
+
 {# {{ JSON(page, null, 2) | safe}} #}
 <form method="post"{% if page.action %} action="{{ page.action }}"{% endif %}{% if not page._form %} class="govuk-prose-scope"{% endif %}>
-{% if page._type !== 'page.singlequestion' %}
+
+{% if page._type !== 'page.singlequestion' %}{% if page._type !== 'page.confirmation' %}
 {% set headingClass = 'govuk-heading-l' %}
 {% if page._type === 'page.start' %}{% set headingClass = 'govuk-heading-xl' %}{% endif %}
 <h1 class="{{ headingClass }}">{{ page.heading | safe }}</h1>
-{% endif %}
+{% endif %}{% endif %}
 {% if page.lede -%}
 {{ page.lede | safe }}
 {%- endif %}
