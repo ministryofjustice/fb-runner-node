@@ -10,17 +10,12 @@ module.exports = () => ({
   ],
   tests: [
     'lib/**/*.unit.spec.js',
-    "!lib/middleware/routes-cached/*.unit.spec.js",
-    "!lib/middleware/routes-static/*.unit.spec.js",
     "!lib/constants/*.unit.spec.js",
+    "!lib/middleware/routes-cached/*.unit.spec.js",
+    "!lib/middleware/routes-static/*.unit.spec.js"
   ],
   env: {
     type: 'node'
   },
-  testFramework: 'tape',
-  workers: {
-    restart: true,
-    initial: 1,
-    regular: 1
-  }
+  testFramework: 'tape'
 })
