@@ -1,6 +1,6 @@
 {
   "_type": "strings",
-  "_id": "errorHeaderStrings",
+  "_id": "errors.summary",
   "format": "Your answer for “{control}” is not in the correct format",
   "heading": "There {errorCount, plural, 1 {was a problem} other {were problems}} on the page",
   "maximum": "Your answer for “{control}” is greater than or equal to the maximum allowed {maximum}",
