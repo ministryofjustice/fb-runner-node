@@ -2,7 +2,7 @@
   "name": "@ministryofjustice/fb-runner-node",
   "version": "0.0.1-alpha",
   "description": "Form Builder Runner (Node version)",
-  "main": "lib/server/server/index.js",
+  "main": "lib/server/server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ministryofjustice/fb-runner-node.git"
