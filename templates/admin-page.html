@@ -20,9 +20,11 @@
 {% block bodyEnd %}
 {{ super() }}
 <style type="text/css">
+.admin-content .govuk-grid-column-two-thirds {
+  width: 100%;
+}
 
 [data-block-id="admin.instance--header"].fb-group {
-  width: 150%;
   margin: -2rem 0 2rem;
 }
 
@@ -100,4 +102,14 @@ button.govuk-button p {
   margin: 0;
 }
 </style>
+<script src="/assets/autosize.js"></script>
+<script type="text/javascript">
+var $textareas = document.querySelectorAll('textarea')
+if ($textareas.length) {
+  autosize($textareas)
+  setInterval(function () {
+    autosize.update($textareas)
+  }, 100)
+}
+</script>
 {% endblock %}
