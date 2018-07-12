@@ -9,12 +9,6 @@
   "text": "Back"
 }) }}
 {%- endif %}
-{% if page.errorList %}
-{{ govukErrorSummary({
-  titleHtml: page.errorTitle,
-  errorList: page.errorList
-}) }}
-{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -26,8 +20,16 @@
 }) }}
 {% endif %}
 
+
+{% if page.errorList %}
+{{ govukErrorSummary({
+  titleHtml: page.errorTitle,
+  errorList: page.errorList
+}) }}
+{% endif %}
 <div class="govuk-main-wrapper">
 <div class="govuk-grid-row">
+
 <div class="govuk-grid-column-two-thirds">
 
 

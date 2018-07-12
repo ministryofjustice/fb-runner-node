@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "@ministryofjustice/fb-nunjucks-helpers": "0.0.1",
-    "@ministryofjustice/fb-runtime-node": "0.0.10-alpha",
-    "@ministryofjustice/fb-specification": "0.0.4-alpha",
+    "@ministryofjustice/fb-runtime-node": "0.0.11-alpha",
+    "@ministryofjustice/fb-specification": "0.0.11-alpha",
     "@ministryofjustice/fb-utils-node": "^0.1.1",
     "basic-auth": "^2.0.0",
     "body-parser": "^1.18.3",
