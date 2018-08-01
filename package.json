@@ -30,8 +30,8 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "@ministryofjustice/fb-components-core": "0.0.23-alpha",
-    "@ministryofjustice/fb-nunjucks-helpers": "0.0.5",
+    "@ministryofjustice/fb-components-core": "0.0.24-alpha",
+    "@ministryofjustice/fb-nunjucks-helpers": "0.0.6",
     "@ministryofjustice/fb-runtime-node": "0.1.0-alpha",
     "@ministryofjustice/fb-specification": "0.1.0-alpha",
     "@ministryofjustice/fb-utils-node": "^0.1.1",
