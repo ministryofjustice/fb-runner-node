@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.54-alpha",
+  "version": "0.0.55-alpha",
   "description": "Form Builder Runner (Node version)",
   "main": "lib/server/server.js",
   "repository": {
@@ -32,7 +32,7 @@
   "dependencies": {
     "@ministryofjustice/fb-components-core": "0.0.53-alpha",
     "@ministryofjustice/fb-nunjucks-helpers": "0.0.7",
-    "@ministryofjustice/fb-runtime-node": "0.1.4-alpha",
+    "@ministryofjustice/fb-runtime-node": "0.1.5-alpha",
     "@ministryofjustice/fb-specification": "0.1.0-alpha",
     "@ministryofjustice/fb-utils-node": "^0.1.1",
     "basic-auth": "^2.0.0",
