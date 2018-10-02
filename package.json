@@ -30,10 +30,10 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "@ministryofjustice/fb-components-core": "0.0.80-alpha",
-    "@ministryofjustice/fb-nunjucks-helpers": "0.0.14",
-    "@ministryofjustice/fb-runtime-node": "0.1.8-alpha",
-    "@ministryofjustice/fb-specification": "0.1.0-alpha",
+    "@ministryofjustice/fb-components-core": "0.0.81-alpha",
+    "@ministryofjustice/fb-nunjucks-helpers": "0.0.15",
+    "@ministryofjustice/fb-runtime-node": "0.1.9-alpha",
+    "@ministryofjustice/fb-specification": "0.1.1-alpha",
     "@ministryofjustice/fb-utils-node": "^0.1.2",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.18.3",
@@ -64,6 +64,7 @@
     "request-promise-native": "^1.0.5",
     "serve-favicon": "^2.5.0",
     "sort-keys": "^2.0.0",
+    "uuid": "^3.3.2",
     "write-file-atomic": "^2.3.0"
   }
 }
