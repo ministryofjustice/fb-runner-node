@@ -47,3 +47,11 @@ npm run lint
 [Start page](http://localhost:3000)
 
 [Test page](http://localhost:3000/test)
+
+## To build & push docker images
+
+```
+make (dev|staging|production) build push
+```
+This will build & push a docker image `fb-runner-node:latest-(env)` to the ECR
+repo, from where it can be deployed to Kubernetes via [fb-publisher](https://github.com/ministryofjustice/fb-publisher)
