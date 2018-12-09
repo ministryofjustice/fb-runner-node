@@ -2,6 +2,8 @@
 dist/
 public/
 
+.env
+
 # Logs
 reports
 logs
