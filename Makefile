@@ -12,7 +12,7 @@ production:
 
 init:
 	$(eval export ECR_REPO_NAME=fb-runner-node)
-	$(eval export ECR_REPO_URL_ROOT=926803513772.dkr.ecr.eu-west-1.amazonaws.com/formbuilder)
+	$(eval export ECR_REPO_URL_ROOT=926803513772.dkr.ecr.eu-west-1.amazonaws.com/formbuilder-dev)
 
 # install aws cli w/o sudo
 install_build_dependencies: init
