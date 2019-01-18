@@ -2,12 +2,16 @@ dev:
 	$(eval export env_stub=dev)
 	@true
 
-staging:
-	$(eval export env_stub=staging)
+test:
+	$(eval export env_stub=test)
 	@true
 
-production:
-	$(eval export env_stub=production)
+integration:
+	$(eval export env_stub=integration)
+	@true
+
+live:
+	$(eval export env_stub=live)
 	@true
 
 init:
