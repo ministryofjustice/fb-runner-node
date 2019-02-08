@@ -51,7 +51,7 @@ npm run lint
 ## To build & push docker images
 
 ```
-make (dev|staging|production) build push
+make (test|integration|live) build push
 ```
 This will build & push a docker image `fb-runner-node:latest-(env)` to the ECR
 repo, from where it can be deployed to Kubernetes via [fb-publisher](https://github.com/ministryofjustice/fb-publisher)
