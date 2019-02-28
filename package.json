@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.122-alpha",
+  "version": "0.0.123-alpha",
   "description": "Form Builder Runner (Node version)",
   "main": "lib/server/server.js",
   "repository": {
@@ -30,7 +30,7 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "@ministryofjustice/fb-components-core": "^0.0.113-alpha",
+    "@ministryofjustice/fb-components-core": "^0.0.114-alpha",
     "@ministryofjustice/fb-nunjucks-helpers": "^0.0.17",
     "@ministryofjustice/fb-runtime-node": "^0.1.12-alpha",
     "@ministryofjustice/fb-specification": "^0.1.4-alpha",
@@ -39,6 +39,7 @@
     "@ministryofjustice/fb-utils-node": "^0.1.4",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.18.3",
+    "bytes": "^3.1.0",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.3",
     "esm": "^3.2.4",
@@ -60,6 +61,7 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
+    "multer": "^1.4.1",
     "npm": "^6.7.0",
     "nunjucks": "^3.1.7",
     "path-to-regexp": "^2.4.0",
