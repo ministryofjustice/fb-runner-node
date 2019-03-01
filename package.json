@@ -35,6 +35,7 @@
     "@ministryofjustice/fb-runtime-node": "^0.1.12-alpha",
     "@ministryofjustice/fb-specification": "^0.1.5-alpha",
     "@ministryofjustice/fb-submitter-client-node": "^0.0.11-alpha",
+    "@ministryofjustice/fb-user-datastore-client-node": "^0.0.10-alpha",
     "@ministryofjustice/fb-utils-node": "^0.1.4",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.18.3",
