@@ -72,6 +72,6 @@
     "serve-favicon": "^2.5.0",
     "sort-keys": "^2.0.0",
     "uuid": "^3.3.2",
-    "write-file-atomic": "~2.3.0"
+    "write-file-atomic": "^2.4.2"
   }
 }
