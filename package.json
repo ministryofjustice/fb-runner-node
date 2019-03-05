@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.127-alpha",
+  "version": "0.0.128-alpha",
   "description": "Form Builder Runner (Node version)",
   "main": "lib/server/server.js",
   "repository": {
@@ -65,7 +65,7 @@
     "npm": "^6.8.0",
     "nunjucks": "^3.1.7",
     "path-to-regexp": "^3.0.0",
-    "puppeteer": "~1.9.0",
+    "puppeteer": "^1.12.2",
     "raven": "^2.6.4",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
