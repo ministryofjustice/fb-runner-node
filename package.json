@@ -30,7 +30,7 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "@ministryofjustice/fb-components-core": "0.0.119-alpha",
+    "@ministryofjustice/fb-components-core": "0.0.120-alpha",
     "@ministryofjustice/fb-nunjucks-helpers": "0.0.18",
     "@ministryofjustice/fb-runtime-node": "^0.1.13-alpha",
     "@ministryofjustice/fb-specification": "^0.1.6-alpha",
@@ -42,6 +42,8 @@
     "bytes": "^3.1.0",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "csrf-token": "^1.1.0",
     "esm": "^3.2.10",
     "express": "^4.16.4",
     "express-basic-auth": "^1.1.6",
