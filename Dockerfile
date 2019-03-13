@@ -19,7 +19,6 @@ RUN npm install
 
 COPY bin ./bin
 COPY lib ./lib
-COPY govuk-frontend-assets ./govuk-frontend-assets
 
 ENTRYPOINT ["dumb-init", "--"]
 EXPOSE 3000
