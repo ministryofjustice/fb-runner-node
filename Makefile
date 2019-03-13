@@ -1,3 +1,9 @@
+ifdef TARGET
+TARGETDEFINED="true"
+else
+TARGETDEFINED="false"
+endif
+
 dev:
 	$(eval export env_stub=dev)
 	@true
@@ -13,6 +19,15 @@ integration:
 live:
 	$(eval export env_stub=live)
 	@true
+
+target:
+ifeq ($(TARGETDEFINED), "true")
+	$(eval export env_stub=${TARGET})
+	@true
+else 
+	$(info Must set TARGET)
+	@false
+endif
 
 init:
 	$(eval export ECR_REPO_NAME=fb-runner-node)
@@ -36,4 +51,6 @@ login: init
 push: login
 	docker push ${ECR_REPO_URL_ROOT}/${ECR_REPO_NAME}:latest-${env_stub}
 
-.PHONY := init push build login
+build_and_push: build push
+
+.PHONY := init push build login target
