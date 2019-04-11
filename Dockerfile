@@ -1,7 +1,11 @@
 FROM node:10.15-slim
 
+# https://superuser.com/questions/1423486/issue-with-fetching-http-deb-debian-org-debian-dists-jessie-updates-inrelease
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+
 # derived from https://github.com/alekzonder/docker-puppeteer/blob/master/Dockerfile
 RUN apt-get update && \
+apt-get install -yq git && \
 apt-get install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 \
@@ -12,6 +16,9 @@ wget https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_
 dpkg -i dumb-init_*.deb && rm -f dumb-init_*.deb && \
 apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir /runner
+WORKDIR /runner
+
 COPY package.json package-lock.json ./
 RUN npm install
 # --ignore-scripts
@@ -19,6 +26,9 @@ RUN npm install
 
 COPY bin ./bin
 COPY lib ./lib
+
+RUN useradd -ms /bin/bash runner
+USER runner
 
 ENTRYPOINT ["dumb-init", "--"]
 EXPOSE 3000
