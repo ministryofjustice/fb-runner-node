@@ -1,4 +1,4 @@
-FROM node:10.11-slim
+FROM node:10.15-slim
 
 # derived from https://github.com/alekzonder/docker-puppeteer/blob/master/Dockerfile
 RUN apt-get update && \
