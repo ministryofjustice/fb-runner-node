@@ -1,6 +1,6 @@
 # fb-runner-node
 
-Form Builder Runner
+This Form Builder Runner repository is the backend which powers the forms which are deployed.
 
 ## Pre-requisites
 
@@ -16,8 +16,10 @@ npm install
 
 ## Usage
 
-```
-npm start
+Set the `SERVICE_PATH` environment variable to point the the path of a form on your filesystem.
+
+```sh
+SERVICE_PATH=~/Documents/formbuilder/forms/my-test-form-1 npm start
 ```
 
 ## Service data
