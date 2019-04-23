@@ -26,13 +26,13 @@
     "npm-run-all": "^4.1.5",
     "sinon": "^7.3.1",
     "supertest": "^4.0.2",
-    "tap": "^12.6.1",
+    "tap": "^12.6.2",
     "tape": "^4.10.1",
     "test-console": "^1.1.0"
   },
   "dependencies": {
     "@ministryofjustice/fb-nunjucks-helpers": "^0.0.19",
-    "@ministryofjustice/fb-runtime-node": "^0.1.13-alpha",
+    "@ministryofjustice/fb-runtime-node": "^0.1.13-namespace",
     "@ministryofjustice/fb-specification": "^0.1.7-alpha",
     "@ministryofjustice/fb-submitter-client-node": "^0.0.22",
     "@ministryofjustice/fb-user-datastore-client-node": "^0.0.22",
@@ -71,6 +71,7 @@
     "proxyquire": "^2.1.0",
     "puppeteer": "^1.14.0",
     "raven": "^2.6.4",
+    "replace-in-file": "^3.4.4",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "serve-favicon": "^2.5.0",
