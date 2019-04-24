@@ -71,7 +71,6 @@
     "proxyquire": "^2.1.0",
     "puppeteer": "^1.14.0",
     "raven": "^2.6.4",
-    "replace-in-file": "^4.0.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "serve-favicon": "^2.5.0",
