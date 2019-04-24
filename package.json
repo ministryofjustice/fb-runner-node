@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.142-alpha",
+  "version": "0.0.143",
   "description": "Form Builder Runner (Node version)",
   "main": "lib/server/server.js",
   "repository": {
