@@ -3,7 +3,7 @@
   "_type": "page.form",
   "url": "/accounts",
   "heading": "Tell us some more about yourself",
-  "model": "marital",
+  "namespace": "marital",
   "components": [
     {
       "_id": "marital",
@@ -70,7 +70,7 @@
     {
       "_id": "accounts",
       "_type": "checkboxes",
-      "model": "account[0]",
+      "namespace": "account[0]",
       "show": {
         "identifier": "greeting",
         "operator": "is",
