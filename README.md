@@ -52,12 +52,6 @@ Run linting only
 npm run lint
 ```
 
-## Faked-up pages
-
-[Start page](http://localhost:3000)
-
-[Test page](http://localhost:3000/test)
-
 ## To deploy and run on Cloud Platforms
 
 See [deployment instructions](DEPLOY.md)
