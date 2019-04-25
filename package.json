@@ -1,6 +1,9 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.143",
+  "version": "0.0.144",
+  "engines": {
+    "node": "10.15.3"
+  },
   "description": "Form Builder Runner (Node version)",
   "main": "lib/server/server.js",
   "repository": {
@@ -71,6 +74,7 @@
     "proxyquire": "^2.1.0",
     "puppeteer": "^1.14.0",
     "raven": "^2.6.4",
+    "replace-in-file": "^4.0.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "serve-favicon": "^2.5.0",
