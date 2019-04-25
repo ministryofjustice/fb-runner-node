@@ -1,6 +1,9 @@
 # fb-runner-node
 
-This Form Builder Runner repository is the backend which powers the forms which are deployed.
+Form Builder Runner is an application that provides generic backend code and templates to create forms from data representations.
+
+For more details, read the [Runner’s documentation](https://github.com/ministryofjustice/form-builder/blob/master/documentation/running/running.md)
+
 
 ## Pre-requisites
 
@@ -23,6 +26,12 @@ SERVICE_PATH=/path/to/form npm start
 ```
 
 An example form can be checked out from `https://github.com/ministryofjustice/fb-example-service`
+
+By default, Form Builder Runner will use port 3000. If you want to run on a different port, set the `PORT` environment variable.
+
+```sh
+PORT=4321 SERVICE_PATH=/path/to/form npm start
+```
 
 If you are not developing runner features, consider using the [Form Builder Editor Console](https://github.com/ministryofjustice/fb-editor-console-electron) instead.
 
