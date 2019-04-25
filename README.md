@@ -16,16 +16,15 @@ npm install
 
 ## Usage
 
-Set the `SERVICE_PATH` environment variable to point the the path of a form on your filesystem.
+Set the `SERVICE_PATH` environment variable to point the path of form data on your filesystem.
 
 ```sh
-SERVICE_PATH=~/Documents/formbuilder/forms/my-test-form-1 npm start
+SERVICE_PATH=/path/to/form npm start
 ```
 
-## Service data
+An example form can be checked out from `https://github.com/ministryofjustice/fb-example-service`
 
-By default, the runner expects service data to be mounted at `servicedata` in its root directory.
-
+If you are not developing runner features, consider using the [Form Builder Editor Console](https://github.com/ministryofjustice/fb-editor-console-electron) instead.
 
 ## Testing
 
