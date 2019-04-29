@@ -47,7 +47,7 @@
     "csrf-token": "^1.1.0",
     "esm": "^3.2.22",
     "express": "^4.16.4",
-    "express-basic-auth": "^1.1.6",
+    "express-basic-auth": "^1.2.0",
     "express-session": "^1.16.1",
     "flat": "^4.1.0",
     "glob": "^7.1.3",
