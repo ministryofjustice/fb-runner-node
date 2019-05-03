@@ -1,6 +1,3 @@
 {
-  "extends": "@ministryofjustice/eslint-config-fb",
-  "parserOptions": {
-	  "ecmaVersion": "2019"
-  }
+  "extends": "@ministryofjustice/eslint-config-fb"
 }
