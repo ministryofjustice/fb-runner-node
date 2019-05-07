@@ -2,7 +2,10 @@
 dist/
 public/
 
+
 .env
+.env*
+WORKINGNOTES/
 
 # Logs
 reports
