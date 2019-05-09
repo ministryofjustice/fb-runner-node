@@ -11,7 +11,7 @@
       "name": "email"
     }
   ],
-  "context": "savereturn",
+  "scope": "savereturn",
   "enableSteps": true,
   "heading": "Sign in",
   "show": true,
