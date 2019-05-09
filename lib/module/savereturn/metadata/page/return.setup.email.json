@@ -1,0 +1,21 @@
+{
+  "_id": "return.setup.email",
+  "_type": "page.form",
+  "body": "We’ll email you instructions to return to your application.",
+  "components": [
+    {
+      "_id": "7c975e2d47a443ceb28b8f19f4c7b929",
+      "_type": "email",
+      "hint": "Make sure only you can access this email address",
+      "label": "Email address",
+      "name": "email"
+    }
+  ],
+  "enableSteps": true,
+  "heading": "Your email address",
+  "steps": [
+    "return.setup.email.check",
+    "return.setup.email.sent"
+  ],
+  "url": "email"
+}

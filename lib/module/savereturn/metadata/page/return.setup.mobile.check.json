@@ -1,0 +1,38 @@
+{
+  "_id": "return.setup.mobile.check",
+  "_type": "page.form",
+  "components": [
+    {
+      "_id": "ac31da46210b40af82e5a660e969ddd5",
+      "_type": "radios",
+      "items": [
+        {
+          "_id": "3e55e45b260343908c864824dae5027e",
+          "_type": "radio",
+          "label": "Yes, this is my number",
+          "value": "yes"
+        },
+        {
+          "_id": "517d3dfcf2074c7a848e88146dc36523",
+          "_type": "radio",
+          "label": "No, I need to change this number",
+          "value": "no"
+        }
+      ],
+      "legend": "We’ll send a text message to {mobile}.",
+      "name": "mobile_correct"
+    }
+  ],
+  "heading": "Make sure this is right",
+  "nextPage": [
+    {
+      "condition": {
+        "identifier": "mobile_correct",
+        "operator": "is",
+        "value": "no"
+      },
+      "page": "return.setup.mobile"
+    }
+  ],
+  "url": "confirm"
+}

@@ -1,0 +1,17 @@
+{
+  "_id": "return.authentication.code.resend",
+  "_type": "page.form",
+  "actionType": "send.sms",
+  "body": "If you did not receive the text message, you can send a new code.",
+  "heading": "Send new security code",
+  "mountPoint": "return.start",
+  "nextPage": [
+    "return.authentication.code.sent"
+  ],
+  "show": {
+    "identifier": "signin_mobile_code",
+    "negated": true,
+    "operator": "defined"
+  },
+  "url": "code/resend"
+}

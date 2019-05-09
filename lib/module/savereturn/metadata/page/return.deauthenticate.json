@@ -1,0 +1,13 @@
+{
+  "_id": "return.deauthenticate",
+  "_type": "page.form",
+  "actionType": "start.again",
+  "body": "You must complete your work within 30 days.\r\n\r\nTo continue, [sign back in](sign-in)",
+  "heading": "You’ve signed out",
+  "lede": "The information you entered has been saved.",
+  "mountPoint": "return.start",
+  "nextPage": [
+    "/reset"
+  ],
+  "url": "signout"
+}

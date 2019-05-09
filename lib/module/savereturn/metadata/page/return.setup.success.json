@@ -1,0 +1,11 @@
+{
+  "_id": "return.setup.success",
+  "_type": "page.form",
+  "body": "You can now continue completing your form.",
+  "heading": "You’ve successfully signed in",
+  "nextPage": [
+    "page.unit"
+  ],
+  "mountPoint": "return.setup",
+  "url": "success"
+}

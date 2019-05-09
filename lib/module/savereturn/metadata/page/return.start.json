@@ -1,0 +1,22 @@
+{
+  "_id": "return.start",
+  "_type": "page.form",
+  "body": "Enter your email address.\r\n\r\nWe’ll send you a link to return to your application.",
+  "components": [
+    {
+      "_id": "page.sign-in--email.auto_name__5",
+      "_type": "email",
+      "hint": "Make sure only you can access it",
+      "label": "Email address",
+      "name": "email"
+    }
+  ],
+  "context": "savereturn",
+  "enableSteps": true,
+  "heading": "Sign in",
+  "show": true,
+  "steps": [
+    "return.authentication.email.sent"
+  ],
+  "url": "/return"
+}

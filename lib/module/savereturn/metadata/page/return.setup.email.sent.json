@@ -1,0 +1,7 @@
+{
+  "_id": "return.setup.email.sent",
+  "_type": "page.exit",
+  "body": "We’ve sent you an email with instructions to start your application.\r\n\r\nThis can take a few minutes to arrive.\r\n\r\nIf you don’t get an email: \r\n * check your spam or junk folders\r\n * check you have entered the correct email\r\n * [resend the email](route:return.setup.email.resend) \r\n\r\nFor your security, we won't be able to save your information if you don’t follow the instructions in the email within 30 minutes.",
+  "heading": "Check your email",
+  "url": "validate"
+}

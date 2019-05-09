@@ -1,0 +1,48 @@
+{
+  "_id": "return.setup.email.verified",
+  "_type": "page.form",
+  "body": "By setting up 2‑step verification you can make any information you enter more secure.\r\n\r\nTo do this you’ll need to have a mobile phone.\r\n\r\nOnce you’ve set this up we’ll send a code to your mobile. You’ll need to enter this code to return to your saved form.",
+  "components": [
+    {
+      "_id": "return.setup.email.verified--radios.2fa",
+      "_type": "radios",
+      "items": [
+        {
+          "_id": "return.setup.email.verified--radios.2fa--radio.yes",
+          "_type": "radio",
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "_id": "return.setup.email.verified--radios.2fa--radio.no",
+          "_type": "radio",
+          "label": "Not now",
+          "value": "no"
+        }
+      ],
+      "legend": "Do you want to set this up?",
+      "name": "two_factor_authentication"
+    }
+  ],
+  "heading": "Make your work more secure",
+  "mountPoint": "return.setup.email",
+  "nextPage": [
+    {
+      "condition": {
+        "identifier": "two_factor_authentication",
+        "operator": "is",
+        "value": "yes"
+      },
+      "page": "return.setup.mobile"
+    },
+    {
+      "condition": {
+        "identifier": "two_factor_authentication",
+        "operator": "is",
+        "value": "no"
+      },
+      "page": "return.setup.success"
+    }
+  ],
+  "url": "2fa"
+}

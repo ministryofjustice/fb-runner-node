@@ -1,0 +1,12 @@
+{
+  "_id": "return.setup.email.resend",
+  "_type": "page.form",
+  "actionType": "send.email",
+  "body": "If you didn’t receive the email message sent to {email}, you can send a new one.",
+  "heading": "Send new email",
+  "mountPoint": "return.setup.email",
+  "nextPage": [
+    "return.setup.email.sent"
+  ],
+  "url": "resend"
+}
