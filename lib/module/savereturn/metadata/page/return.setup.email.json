@@ -14,7 +14,6 @@
   "enableSteps": true,
   "heading": "Your email address",
   "steps": [
-    "return.setup.email.check",
     "return.setup.email.sent"
   ],
   "url": "email"
