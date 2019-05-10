@@ -1,8 +1,8 @@
 {
-  "_id": "return.setup.email.token.superseded",
+  "_id": "return.authentication.magiclink.superseded",
   "_type": "page.content",
   "body": "We’ve sent you a new link since this one.\r\n\r\n[Enter your email again](email_address)",
   "heading": "Link superseded",
-  "mountPoint": "return.setup.email",
+  "mountPoint": "return.authentication.magiclink",
   "url": "superseded"
 }
