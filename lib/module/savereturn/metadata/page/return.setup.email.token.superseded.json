@@ -1,7 +1,7 @@
 {
   "_id": "return.setup.email.token.superseded",
   "_type": "page.content",
-  "body": "We’ve sent you a new link since this one.\r\n\r\n[Enter your email again](email_address)",
+  "body": "We’ve sent you a new link since this one.\r\n\r\n[Enter your email again](route:return.setup.email)",
   "heading": "Link superseded",
   "mountPoint": "return.setup.email",
   "url": "superseded"

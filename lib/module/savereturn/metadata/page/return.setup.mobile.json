@@ -1,7 +1,7 @@
 {
   "_id": "return.setup.mobile",
   "_type": "page.form",
-  "body": "We’ll send a code to your mobile every time you sign in. This will allow you to return to your saved application.",
+  "body": "We’ll send a code to your mobile in order to verify your number. This will allow you to return to your saved application.",
   "components": [
     {
       "_id": "return.setup.mobile--text.mobile",
@@ -15,7 +15,6 @@
   "heading": "Your mobile phone number",
   "mountPoint": "return.setup",
   "steps": [
-    "return.setup.mobile.check",
     "return.setup.mobile.sent"
   ],
   "url": "mobile"

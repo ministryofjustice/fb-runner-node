@@ -1,5 +1,5 @@
 {
-  "_id": "return.authentication.email.sent",
+  "_id": "return.signin.email.sent",
   "_type": "page.exit",
   "body": "This can take a few minutes to arrive.\r\n\r\nIf you don’t get an email: \r\n * check your spam or junk folders\r\n * check you have entered the correct email\r\n * [resend the email](/returning_user_resend_email)",
   "heading": "Check your email",

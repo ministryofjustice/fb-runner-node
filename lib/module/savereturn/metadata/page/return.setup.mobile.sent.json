@@ -13,7 +13,7 @@
         }
       },
       "label": "**Security code**",
-      "name": "mobile_code",
+      "name": "code",
       "validation": {
         "pattern": "^\\d{5}$"
       },
@@ -31,7 +31,7 @@
       "condition": {
         "all": [
           {
-            "identifier": "mobile_code",
+            "identifier": "code",
             "operator": "defined"
           },
           {
@@ -46,7 +46,7 @@
     },
     {
       "condition": {
-        "identifier": "mobile_code",
+        "identifier": "code",
         "operator": "defined"
       },
       "page": "page.new_record"

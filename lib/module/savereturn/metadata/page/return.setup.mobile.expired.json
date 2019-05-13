@@ -1,0 +1,8 @@
+{
+  "_id": "return.setup.mobile.expired",
+  "_type": "page.content",
+  "body": "The code we sent you only lasts for 30 minutes.\r\n\r\n[Enter your mobile again](route:return.setup.mobile)",
+  "heading": "Code expired",
+  "mountPoint": "return.setup.mobile",
+  "url": "expired"
+}

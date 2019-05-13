@@ -16,7 +16,7 @@
   "heading": "Sign in",
   "show": true,
   "steps": [
-    "return.authentication.email.sent"
+    "return.signin.email.sent"
   ],
   "url": "/return"
 }

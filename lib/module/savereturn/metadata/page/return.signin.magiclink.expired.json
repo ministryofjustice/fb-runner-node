@@ -1,8 +1,8 @@
 {
-  "_id": "return.authentication.magiclink.expired",
+  "_id": "return.signin.magiclink.expired",
   "_type": "page.content",
   "body": "The link we sent you only lasts for 24 hours.\r\n\r\n[Enter your email again](email_address)",
   "heading": "Link expired",
-  "mountPoint": "return.authentication.magiclink",
+  "mountPoint": "return.signin.magiclink",
   "url": "expired"
 }
