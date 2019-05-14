@@ -7,7 +7,7 @@ For more details, read the [Runner’s documentation](https://github.com/ministr
 
 ## Pre-requisites
 
-  [Node](https://nodejs.org)
+  [Node.js](https://nodejs.org)
 
 ## Installing
 
