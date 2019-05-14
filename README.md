@@ -52,7 +52,7 @@ Run linting only
 npm run lint
 ```
 
-## To deploy and run on Cloud Platforms
+## To deploy and run on the Cloud Platform environment
 
 See [deployment instructions](DEPLOY.md)
 
