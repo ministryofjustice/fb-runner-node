@@ -1,4 +1,5 @@
 # fb-runner-node
+[![Build Status](https://travis-ci.org/ministryofjustice/fb-runner-node.svg?branch=master)](https://travis-ci.org/ministryofjustice/fb-runner-node)
 
 Form Builder Runner is an application that provides generic backend code and templates to create forms from data representations.
 
