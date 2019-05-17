@@ -1,0 +1,8 @@
+{
+  "_id": "email.return.setup.email.token",
+  "_type": "emailMessage",
+  "body": "[Validate your email address]([% fqdn:return.setup.email.token token='((token))' %])",
+  "subject": "[% service#name %]: Validate your email address",
+  "template_name": "email.return.setup.email.token",
+  "to": "{savereturn@email}"
+}

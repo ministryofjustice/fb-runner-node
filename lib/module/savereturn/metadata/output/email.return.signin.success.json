@@ -1,0 +1,8 @@
+{
+  "_id": "email.return.signin.success",
+  "_type": "emailMessage",
+  "body": "You've signed in from: IP address",
+  "subject": "[% service#name %]: You signed in",
+  "template_name": "email.return.signin.success",
+  "to": "{savereturn@email}"
+}

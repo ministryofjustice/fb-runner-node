@@ -1,0 +1,8 @@
+{
+  "_id": "email.return.setup.email.verified",
+  "_type": "emailMessage",
+  "body": "You can now signin as: {savereturn@email}\r\rYou can sign in here [% fqdn:return.start %]",
+  "subject": "[% service#name %]: Your email has been verified",
+  "template_name": "email.return.setup.email.verified",
+  "to": "{savereturn@email}"
+}

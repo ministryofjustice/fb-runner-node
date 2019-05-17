@@ -1,0 +1,8 @@
+{
+  "_id": "email.return.signin.email",
+  "_type": "emailMessage",
+  "body": "[Click here to sign in]([% fqdn:return.signin.magiclink magiclink='((token))' %])",
+  "subject": "[% service#name %]: Sign in with magiclink",
+  "template_name": "email.return.signin.email",
+  "to": "{savereturn@email}"
+}
