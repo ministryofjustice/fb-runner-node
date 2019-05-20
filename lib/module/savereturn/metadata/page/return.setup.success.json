@@ -7,5 +7,18 @@
     "page.unit"
   ],
   "mountPoint": "return.setup",
-  "url": "success"
+  "url": "success",
+  "components": [{
+    "_id": "c89327n8r9v7987r",
+    "_type": "details",
+    "summary": "Here is your saved progress",
+    "open": true,
+    "components": [{
+      "_id": "r98n47b9t47nebt53",
+      "_type": "answers",
+      "amount": "partial",
+      "hideChangeAction": true,
+      "onlyShowCompletedAnswers": true
+    }]
+  }]
 }

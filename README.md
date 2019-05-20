@@ -34,6 +34,25 @@ By default, Form Builder Runner will use port 3000. If you want to run on a diff
 PORT=4321 SERVICE_PATH=/path/to/form npm start
 ```
 
+### Using the fb-runnner-node with a mocked backend
+
+Use [fb-mock-services](https://github.com/ministryofjustice/fb-mock-services) to mock out the services which your local instance of fb-runner-node (this repo) communicates with.
+
+* In one terminal tab, run the [fb-mock-services](https://github.com/ministryofjustice/fb-mock-services) project according to its instructions (e.g. `MOCKENV=yes npm start`)
+* Create an `.envmocks` file within this project, the contents of which are:
+
+```sh
+export USER_DATASTORE_URL=http://localhost:44444
+export USER_FILESTORE_URL=http://localhost:44445
+export SUBMITTER_URL=http://localhost:44446
+export SERVICE_SECRET=sekrit
+export SERVICE_TOKEN=token
+export SERVICE_SLUG=slug
+export MODULE__ministryofjustice_fb_components_core='/path/to/your/form-builder/fb-components-core'
+```
+
+* Within this `fb-runner-node` repo, run this command: `source .envmocks && SERVICE_PATH=/path/to/your/form npm start`
+
 If you are not developing runner features, consider using the [Form Builder Editor Console](https://github.com/ministryofjustice/fb-editor-console-electron) instead.
 
 ## Testing
