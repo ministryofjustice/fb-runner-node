@@ -1,0 +1,34 @@
+{
+  "_id": "actions",
+  "_isa": "@ministryofjustice/fb-components-core=>actions",
+  "_type": "actions",
+  "secondary": {
+    "items": [{
+      "_id": "actions.savereturn",
+      "_type": "buttonSecondary",
+      "xclasses": "fb-action-secondary",
+      "html": "Save and return",
+      "name": "setupReturn",
+      "show": {
+        "all": [{
+          "identifier": "scope",
+          "identifierType": "page",
+          "operator": "is",
+          "value": "input"
+        }, {
+          "identifier": "_type",
+          "identifierType": "page",
+          "operator": "is",
+          "value": "page.start",
+          "negated": true
+        }, {
+          "identifier": "authenticated",
+          "identifierType": "savereturn",
+          "operator": "isTrue",
+          "negated": true
+        }]
+      },
+      "value": "yes"
+    }]
+  }
+}
