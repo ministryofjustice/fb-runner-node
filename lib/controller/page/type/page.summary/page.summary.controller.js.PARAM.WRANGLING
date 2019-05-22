@@ -1,8 +1,13 @@
 const jp = require('jsonpath')
 const get = require('lodash.get')
+const uuidv4 = require('uuid/v4')
 const bytes = require('bytes')
 const {default: produce} = require('immer')
+const {deepClone} = require('@ministryofjustice/fb-utils-node')
 const {getUrl} = require('../../../../route/route')
+
+const CONSTANTS = require('../../../../constants/constants')
+const {SERVICE_OUTPUT_EMAIL} = CONSTANTS
 
 const {
   getInstance,
@@ -28,33 +33,11 @@ const {format} = require('../../../../format/format')
 const defaultRepeatableAdd = 'Add another'
 const defaultRepeatableDelete = 'Remove'
 
-const answersComponent = {
-  removeUnnecessaryHeadings (answers) {
-    return answers.reduce((ongoingAnswers, currentItem, currentIndex) => {
-      if (currentItem.heading) {
-        // Skip trailing headers
-        if (currentIndex + 1 === answers.length) {
-          return ongoingAnswers
-        }
+const submitterClient = require('../../../../client/submitter/submitter')
 
-        const previousItem = ongoingAnswers[ongoingAnswers.length - 1]
+const SummaryController = {}
 
-        if (previousItem && previousItem.level === currentItem.level) {
-          ongoingAnswers.pop()
-        }
-      }
-
-      ongoingAnswers.push(currentItem)
-      return ongoingAnswers
-    }, [])
-  }
-}
-
-answersComponent.preUpdateContents = (componentInstance, userData, pageInstance) => {
-  const parsedComponentInstance = JSON.parse(JSON.stringify(componentInstance))
-  const hideChangeAction = parsedComponentInstance.hideChangeAction
-  const onlyShowCompletedAnswers = parsedComponentInstance.onlyShowCompletedAnswers
-
+SummaryController.setContents = (pageInstance, userData, res, skipActions) => {
   let answers = []
   let answerBucket
   const makeNewAnswerBucket = () => {
@@ -88,20 +71,24 @@ answersComponent.preUpdateContents = (componentInstance, userData, pageInstance)
     let nextPageParams = nextPage.params
     let stepInstance = getInstance(nextPageId)
     if (stepInstance.namePrefix) {
-      let namePrefix = format(stepInstance.namePrefix, nextPageParams, {markdown: false})
+      let namePrefix = format(stepInstance.namePrefix, nextPageParams, {lang: userData.contentLang, markdown: false})
       stepInstance = produce(stepInstance, draft => {
         draft.namePrefix = namePrefix
         return draft
       })
     }
     if (stepInstance.heading) {
+      const nextPageData = Object.assign({}, userData.getScopedUserData())
+      Object.assign(nextPageData._scopes.param, nextPageParams)
       stepInstance = produce(stepInstance, draft => {
-        draft.heading = draft.heading.replace(/\[#(.*?)\]/g, (m, m1) => {
-          if (nextPage.params && nextPage.params[m1] !== undefined) {
-            return nextPage.params[m1]
-          }
-          return `[${m1}]`
-        })
+        draft.heading = format(draft.heading, nextPageData, {lang: userData.contentLang})
+
+        // draft.heading = draft.heading.replace(/\[#(.*?)\]/g, (m, m1) => {
+        //   if (nextPage.params && nextPage.params[m1] !== undefined) {
+        //     return nextPage.params[m1]
+        //   }
+        //   return `[${m1}]`
+        // })
       })
     }
     stepInstance = skipPage(stepInstance, userData)
@@ -183,6 +170,9 @@ answersComponent.preUpdateContents = (componentInstance, userData, pageInstance)
           }
         }
         if (pageHeading) {
+          const nextPageData = Object.assign({}, userData.getScopedUserData())
+          Object.assign(nextPageData._scopes.param, nextPageParams)
+          pageHeading = format(pageHeading, nextPageData, {lang: userData.contentLang})
           const pageAnswers = {
             heading: pageHeading,
             repeatable: stepInstance.repeatable,
@@ -227,9 +217,9 @@ answersComponent.preUpdateContents = (componentInstance, userData, pageInstance)
         let question = getInstanceTitleSummary(_id)
 
         // TODO: update schema to mark as content
-        question = format(question, userData.getUserData('input'), {lang: userData.contentLang})
+        question = format(question, userData.getUserData(), {lang: userData.contentLang})
 
-        let answer = name ? userData.getUserDataInputProperty(name, null) : ''
+        let answer = name ? userData.getUserDataProperty(name) : ''
 
         const componentController = getInstanceController(nameInstance)
         if (componentController.getDisplayValue) {
@@ -243,7 +233,7 @@ answersComponent.preUpdateContents = (componentInstance, userData, pageInstance)
               if (itemValue === undefined) {
                 itemValue = 'yes'
               }
-              return itemValue === userData.getUserDataInputProperty(item.name, null)
+              return itemValue === userData.getUserDataProperty(item.name)
             }).map(item => {
               return getInstanceTitleSummary(item._id) || item.value
             })
@@ -265,13 +255,7 @@ answersComponent.preUpdateContents = (componentInstance, userData, pageInstance)
             }).join('\n\n')
           }
         }
-
-        let unansweredQuestion = !answer
-
-        if (unansweredQuestion) {
-          answer = 'Not answered'
-        }
-
+        answer = answer || 'Not answered'
         if (Array.isArray(answer)) {
           answer = answer.join('\n\n')
         }
@@ -302,18 +286,10 @@ answersComponent.preUpdateContents = (componentInstance, userData, pageInstance)
             ]
           }
         }
-        if (hideChangeAction) {
+        if (skipActions) {
           delete answerBundle.actions
         }
-
-        if (onlyShowCompletedAnswers) {
-          if (!unansweredQuestion) {
-            answerBucket.push(answerBundle)
-          }
-        } else {
-          answerBucket.push(answerBundle)
-        }
-        // }
+        answerBucket.push(answerBundle)
         // #${nameInstance._id}
         // Chrome has a bug that once an anchor is in place, it refuses to go away on redirect
 
@@ -346,18 +322,148 @@ answersComponent.preUpdateContents = (componentInstance, userData, pageInstance)
   answers = answers.filter(item => {
     return !item.answers || item.answers.length
   })
-
-  if (onlyShowCompletedAnswers) {
-    answers = answersComponent.removeUnnecessaryHeadings(answers)
-  }
-
-  const finalAnswers = produce(componentInstance, draft => {
+  pageInstance = JSON.parse(JSON.stringify(pageInstance))
+  return produce(pageInstance, draft => {
+    draft.columns = 'full'
     draft.answers = answers
-    draft.foo = 'bar'
     return draft
   })
-
-  return finalAnswers
 }
 
-module.exports = answersComponent
+SummaryController.postValidation = async (pageInstance, userData) => {
+  let submitForm
+  const submissionId = uuidv4()
+  const submissionDate = (new Date()).getTime()
+  userData.setUserDataProperty('submissionId', submissionId)
+  userData.setUserDataProperty('submissionDate', submissionDate)
+  const params = userData.getUserParams()
+  const nextPage = getNextPage({_id: pageInstance._id, params}, userData)
+  if (nextPage) {
+    const nextType = getInstanceProperty(nextPage._id, '_type')
+    if (nextType === 'page.confirmation') {
+      submitForm = true
+    }
+  }
+  if (!submitForm) {
+    return pageInstance
+  }
+  const userId = userData.getUserId()
+  const userToken = userData.getUserToken()
+  const formatEmail = (str, markdown = false) => {
+    try {
+      str = format(str, userData.getUserData(), {markdown, lang: userData.contentLang})
+    } catch (e) {
+      //
+    }
+    return str
+  }
+  if (submitterClient) {
+    const submissions = []
+
+    const serviceName = getInstanceProperty('service', 'name')
+    let subject = getInstanceProperty('service', 'emailSubjectTeam') || `${serviceName} submission`
+    subject = formatEmail(subject)
+    const from = 'formbuilder@digital.justice.gov.uk'
+    let to = SERVICE_OUTPUT_EMAIL || ''
+    try {
+      to = formatEmail(to)
+    } catch (e) {
+      //
+    }
+    let toTeamParts = to.split(/,\s*/)
+    toTeamParts = toTeamParts.map(address => {
+      address = address.trim()
+      if (!address.match(/^e\[.+\]$/)) {
+        return address
+      }
+      const addressLookup = address.replace(/^e\[(.+)\]$/, '$1')
+      return CONSTANTS[addressLookup] || address
+    })
+      .filter(address => address)
+      .map(address => address.split(/,\s*/))
+
+    // flatten
+    toTeamParts = [].concat(...toTeamParts)
+    toTeamParts = [...new Set(toTeamParts)]
+
+    // const timestamp = new Date().getTime()
+    const emailUrlStub = '/api/submitter/email'
+    const teamSubmission = {
+      type: 'email',
+      from,
+      subject,
+      body_parts: {
+        'text/plain': `${emailUrlStub}/team`
+      },
+      attachments: [{
+        url: `/api/submitter/pdf/default/${submissionId}.pdf`,
+        filename: `${submissionId}.pdf`,
+        mimetype: 'application/pdf',
+        type: 'output'
+      }]
+    }
+
+    const data = userData.getOutputData()
+    let uploadedFiles = []
+    const findUploadedFiles = (data) => {
+      if (Array.isArray(data) || typeof data !== 'object') {
+        return
+      }
+      Object.keys(data).forEach(key => {
+        const arr = data[key]
+        if (Array.isArray(arr)) {
+          const actualFiles = arr.filter(item => {
+            return item.fingerprint && item.url
+          }).map(item => ({
+            url: item.url,
+            mimetype: item.mimetype,
+            filename: item.originalname,
+            type: 'filestore'
+          }))
+          uploadedFiles = uploadedFiles.concat(actualFiles)
+        } else if (typeof arr === 'object') {
+          findUploadedFiles(arr)
+        }
+      })
+    }
+    findUploadedFiles(data)
+    uploadedFiles.forEach(upload => {
+      teamSubmission.attachments.push(upload)
+    })
+
+    // TODO: set up alternative output formats
+    // `/api/submitter/json/default/${submissionId}.json`,
+    // `/api/submitter/csv/default/${submissionId}.csv`
+
+    toTeamParts.forEach(to => {
+      const toTeamSubmission = Object.assign({}, teamSubmission, {to})
+      submissions.push(toTeamSubmission)
+    })
+    const emailUserInputName = getInstanceProperty('service', 'emailInputNameUser') || 'email'
+    if (emailUserInputName) {
+      const userEmail = userData.getUserDataProperty(emailUserInputName)
+      if (userEmail) {
+        const userSubmission = deepClone(teamSubmission)
+        const userSubject = getInstanceProperty('service', 'emailSubjectUser') || `Your ${serviceName} submission`
+        userSubmission.subject = formatEmail(userSubject)
+        userSubmission['body_parts']['text/plain'] = `${emailUrlStub}/user`
+        userSubmission.attachments.length = 1
+
+        let toUserParts = userEmail.split(/,\s*/)
+        toUserParts.forEach(to => {
+          const toUserSubmission = Object.assign({}, userSubmission, {to})
+          submissions.push(toUserSubmission)
+        })
+      }
+    }
+
+    try {
+      await submitterClient.submit(userId, userToken, submissions)
+    } catch (e) {
+      // console.log('Something went boom', e)
+    }
+  }
+  return pageInstance
+}
+
+module.exports = SummaryController
