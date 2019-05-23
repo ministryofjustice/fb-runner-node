@@ -1,0 +1,8 @@
+{
+  "name": "@ministryofjustice/fb-module-savereturn",
+  "description": "Save and return",
+  "title": "Save and return",
+  "specifications": {
+    "$idRoot": "http://gov.uk/schema/v1.0.0/module/savereturn"
+  }
+}

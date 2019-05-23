@@ -1,0 +1,42 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/module/savereturn/config",
+  "_name": "module.savereturn.config",
+  "title": "Save and return configuration",
+  "description": "Save and return configuration",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "module.savereturn.config"
+    },
+    "2fa": {
+      "title": "Two-factor authentication",
+      "description": "Whether two-factor authentication should be enforced",
+      "type": "string",
+      "enum": [
+        "optional",
+        "required"
+      ]
+    },
+    "emailTokenDuration": {
+      "title": "Email duration",
+      "description": "Email token duration (hours)",
+      "type": "number",
+      "default": 24
+    },
+    "smsCodeDuration": {
+      "title": "SMS duration",
+      "description": "SMS code duration (minutes)",
+      "type": "number",
+      "default": 30
+    }
+  },
+  "required": [
+    "2fa",
+    "emailTokenDuration",
+    "smsCodeDuration"
+  ],
+  "category": [
+    "config",
+    "module"
+  ]
+}

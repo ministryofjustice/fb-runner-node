@@ -1,0 +1,7 @@
+{
+  "_id": "module.savereturn.config",
+  "_type": "module.savereturn.config",
+  "2fa": "optional",
+  "emailTokenDuration": 24,
+  "smsCodeDuration": 30
+}
