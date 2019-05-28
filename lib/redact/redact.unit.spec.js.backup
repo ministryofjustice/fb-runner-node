@@ -1,0 +1,144 @@
+const test = require('tape')
+
+const redact = require('./redact')
+
+const redactTest = (t, input) => {
+  const {value, pattern, expected, options, description} = input
+  // console.log(description)
+  process.stdout.write(`${description}\n`)
+  t.equal(redact(value, pattern, options), expected, `it should return '${expected}' given value: '${value}', pattern: '${pattern}'${options ? `, options: ${JSON.stringify(options)})` : ''}`)
+}
+
+const examples = [{
+  description: 'No pattern is provided',
+  value: 'abcd',
+  pattern: '',
+  expected: 'abcd'
+}, {
+  description: 'Basic redaction',
+  value: 'abcd',
+  pattern: '*+',
+  expected: '****'
+}, {
+  description: 'Basic redaction with more characters',
+  value: 'abcdefg',
+  pattern: '*+',
+  expected: '*******'
+}, {
+  description: 'Basic redaction with alternative replacement character',
+  value: 'abcd',
+  pattern: '#+',
+  expected: '####'
+}, {
+  description: 'Basic redaction shorthand',
+  value: 'abcd',
+  pattern: '*',
+  expected: '****'
+}, {
+  description: 'Basic redaction with alternative replacement character shorthand',
+  value: 'abcd',
+  pattern: '#',
+  expected: '####'
+}, {
+  description: 'Redacting fixed length value',
+  value: 'abcd',
+  pattern: 'a--a',
+  expected: 'a--d'
+}, {
+  description: 'Redacting fixed length value but value exceeds that length',
+  value: 'abcd',
+  pattern: 'a-a',
+  expected: '****'
+}, {
+  description: 'No value',
+  value: '',
+  pattern: '*+',
+  expected: ''
+},
+
+{
+  description: 'Minimum chars 8 - no value',
+  value: '',
+  pattern: '*+',
+  options: {minLength: 8},
+  expected: '********'
+}, {
+  description: 'Minimum chars 8 - short value',
+  value: 'abcd',
+  pattern: '*+',
+  options: {minLength: 8},
+  expected: '********'
+}, {
+  description: 'Minimum chars 8 - alt replacement',
+  value: '',
+  pattern: '#+',
+  options: {minLength: 8},
+  expected: '########'
+}, {
+  description: 'XXXXXX',
+  value: 'abcdefgh',
+  pattern: '*******a',
+  options: {minLength: 8},
+  expected: '*******h'
+}, {
+  description: 'XXXXXX',
+  value: 'abcd',
+  pattern: '*******a',
+  options: {minLength: 8},
+  expected: '********'
+}, {
+  description: 'XXXXXX',
+  value: 'abcdefghij',
+  pattern: '*******a',
+  options: {minLength: 8},
+  expected: '**********'
+}]
+
+test('When redacting values', t => {
+  examples.forEach(example => redactTest(t, example))
+
+  t.equal(redact('', '*+', {minLength: 8}), '********', 'it should xxxx')
+  t.equal(redact('ab', '*+', {minLength: 8}), '********', 'it should xxxx')
+  t.equal(redact('ab', '#+', {minLength: 8}), '########', 'it should xxxx')
+
+  t.equal(redact('abcdefgh', '*******a', {minLength: 8}), '*******h', 'it should xxxx')
+  t.equal(redact('ab', '*******a', {minLength: 8}), '********', 'it should xxxx')
+
+  t.equal(redact('abcd', 'aa*+'), 'ab**', 'it should xxxx')
+  t.equal(redact('abcd', '*+aa'), '**cd', 'it should xxxx')
+  t.equal(redact('abcd', 'a*+a'), 'a**d', 'it should xxxx')
+
+  t.equal(redact('1234', '00*+'), '12**', 'it should xxxx')
+  t.equal(redact('1234', '*+00'), '**34', 'it should xxxx')
+  t.equal(redact('1234', '0*+0'), '1**4', 'it should xxxx')
+
+  t.equal(redact('a2c4', '?+**'), 'a2**', 'it should xxxx')
+
+  t.equal(redact('a123', 'a0*+'), 'a1**', 'it should xxxx')
+
+  t.equal(redact('ab-c-d', 'aa*+', {ignore: ['-']}), 'ab-*-*', 'it should xxxx')
+
+  t.equal(redact('az1bb', 'a+0*+'), 'az1**', 'it should xxxx')
+  t.equal(redact('az1xd3bb', 'a+0*+'), 'az1*****', 'it should xxxx')
+
+  t.equal(redact('az1bb', '*+0a+'), '**1bb', 'it should xxxx')
+  t.equal(redact('az345c1bb', '*+0a+'), '******1bb', 'it should xxxx')
+
+  t.equal(redact('abc1234defgh', 'a+0+*+'), 'abc1234*****', 'it should xxxx')
+
+  t.equal(redact('abcdef', '*+0*+'), '******', 'it should xxxx')
+  t.equal(redact('abcdef', 'a*+0*+'), 'a*****', 'it should xxxx')
+  t.equal(redact('abcdef', '*+0*+a'), '*****f', 'it should xxxx')
+
+  // t.equal(redact('abcdef', '0+'), '******', 'it should xxxx')
+
+  t.end()
+})
+
+// a   one
+// A   one or more
+// z   zero or more
+
+// 1   one
+// 9   one or more
+// 0   zero or one
