@@ -2,12 +2,18 @@
   "_id": "actions",
   "_isa": "@ministryofjustice/fb-components-core=>actions",
   "_type": "actions",
+  "primary": {
+    "_id": "actions.primary",
+    "_type": "button",
+    "html": "[% {savereturn@authenticated, select, true{button.savereturn.{page@actionType}.{page@_type} || button.savereturn.{page@actionType} || } other{}} button.{page@actionType}.{page@_type} || button.{page@actionType} || button.continue %]",
+    "classes": "[% {savereturn@authenticated, select, true{button.savereturn.{page@actionType}.{page@_type}.classes || button.savereturn.{page@actionType}.classes || } other{}} button.{page@actionType}.{page@_type}.classes || button.{page@actionType}.classes %]"
+  },
   "secondary": {
     "items": [{
       "_id": "actions.savereturn",
       "_type": "buttonSecondary",
       "xclasses": "fb-action-secondary",
-      "html": "Save and return",
+      "html": "Save and come back later",
       "name": "setupReturn",
       "show": {
         "all": [{
@@ -30,5 +36,29 @@
       },
       "value": "yes"
     }]
-  }
+  },
+  "additional": [{
+    "_id": "actions.addittional",
+    "_type": "content",
+    "html": "Your session will time out after 30 minutes of inactivity. Save your details if you want to come back later.",
+    "show": {
+      "all": [{
+        "identifier": "scope",
+        "identifierType": "page",
+        "operator": "is",
+        "value": "input"
+      }, {
+        "identifier": "_type",
+        "identifierType": "page",
+        "operator": "is",
+        "value": "page.start",
+        "negated": true
+      }, {
+        "identifier": "authenticated",
+        "identifierType": "savereturn",
+        "operator": "isTrue",
+        "negated": true
+      }]
+    }
+  }]
 }
