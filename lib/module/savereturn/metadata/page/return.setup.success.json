@@ -2,7 +2,7 @@
   "_id": "return.setup.success",
   "_type": "page.content",
   "actionType": "continue.last",
-  "body": "You can now continue working or come back later.\r\n\r\nYou have [% service#dataRetentionDuration %] days to complete and submit your form.\r\n\r\nIf you have not submitted your form by {meta@expires} your work will be deleted for your security.{savereturn@mobile, select, undefined{\r\n\r\n[Add your mobile for extra security]([% url:return.setup.mobile %])} other{}}",
+  "body": "You can now continue working or come back later.\r\n\r\nYou have [% service#dataRetentionDuration %] days to complete and submit your form.\r\n\r\nIf you have not submitted your form by {meta@expires} your work will be deleted for your security.{savereturn@mobile, select, undefined{\r\n\r\n[Add your mobile for extra security]([% url:return.setup.2fa %])} other{}}",
   "components": [
     {
       "_id": "return.setup.success.details",

@@ -1,20 +1,20 @@
 {
-  "_id": "return.setup.email.verified",
+  "_id": "return.setup.2fa",
   "_type": "page.form",
   "body": "If someone else has access to your email, you can make your form more secure using your mobile phone.\r\nIt’s called **2-step verification** because it takes two steps to access your work:\r\n\r\n1. A secure, one-time link which we send to your email.\r\n2. A one-off security code that we send to your mobile.",
   "components": [
     {
-      "_id": "return.setup.email.verified--radios.2fa",
+      "_id": "return.setup.2fa--radios.2fa",
       "_type": "radios",
       "items": [
         {
-          "_id": "return.setup.email.verified--radios.2fa--radio.yes",
+          "_id": "return.setup.2fa--radios.2fa--radio.yes",
           "_type": "radio",
           "label": "Yes",
           "value": "yes"
         },
         {
-          "_id": "return.setup.email.verified--radios.2fa--radio.no",
+          "_id": "return.setup.2fa--radios.2fa--radio.no",
           "_type": "radio",
           "label": "Not now",
           "value": "no"
@@ -25,7 +25,7 @@
     }
   ],
   "heading": " Add your mobile for extra security",
-  "mountPoint": "return.setup.email",
+  "mountPoint": "return.start",
   "nextPage": [
     {
       "condition": {
