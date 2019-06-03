@@ -1,8 +1,8 @@
 {
   "_id": "return.setup.email.token.used",
   "_type": "page.content",
-  "body": "You can only use the link we sent you once.\r\n\r\n[Enter your email again](route:return.setup.email)",
-  "heading": "Link used already",
+  "body": "Sign in to continue working on your form.\r\n\r\n[Sign in]([% url:return.start %])",
+  "heading": "You have already used this link",
   "mountPoint": "return.setup.email",
   "url": "used"
 }

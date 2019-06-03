@@ -53,6 +53,7 @@
     "express": "^4.17.0",
     "express-basic-auth": "^1.2.0",
     "express-session": "^1.16.1",
+    "fast-deep-equal": "^2.0.1",
     "flat": "^4.1.0",
     "glob": "^7.1.4",
     "immer": "~1.7.4",

@@ -2,12 +2,12 @@
   "_id": "return.signout",
   "_type": "page.form",
   "actionType": "start.again",
-  "body": "You must complete your work within 30 days.\r\n\r\nTo continue, [sign back in](route:return.start)",
+  "body": "You have **[% service#dataRetentionDuration %]** days remaining to complete your form.\r\n\r\nIf you have not submitted your form by **{meta@expires}** your work will be deleted for your security.",
   "heading": "You’ve signed out",
-  "lede": "The information you entered has been saved.",
+  "lede": "Your work has been saved.",
   "mountPoint": "return.start",
   "nextPage": [
-    "/reset"
+    "return.start"
   ],
   "url": "signout"
 }

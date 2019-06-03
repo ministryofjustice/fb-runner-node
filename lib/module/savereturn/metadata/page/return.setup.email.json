@@ -1,10 +1,15 @@
 {
   "_id": "return.setup.email",
   "_type": "page.form",
-  "body": "We’ll email you instructions to return to your application.",
+  "body": "We’ll send you a link to confirm your email address.",
   "components": [
     {
-      "_id": "7c975e2d47a443ceb28b8f19f4c7b929",
+      "_id": "return.setup.email.inset.duration",
+      "_type": "inset",
+      "html": "Use the link to confirm your email address within [% module.savereturn.config#emailTokenDuration %] hours."
+    },
+    {
+      "_id": "return.setup.email.address",
       "_type": "email",
       "hint": "Make sure only you can access this email address",
       "label": "Email address",
@@ -12,7 +17,7 @@
     }
   ],
   "enableSteps": true,
-  "heading": "Your email address",
+  "heading": "Save your progress",
   "steps": [
     "return.setup.email.sent"
   ],

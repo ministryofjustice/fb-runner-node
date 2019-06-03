@@ -1,8 +1,9 @@
 {
   "_id": "email.return.signin.email",
   "_type": "emailMessage",
-  "body": "[Click here to sign in]([% fqdn:return.signin.magiclink magiclink='((token))' %])",
-  "subject": "[% service#name %]: Sign in with magiclink",
+  "body": "# Continue work on your form\r\n\r\nForm: [% service#name %]\r\n\r\nUse this link to sign in to your work:\r\n\r\n[[% fqdn:return.signin.magiclink magiclink='((token))' %]]([% fqdn:return.signin.magiclink magiclink='((token))' %])\r\n\r\nThis link can be used only once and is valid for [% module.savereturn.config#emailTokenDuration %] hours.",
+  "from": "[% return.email.from %]",
+  "subject": "[% service#name %]: Your sign-in link",
   "template_name": "email.return.signin.email",
   "to": "{savereturn@email}"
 }

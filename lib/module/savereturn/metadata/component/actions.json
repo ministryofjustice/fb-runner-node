@@ -39,20 +39,35 @@
   },
   "additional": [{
     "_id": "actions.addittional",
-    "_type": "content",
-    "html": "Your session will time out after 30 minutes of inactivity. Save your details if you want to come back later.",
+    "_type": "group",
+    "components": [{
+      "_id": "actions.additional.content.return",
+      "_type": "content",
+      "html": "[Continue work on a saved form]([% url:return.start %])",
+      "show": {
+        "identifier": "_type",
+        "identifierType": "page",
+        "operator": "is",
+        "value": "page.start"
+      }
+    }, {
+      "_id": "actions.additional.content.inactivity",
+      "_type": "content",
+      "html": "Your session will time out after [% service#sessionDuration %] minutes of inactivity.  \r\nSave your details if you want to come back later.",
+      "show": {
+        "identifier": "_type",
+        "identifierType": "page",
+        "operator": "is",
+        "value": "page.start",
+        "negated": true
+      }
+    }],
     "show": {
       "all": [{
         "identifier": "scope",
         "identifierType": "page",
         "operator": "is",
         "value": "input"
-      }, {
-        "identifier": "_type",
-        "identifierType": "page",
-        "operator": "is",
-        "value": "page.start",
-        "negated": true
       }, {
         "identifier": "authenticated",
         "identifierType": "savereturn",

@@ -1,0 +1,7 @@
+{
+  "_id": "button.continue.last",
+  "_type": "string",
+  "description": "Continue to last page visited button text",
+  "value": "Continue with this form",
+  "value:cy": "Parhewch gyda’r ffurflen hon"
+}

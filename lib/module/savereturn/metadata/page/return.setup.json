@@ -1,9 +1,22 @@
 {
   "_id": "return.setup",
   "_type": "page.content",
-  "body": "## How does it work?\r\n\r\n- You give us your email address\r\n- We send you an email\r\n- In the email is a link you click to confirm your email address\r\n\r\nThat's it.\r\n\r\nYou can now come back to this application and click on the 'Return to previous application' link on the start page\r\n\r\nYou will have 1 day to confirm your email from the time you give us your address\r\n\r\n- How long do we store your data and files for? 28 days\r\n- How long does your session last? 30 minutes\r\n- How do we store your data and files? Encrypted at all times\r\n\r\n## Enhanced security\r\n\r\nIf you have any reason to think someone else might access your email account, please consider using two-factor authentication.\r\n\r\nYou can choose this option at the same time as entering your email address. If you do so, you will be asked for your mobile number when you have confirmed your email address.\r\n\r\n### What is two-factor authentication?",
+  "body": "You can save your work and return later using just your email address.\r\rWe’ll keep your work for [% service#dataRetentionDuration %] days. For your security, we’ll delete any information after this time.",
+  "components": [
+    {
+      "_id": "return.setup.details.steps",
+      "_type": "details",
+      "html": "It’s quick and easy to set up:\r\n\r\n1. Enter your email address.\r\n2. Check your email and use the link we send you to confirm your email address.\r\n\r\nThat’s it, your work is saved.",
+      "summary": "How does it work?"
+    },
+    {
+      "_id": "return.setup.content.2fa",
+      "_type": "content",
+      "html": "**Add your mobile phone for extra security**\r\n\r\nIf someone else has access to your email, you can make your form more secure using your mobile phone. You’ll be able to do this once you’ve saved your work."
+    }
+  ],
   "enableSteps": true,
-  "heading": "Return process",
+  "heading": "Saving your progress",
   "mountPoint": "return.start",
   "steps": [
     "return.setup.email"

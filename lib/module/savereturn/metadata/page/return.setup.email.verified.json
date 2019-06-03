@@ -1,7 +1,7 @@
 {
   "_id": "return.setup.email.verified",
   "_type": "page.form",
-  "body": "By setting up 2‑step verification you can make any information you enter more secure.\r\n\r\nTo do this you’ll need to have a mobile phone.\r\n\r\nOnce you’ve set this up we’ll send a code to your mobile. You’ll need to enter this code to return to your saved form.",
+  "body": "If someone else has access to your email, you can make your form more secure using your mobile phone.\r\nIt’s called **2-step verification** because it takes two steps to access your work:\r\n\r\n1. A secure, one-time link which we send to your email.\r\n2. A one-off security code that we send to your mobile.",
   "components": [
     {
       "_id": "return.setup.email.verified--radios.2fa",
@@ -20,11 +20,11 @@
           "value": "no"
         }
       ],
-      "legend": "Do you want to set this up?",
+      "legend": "Do you want to add 2-step verification now?",
       "name": "two_factor_authentication"
     }
   ],
-  "heading": "Make your work more secure",
+  "heading": " Add your mobile for extra security",
   "mountPoint": "return.setup.email",
   "nextPage": [
     {

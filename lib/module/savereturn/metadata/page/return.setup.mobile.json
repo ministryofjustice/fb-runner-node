@@ -1,18 +1,18 @@
 {
   "_id": "return.setup.mobile",
   "_type": "page.form",
-  "body": "We’ll send a code to your mobile in order to verify your number. This will allow you to return to your saved application.",
+  "body": "We’ll send a security code by text message to your mobile.\r\n\r\nEnter the code on the next page to confirm your number.",
   "components": [
     {
       "_id": "return.setup.mobile--text.mobile",
       "_type": "text",
-      "label": "**UK mobile number**",
+      "label": "Mobile number",
       "name": "mobile",
       "widthClassInput": "one-half"
     }
   ],
   "enableSteps": true,
-  "heading": "Your mobile phone number",
+  "heading": "Add your mobile phone",
   "mountPoint": "return.setup",
   "steps": [
     "return.setup.mobile.sent"
