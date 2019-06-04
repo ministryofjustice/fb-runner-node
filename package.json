@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.144",
+  "version": "0.0.145",
   "engines": {
     "node": "10.15.3"
   },
@@ -56,6 +56,7 @@
     "fast-deep-equal": "^2.0.1",
     "flat": "^4.1.0",
     "glob": "^7.1.4",
+    "got": "^9.6.0",
     "immer": "~1.7.4",
     "install": "^0.12.2",
     "json2csv": "^4.5.1",
