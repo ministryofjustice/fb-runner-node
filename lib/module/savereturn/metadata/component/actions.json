@@ -12,7 +12,6 @@
     "items": [{
       "_id": "actions.savereturn",
       "_type": "buttonSecondary",
-      "xclasses": "fb-action-secondary",
       "html": "Save and come back later",
       "name": "setupReturn",
       "show": {
