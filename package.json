@@ -30,7 +30,7 @@
     "rewiremock": "^3.13.7",
     "sinon": "^7.3.2",
     "supertest": "^4.0.2",
-    "tap": "^14.2.1",
+    "tap": "^14.2.2",
     "tape": "^4.10.2",
     "test-console": "^1.1.0"
   },
@@ -75,7 +75,7 @@
     "nunjucks": "^3.2.0",
     "path-to-regexp": "^3.0.0",
     "proxyquire": "^2.1.0",
-    "puppeteer": "^1.14.0",
+    "puppeteer": "^1.17.0",
     "raven": "^2.6.4",
     "replace-in-file": "^4.1.0",
     "request": "^2.88.0",
