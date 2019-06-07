@@ -1,0 +1,33 @@
+{
+  "_id": "return.signin.code.sent",
+  "_type": "page.form",
+  "body": "We have sent a 5-digit security code to **{mobile}**. Enter your code here to open your saved form",
+  "bodyX": "We have sent a 5 digit security code by text to {mobile}.\r\n\r\nThis can take a minute or so to arrive.\r\n\r\nThis runs out in 30 minutes.",
+  "components": [
+    {
+      "_id": "return.signin.code.sent--text.code",
+      "_type": "text",
+      "label": "Security code",
+      "name": "signin_code",
+      "widthClassInput": "5"
+    },
+    {
+      "_id": "return.signin.code.sent--content.resend",
+      "_type": "content",
+      "html": "[Didn't get a code? HOW?](/returning_user_resend_code)"
+    }
+  ],
+  "enableSteps": true,
+  "heading": "Now check your phone",
+  "mountPoint": "return.start",
+  "nextPage": [
+    {
+      "condition": {
+        "identifier": "signin_code",
+        "operator": "defined"
+      },
+      "page": "return.authenticated"
+    }
+  ],
+  "url": "code"
+}

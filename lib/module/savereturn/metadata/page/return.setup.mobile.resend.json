@@ -1,0 +1,17 @@
+{
+  "_id": "return.setup.mobile.resend",
+  "_type": "page.form",
+  "actionType": "send.sms",
+  "body": "If you did not receive the text message sent to {mobile}, we’ll send you a new code.",
+  "heading": "Send new security code",
+  "mountPoint": "return.setup.mobile",
+  "nextPage": [
+    "return.setup.mobile.sent"
+  ],
+  "show": {
+    "identifier": "mobile_code",
+    "negated": true,
+    "operator": "defined"
+  },
+  "url": "resend"
+}

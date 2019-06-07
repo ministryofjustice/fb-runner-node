@@ -1,0 +1,30 @@
+{
+  "_id": "config.header",
+  "_isa": "@ministryofjustice/fb-components-core=>config.header",
+  "_type": "header",
+  "description": "Save and return header for govuk template",
+  "serviceName": "[% service#name %]",
+  "navigation": {
+    "_type": "config.header.navigation",
+    "show": {
+      "identifier": "authenticated",
+      "identifierType": "savereturn",
+      "operator": "isTrue"
+    },
+    "items": [{
+      "_id": "config.header.navigation.signedin",
+      "_type": "link",
+      "text": "Signed in as {savereturn@email}",
+      "href": "/",
+      "active": true,
+      "attributes": {
+        "id": "signedin"
+      }
+    }, {
+      "_id": "config.header.navigation.signout",
+      "_type": "link",
+      "text": "Sign out",
+      "href": "return.signout"
+    }]
+  }
+}

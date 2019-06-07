@@ -1,0 +1,56 @@
+{
+  "_id": "return.setup.mobile.sent",
+  "_type": "page.form",
+  "body": "We have sent a 5-digit security code to **{mobile}**.\r\n\r\nYour code is valid for [% module.savereturn.config#smsCodeDuration %] minutes\r\n\r\nEnter your code here to turn on 2-step verification.",
+  "components": [
+    {
+      "_id": "return.setup.mobile.sent--text.code",
+      "_type": "text",
+      "errors": {
+        "pattern": {
+          "inline": "The code should be 5 digits",
+          "summary": "The code should be 5 digits"
+        }
+      },
+      "label": "Security code",
+      "name": "code",
+      "validation": {
+        "pattern": "^\\d{5}$"
+      },
+      "widthClassInput": "5"
+    },
+    {
+      "_id": "return.setup.mobile.sent--content.resend",
+      "_type": "content",
+      "html": "[Didn't get a code?]([% url:return.setup.mobile %])"
+    }
+  ],
+  "heading": "Check your phone",
+  "XXXXXnextPage": [
+    {
+      "condition": {
+        "all": [
+          {
+            "identifier": "code",
+            "operator": "defined"
+          },
+          {
+            "identifier": "two_factor_authentication",
+            "negated": true,
+            "operator": "is",
+            "value": "yes"
+          }
+        ]
+      },
+      "page": "page.unit"
+    },
+    {
+      "condition": {
+        "identifier": "code",
+        "operator": "defined"
+      },
+      "page": "page.new_record"
+    }
+  ],
+  "url": "confirm"
+}

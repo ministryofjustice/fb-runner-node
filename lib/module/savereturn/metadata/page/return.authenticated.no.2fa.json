@@ -1,0 +1,41 @@
+{
+  "_id": "return.authenticated.no.2fa",
+  "_type": "page.form",
+  "body": "You can continue to your work or you can make your sign-in more secure.",
+  "components": [
+    {
+      "_id": "return.authenticated.no.2fa--radios.prompt",
+      "_type": "radios",
+      "hint": "By setting up 2‑step verification you can make any information you enter more secure.",
+      "items": [
+        {
+          "_id": "return.authenticated.no.2fa--radios.prompt--radios.yes",
+          "_type": "radio",
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "_id": "return.authenticated.no.2fa--radios.prompt--radios.no",
+          "_type": "radio",
+          "label": "No, continue to my work",
+          "value": "no"
+        }
+      ],
+      "legend": "**Make your work more secure**",
+      "name": "setup_2fa"
+    }
+  ],
+  "heading": "You’ve signed in",
+  "nextPage": [
+    {
+      "condition": {
+        "identifier": "setup_2fa",
+        "operator": "is",
+        "value": "yes"
+      },
+      "page": "return.setup.mobile"
+    },
+    "page.unit"
+  ],
+  "url": "sign-in-successfull_without2FA"
+}

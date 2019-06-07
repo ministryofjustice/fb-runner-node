@@ -1,0 +1,25 @@
+{
+  "_id": "return.setup.email",
+  "_type": "page.form",
+  "body": "We’ll send you a link to confirm your email address.",
+  "components": [
+    {
+      "_id": "return.setup.email.inset.duration",
+      "_type": "inset",
+      "html": "Use the link to confirm your email address within [% module.savereturn.config#emailTokenDuration %] hours."
+    },
+    {
+      "_id": "return.setup.email.address",
+      "_type": "email",
+      "hint": "Make sure only you can access this email address",
+      "label": "Email address",
+      "name": "email"
+    }
+  ],
+  "enableSteps": true,
+  "heading": "Save your progress",
+  "steps": [
+    "return.setup.email.sent"
+  ],
+  "url": "email"
+}

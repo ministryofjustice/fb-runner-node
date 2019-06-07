@@ -1,0 +1,22 @@
+{
+  "_id": "return.start",
+  "_type": "page.form",
+  "allowQueryParams": ["email"],
+  "body": "Enter your email address and we’ll send you a secure, one-time link to return to your form.",
+  "components": [
+    {
+      "_id": "return.start.email",
+      "_type": "email",
+      "label": "Email address",
+      "name": "email"
+    }
+  ],
+  "scope": "savereturn",
+  "enableSteps": true,
+  "heading": "Get a sign-in link",
+  "show": true,
+  "steps": [
+    "return.signin.email.sent"
+  ],
+  "url": "/return/:email?"
+}

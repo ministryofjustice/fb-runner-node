@@ -1,0 +1,6 @@
+{
+  "_id": "button.savereturn.continue.page.start",
+  "_isa": "button.continue.page.start",
+  "_type": "string",
+  "description": "Save and continue button text for start page"
+}

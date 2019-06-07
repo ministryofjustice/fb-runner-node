@@ -1,0 +1,10 @@
+{
+  "_id": "return.setup.email.token",
+  "_type": "page.form",
+  "body": "This page should not be seen the user - unless the user needs to enter a passphrase that is",
+  "mountPoint": "return.setup.email",
+  "nextPage": [
+    "return.setup.success"
+  ],
+  "url": "token/:token"
+}

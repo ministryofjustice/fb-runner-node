@@ -1,0 +1,78 @@
+{
+  "_id": "actions",
+  "_isa": "@ministryofjustice/fb-components-core=>actions",
+  "_type": "actions",
+  "primary": {
+    "_id": "actions.primary",
+    "_type": "button",
+    "html": "[% {savereturn@authenticated, select, true{button.savereturn.{page@actionType}.{page@_type} || button.savereturn.{page@actionType} || } other{}} button.{page@actionType}.{page@_type} || button.{page@actionType} || button.continue %]",
+    "classes": "[% {savereturn@authenticated, select, true{button.savereturn.{page@actionType}.{page@_type}.classes || button.savereturn.{page@actionType}.classes || } other{}} button.{page@actionType}.{page@_type}.classes || button.{page@actionType}.classes %]"
+  },
+  "secondary": {
+    "items": [{
+      "_id": "actions.savereturn",
+      "_type": "buttonSecondary",
+      "html": "Save and come back later",
+      "name": "setupReturn",
+      "show": {
+        "all": [{
+          "identifier": "scope",
+          "identifierType": "page",
+          "operator": "is",
+          "value": "input"
+        }, {
+          "identifier": "_type",
+          "identifierType": "page",
+          "operator": "is",
+          "value": "page.start",
+          "negated": true
+        }, {
+          "identifier": "authenticated",
+          "identifierType": "savereturn",
+          "operator": "isTrue",
+          "negated": true
+        }]
+      },
+      "value": "yes"
+    }]
+  },
+  "additional": [{
+    "_id": "actions.addittional",
+    "_type": "group",
+    "components": [{
+      "_id": "actions.additional.content.return",
+      "_type": "content",
+      "html": "[Continue work on a saved form]([% url:return.start %])",
+      "show": {
+        "identifier": "_type",
+        "identifierType": "page",
+        "operator": "is",
+        "value": "page.start"
+      }
+    }, {
+      "_id": "actions.additional.content.inactivity",
+      "_type": "content",
+      "html": "Your session will time out after [% service#sessionDuration %] minutes of inactivity.  \r\nSave your details if you want to come back later.",
+      "show": {
+        "identifier": "_type",
+        "identifierType": "page",
+        "operator": "is",
+        "value": "page.start",
+        "negated": true
+      }
+    }],
+    "show": {
+      "all": [{
+        "identifier": "scope",
+        "identifierType": "page",
+        "operator": "is",
+        "value": "input"
+      }, {
+        "identifier": "authenticated",
+        "identifierType": "savereturn",
+        "operator": "isTrue",
+        "negated": true
+      }]
+    }
+  }]
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "return.setup.mobile",
+  "_type": "page.form",
+  "body": "We’ll send a security code by text message to your mobile.\r\n\r\nEnter the code on the next page to confirm your number.",
+  "components": [
+    {
+      "_id": "return.setup.mobile--text.mobile",
+      "_type": "text",
+      "label": "Mobile number",
+      "name": "mobile",
+      "widthClassInput": "one-half"
+    }
+  ],
+  "enableSteps": true,
+  "heading": "Add your mobile phone",
+  "mountPoint": "return.setup",
+  "steps": [
+    "return.setup.mobile.sent"
+  ],
+  "url": "mobile"
+}

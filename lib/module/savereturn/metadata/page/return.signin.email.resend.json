@@ -1,0 +1,12 @@
+{
+  "_id": "return.signin.email.resend",
+  "_type": "page.form",
+  "actionType": "send.email",
+  "body": "If you did not receive the email message sent to {email}, you can send a new one.",
+  "heading": "Send new email",
+  "mountPoint": "return.start",
+  "nextPage": [
+    "return.signin.email.sent"
+  ],
+  "url": "email/resend"
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "return.setup",
+  "_type": "page.content",
+  "body": "You can save your work and return later using just your email address.\r\rWe’ll keep your work for [% service#dataRetentionDuration %] days. For your security, we’ll delete any information after this time.",
+  "components": [
+    {
+      "_id": "return.setup.details.steps",
+      "_type": "details",
+      "html": "It’s quick and easy to set up:\r\n\r\n1. Enter your email address.\r\n2. Check your email and use the link we send you to confirm your email address.\r\n\r\nThat’s it, your work is saved.",
+      "summary": "How does it work?"
+    },
+    {
+      "_id": "return.setup.content.2fa",
+      "_type": "content",
+      "html": "**Add your mobile phone for extra security**\r\n\r\nIf someone else has access to your email, you can make your form more secure using your mobile phone. You’ll be able to do this once you’ve saved your work."
+    }
+  ],
+  "enableSteps": true,
+  "heading": "Saving your progress",
+  "mountPoint": "return.start",
+  "steps": [
+    "return.setup.email"
+  ],
+  "url": "setup"
+}

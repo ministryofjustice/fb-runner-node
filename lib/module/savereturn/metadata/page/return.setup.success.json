@@ -1,0 +1,37 @@
+{
+  "_id": "return.setup.success",
+  "_type": "page.content",
+  "actionType": "continue.last",
+  "body": "You can now continue working or come back later.\r\n\r\nYou have [% service#dataRetentionDuration %] days to complete and submit your form.\r\n\r\nIf you have not submitted your form by {meta@expires} your work will be deleted for your security.{savereturn@mobile, select, undefined{\r\n\r\n[Add your mobile for extra security]([% url:return.setup.2fa %])} other{}}",
+  "components": [
+    {
+      "_id": "return.setup.success.details",
+      "_type": "details",
+      "summary": "Review your saved information",
+      "open": false,
+      "components": [
+        {
+          "_id": "return.setup.success.answers",
+          "_type": "answers",
+          "amount": "partial",
+          "hideChangeAction": true,
+          "onlyShowCompletedAnswers": true
+        },
+        {
+          "_id": "return.setup.success.content.changes",
+          "_type": "content",
+          "html": "**Need to make changes?**\r\n\r\nYou’ll be able to update your answers before submitting them"
+        }
+      ]
+    },
+    {
+      "_id": "return.setup.success.button",
+      "_type": "button",
+      "html": "[% button.continue.last %]",
+      "href": "{visited@last}"
+    }
+  ],
+  "heading": "{savereturn@mobile, select, undefined{Your work has been saved} other{Your work is now protected by 2-step verification}}",
+  "mountPoint": "return.setup",
+  "url": "saved"
+}

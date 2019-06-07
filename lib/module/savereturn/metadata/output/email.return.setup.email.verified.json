@@ -1,0 +1,9 @@
+{
+  "_id": "email.return.setup.email.verified",
+  "_type": "emailMessage",
+  "body": "# Your work has been saved\r\n\r\nForm: [% service#name %]\r\n\r\nYou have [% service#dataRetentionDuration %] days to complete and submit your form.\r\n\r\nIf you have not submitted your form by {meta@expires} your work will be deleted for your security.\r\n\r\n## Return and complete your form\r\n\r\nUse this link to return to your form:\r\n\r\n[Return to form]([% fqdn:return.start %])[% email.auto-generated %]",
+  "from": "[% return.email.from %]",
+  "subject": "[% service#name %]: Your work has been saved",
+  "template_name": "email.return.setup.email.verified",
+  "to": "{savereturn@email}"
+}

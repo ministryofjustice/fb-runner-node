@@ -1,0 +1,9 @@
+{
+  "_id": "email.return.setup.mobile.verified",
+  "_type": "emailMessage",
+  "body": "# You have added 2-step verification\r\n\r\nForm: [% service#name %]\r\n\r\nYou have [% service#dataRetentionDuration %] days to complete and submit your form.\r\n\r\nIf you have not submitted your form by {meta@expires} your work will be deleted for your security.\r\n\r\n## Return and complete your form\r\n\r\nUse this link to return to your form:\r\n\r\n[Return to form]([% fqdn:return.start %])\r\n\r\n[% email.auto-generated %]",
+  "from": "[% return.email.address.from %]",
+  "subject": "[% service#name %]: 2-step verification added",
+  "template_name": "email.return.setup.mobile.verified",
+  "to": "{savereturn@email}"
+}

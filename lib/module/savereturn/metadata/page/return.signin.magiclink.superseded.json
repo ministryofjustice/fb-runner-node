@@ -1,0 +1,8 @@
+{
+  "_id": "return.signin.magiclink.superseded",
+  "_type": "page.content",
+  "body": "Check your email for the most recent link or get a new one.\r\n\r\n[Get a new link]([% url:return.start %])",
+  "heading": "This is an old link",
+  "mountPoint": "return.signin.magiclink",
+  "url": "superseded"
+}

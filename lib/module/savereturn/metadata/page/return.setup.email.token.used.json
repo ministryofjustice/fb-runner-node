@@ -1,0 +1,8 @@
+{
+  "_id": "return.setup.email.token.used",
+  "_type": "page.content",
+  "body": "Sign in to continue working on your form.\r\n\r\n[Sign in]([% url:return.start %])",
+  "heading": "You have already used this link",
+  "mountPoint": "return.setup.email",
+  "url": "used"
+}

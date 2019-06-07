@@ -1,0 +1,6 @@
+{
+  "_id": "return.email.address.from",
+  "_type": "string",
+  "description": "From address for save and return emails",
+  "value": "[% email.address.from %]"
+}

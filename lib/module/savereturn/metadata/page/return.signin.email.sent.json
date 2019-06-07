@@ -1,0 +1,8 @@
+{
+  "_id": "return.signin.email.sent",
+  "_type": "page.exit",
+  "body": "## Didn’t receive the email?\r\n\r\nIf you haven’t received the email after a few minutes:\r\n\r\n- check your spam or junk folders\r\n- check you have entered the correct email address\r\n- [resend the email]([% url:return.start email='{email}' %])",
+  "heading": "Check your email",
+  "lede": "We’ve sent your sign-in link to **{email}**.",
+  "url": "email/check"
+}

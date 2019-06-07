@@ -1,0 +1,7 @@
+{
+  "_id": "button.savereturn.continue",
+  "_type": "string",
+  "description": "Default save and continue button text",
+  "value": "Save and continue",
+  "value:cy": "Arbed a pharhau"
+}

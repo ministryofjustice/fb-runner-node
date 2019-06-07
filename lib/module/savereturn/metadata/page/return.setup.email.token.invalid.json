@@ -1,0 +1,10 @@
+{
+  "_id": "return.setup.email.token.invalid",
+  "_type": "page.content",
+  "body": "If you copied the link from your email, check you included the full link.\r\n\r\nIf it still doesn’t work, get a new link.\r\n\r\n[Get a new link]([% url:return.setup.email %])",
+  "heading": "There is a problem with your link",
+  "mountPoint": "return.setup.email",
+  "url": "invalid"
+}
+
+

@@ -1,0 +1,19 @@
+{
+  "_id": "return.setup.email.sent",
+  "_type": "page.exit",
+  "components": [
+    {
+      "_id": "return.setup.email.sent.warning.expiry",
+      "_type": "warning",
+      "html": "Your work is not saved yet.  \r\nUse the link in the email within [% module.savereturn.config#emailTokenDuration %] hours to save your work."
+    },
+    {
+      "_id": "return.setup.email.sent.info",
+      "_type": "content",
+      "html": "For your security, we will delete your work if you don’t confirm your email address in this time.\r\n\r\n### Didn’t receive the email?\r\n\r\nIf you haven’t received the email after a few minutes:\r\n- check your spam or junk folders\r\n- check you have entered the correct email address\r\n- [resend the email]([% url:return.setup.email %])"
+    }
+  ],
+  "lede": "We have sent an email to {email}.",
+  "heading": "Check your email",
+  "url": "validate"
+}

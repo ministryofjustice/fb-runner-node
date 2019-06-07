@@ -1,0 +1,13 @@
+{
+  "_id": "return.signout",
+  "_type": "page.form",
+  "actionType": "start.again",
+  "body": "You have **[% service#dataRetentionDuration %]** days remaining to complete your form.\r\n\r\nIf you have not submitted your form by **{meta@expires}** your work will be deleted for your security.",
+  "heading": "You’ve signed out",
+  "lede": "Your work has been saved.",
+  "mountPoint": "return.start",
+  "nextPage": [
+    "return.start"
+  ],
+  "url": "signout"
+}

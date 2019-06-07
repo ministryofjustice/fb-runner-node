@@ -1,0 +1,7 @@
+{
+  "_id": "sms.return.setup.mobile",
+  "_type": "smsMessage",
+  "body": "[% service#name %]: Your verification code is ((code))",
+  "template_name": "sms.return.setup.mobile",
+  "to": "{savereturn@mobile}"
+}

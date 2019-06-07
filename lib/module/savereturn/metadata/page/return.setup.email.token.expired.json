@@ -1,0 +1,8 @@
+{
+  "_id": "return.setup.email.token.expired",
+  "_type": "page.content",
+  "body": "The link we sent you was only valid for [% module.savereturn.config#emailTokenDuration %] hours.\r\nFor security reasons, we have deleted your information. You will need to start the form again.\r\n[Start again]([% url:return.setup.email %])",
+  "heading": "Your link has expired",
+  "mountPoint": "return.setup.email",
+  "url": "expired"
+}
