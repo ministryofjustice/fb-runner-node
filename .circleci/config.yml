@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install
+          command: npm install
+      - run:
           name: Runs ESLint on the JavaScript code
           command: npm run test
 
