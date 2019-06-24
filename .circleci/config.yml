@@ -2,7 +2,10 @@ version: 2.1
 
 jobs:
   lint_and_test:
+    docker:
+      - image: circleci/node:10.15.3
     steps:
+      - checkout
       - run:
           name: Runs ESLint on the JavaScript code
           command: npm run test
