@@ -1,8 +1,14 @@
 version: 2.1
 
-workflows:
+jobs:
   lint_and_test:
-    jobs:
+    steps:
       - run:
           name: Runs ESLint on the JavaScript code
           command: npm run test
+
+
+workflows:
+  commit-workflo:
+    jobs:
+      - lint_and_test
