@@ -15,6 +15,6 @@ jobs:
 
 
 workflows:
-  commit-workflo:
+  commit-workflow:
     jobs:
       - lint_and_test
