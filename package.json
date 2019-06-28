@@ -16,7 +16,7 @@
     "lint:lib": "eslint lib",
     "test": "npm-run-all lint test:all",
     "test:all": "npm-run-all test:unit",
-    "test:unit": "multi-tape lib/**/*.unit.spec.js lib/**/**/*.unit.spec.js lib/middleware/**/*.unit.spec.js lib/page/**/*.unit.spec.js lib/**/**/**/*.unit.spec.js"
+    "test:unit": "USER_DATASTORE_URL='' USER_FILESTORE_URL='' SUBMITTER_URL='' SERVICE_SECRET='' SERVICE_TOKEN='' SERVICE_SLUG='' multi-tape lib/**/*.unit.spec.js lib/**/**/*.unit.spec.js lib/middleware/**/*.unit.spec.js lib/page/**/*.unit.spec.js lib/**/**/**/*.unit.spec.js"
   },
   "author": "github@alex.fu2k.org",
   "license": "MIT",
