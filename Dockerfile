@@ -12,6 +12,9 @@ wget https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_
 dpkg -i dumb-init_*.deb && rm -f dumb-init_*.deb && \
 apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
+# Exposes `ps` command
+RUN apt-get update && apt-get install -y procps
+
 RUN groupadd -r deploy && useradd -m -u 1001 -r -g deploy deploy
 USER deploy
 WORKDIR /home/deploy
