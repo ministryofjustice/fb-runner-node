@@ -28,7 +28,6 @@ module.exports = () => ({
     'lib/evaluate-condition/**/*.unit.spec.js',
     'lib/format/**/*.unit.spec.js',
     'lib/middleware/**/*.unit.spec.js',
-    '!lib/middleware/metrics/**/*.unit.spec.js',
     'lib/module/**/*.unit.spec.js',
     'lib/page/**/*.unit.spec.js',
     // '!lib/page/add-item/**/*.unit.spec.js',
