@@ -16,9 +16,6 @@ module.exports = () => ({
     '!lib/middleware/user-data/*.unit.spec.js',
     '!lib/service-data/**/*.unit.spec.js'
   ],
-  xtests: [
-
-  ],
   antitests: [
     'lib/middleware/user-data/*.unit.spec.js',
     'lib/service-data/**/*.unit.spec.js'
@@ -26,7 +23,6 @@ module.exports = () => ({
   tests: [
     'lib/bracket-notation-path/**/*.unit.spec.js',
     'lib/client/**/*.unit.spec.js',
-    // '!lib/client/metrics/**/*.unit.spec.js',
     'lib/constants/**/*.unit.spec.js',
     'lib/editor/**/*.unit.spec.js',
     'lib/evaluate-condition/**/*.unit.spec.js',
