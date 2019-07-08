@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.149",
+  "version": "0.0.150",
   "engines": {
     "node": "12.4.0"
   },
@@ -30,7 +30,7 @@
     "rewiremock": "^3.13.7",
     "sinon": "^7.3.2",
     "supertest": "^4.0.2",
-    "tap": "^14.3.1",
+    "tap": "^14.4.1",
     "tape": "^4.11.0",
     "test-console": "^1.1.0"
   },
@@ -43,7 +43,7 @@
     "@ministryofjustice/fb-user-filestore-client-node": "^0.0.27",
     "@ministryofjustice/fb-utils-node": "^0.1.6",
     "@promster/express": "^2.2.4",
-    "@sentry/node": "^5.4.3",
+    "@sentry/node": "^5.5.0",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.12",
@@ -62,9 +62,9 @@
     "flat": "^4.1.0",
     "glob": "^7.1.4",
     "immer": "~1.7.4",
-    "install": "^0.12.2",
+    "install": "^0.13.0",
     "is-online": "^8.2.0",
-    "json2csv": "^4.5.1",
+    "json2csv": "^4.5.2",
     "jsonschema": "^1.2.4",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
@@ -82,7 +82,7 @@
     "prom-client": "^11.5.3",
     "proxyquire": "^2.1.0",
     "puppeteer": "1.18.0",
-    "replace-in-file": "^4.1.0",
+    "replace-in-file": "^4.1.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "serve-favicon": "^2.5.0",
