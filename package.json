@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.151",
+  "version": "0.0.152",
   "engines": {
     "node": "12.4.0"
   },
@@ -35,7 +35,7 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "@ministryofjustice/fb-nunjucks-helpers": "^0.0.20",
+    "@ministryofjustice/fb-nunjucks-helpers": "^0.0.21",
     "@ministryofjustice/fb-runtime-node": "^0.1.19",
     "@ministryofjustice/fb-specification": "^0.3.3",
     "@ministryofjustice/fb-submitter-client-node": "^0.0.27",
