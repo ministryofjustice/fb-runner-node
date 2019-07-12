@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.153",
+  "version": "0.0.154",
   "engines": {
     "node": "12.4.0"
   },
@@ -42,7 +42,7 @@
     "@ministryofjustice/fb-user-datastore-client-node": "^0.0.27",
     "@ministryofjustice/fb-user-filestore-client-node": "^0.0.27",
     "@ministryofjustice/fb-utils-node": "^0.1.6",
-    "@promster/express": "^2.2.4",
+    "@promster/express": "^3.0.0",
     "@sentry/node": "^5.5.0",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.19.0",
@@ -69,7 +69,7 @@
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^9.0.0",
     "messageformat": "^2.2.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.24.0",
