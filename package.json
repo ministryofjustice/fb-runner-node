@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.155",
+  "version": "0.0.156",
   "engines": {
     "node": "12.4.0"
   },
@@ -30,7 +30,7 @@
     "rewiremock": "^3.13.7",
     "sinon": "^7.3.2",
     "supertest": "^4.0.2",
-    "tap": "^14.4.1",
+    "tap": "^14.4.2",
     "tape": "^4.11.0",
     "test-console": "^1.1.0"
   },
