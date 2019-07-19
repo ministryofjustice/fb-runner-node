@@ -26,6 +26,7 @@ RUN npm install
 
 COPY bin ./bin
 COPY lib ./lib
+COPY .eslintrc ./
 
 ENTRYPOINT ["dumb-init", "--"]
 EXPOSE 3000
