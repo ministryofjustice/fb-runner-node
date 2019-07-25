@@ -80,7 +80,7 @@
     "path-to-regexp": "^3.0.0",
     "prom-client": "^11.5.3",
     "proxyquire": "^2.1.0",
-    "puppeteer": "1.18.0",
+    "puppeteer": "1.19.0",
     "replace-in-file": "^4.1.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
