@@ -1,0 +1,34 @@
+0a1,2
+> /* eslint-disable no-var */
+> /* eslint-disable object-curly-spacing */
+28a31,39
+>     // FB addition - add bodyErrors prop to req and addFilesError method
+>     req.bodyErrors = Object.create(null)
+>     const addFilesError = (fieldname, err, file) => {
+>       req.bodyErrors.files = req.bodyErrors.files || Object.create(null)
+>       const code = typeof err === 'string' ? err : err.code || 'UNKNOWN_ERROR'
+>       req.bodyErrors.files[code] = req.bodyErrors.files[code] || []
+>       req.bodyErrors.files[code].push(file)
+>     }
+>     // FB addition ends
+115a127,129
+>           // FB addition
+>           addFilesError(fieldname, err, file)
+>           // FB addition ends
+134a149,151
+>           // FB addition
+>           addFilesError(fieldname, err, file)
+>           // FB addition ends
+139a157,159
+>           // FB addition
+>           addFilesError(fieldname, 'LIMIT_FILE_SIZE', file)
+>           // FB addition ends
+141c161,162
+<           abortWithCode('LIMIT_FILE_SIZE', fieldname)
+---
+>           // FB deletion
+>           // abortWithCode('LIMIT_FILE_SIZE', fieldname)
+151a173,175
+>             // FB addition
+>             addFilesError(fieldname, err, file)
+>             // FB addition ends
