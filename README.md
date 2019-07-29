@@ -34,6 +34,12 @@ By default, Form Builder Runner will use port 3000. If you want to run on a diff
 PORT=4321 SERVICE_PATH=/path/to/form npm start
 ```
 
+### Components usage
+
+By default the runner uses the module `@ministryofjustice/fb-components-core`, using the version defined in `lib/constants/constant.js`
+
+[Read more about components usage](components.md)
+
 ### Using the fb-runnner-node with a mocked backend
 
 Use [fb-mock-services](https://github.com/ministryofjustice/fb-mock-services) to mock out the services which your local instance of fb-runner-node (this repo) communicates with.
