@@ -60,6 +60,7 @@
     "fast-deep-equal": "^2.0.1",
     "fkill": "^6.2.0",
     "flat": "^4.1.0",
+    "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
     "install": "^0.13.0",
     "is-online": "^8.2.0",
