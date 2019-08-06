@@ -37,7 +37,7 @@
     }]
   },
   "additional": [{
-    "_id": "actions.addittional",
+    "_id": "actions.additional",
     "_type": "group",
     "components": [{
       "_id": "actions.additional.content.return",
