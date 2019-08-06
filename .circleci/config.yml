@@ -36,6 +36,18 @@ jobs:
       - run:
           name: Build integration image
           command: scripts/circleci_build.sh integration
+  build_to_live:
+    docker:
+      - image: asmega/fb-builder:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: npm install
+          command: npm install
+      - run:
+          name: Build live image
+          command: scripts/circleci_build.sh live
 
 workflows:
   version: 2
@@ -45,9 +57,9 @@ workflows:
       - build_to_test:
           requires:
             - test
-#           filters:
-#             branches:
-#               only: master
+          filters:
+            branches:
+              only: master
       - confirm_integration_build:
           type: approval
           requires:
@@ -55,10 +67,10 @@ workflows:
       - build_to_integration:
           requires:
             - confirm_integration_build
-#      - confirm_live_build:
-#          type: approval
-#          requires:
-#            - build_to_integration
-#      - build_to_live:
-#          requires:
-#            - confirm_live_build
+      - confirm_live_build:
+          type: approval
+          requires:
+            - build_to_integration
+      - build_to_live:
+          requires:
+            - confirm_live_build
