@@ -27,7 +27,7 @@ RUN npm install
 COPY bin ./bin
 COPY lib ./lib
 COPY .eslintrc ./
-COPY APP_GIT_COMMIT ./
+COPY APP_SHA ./
 
 ENTRYPOINT ["dumb-init", "--"]
 EXPOSE 3000

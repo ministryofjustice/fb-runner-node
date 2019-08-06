@@ -39,7 +39,7 @@ install_build_dependencies: init
 	$(eval export PATH=${PATH}:${HOME}/.local/bin/)
 
 build: install_build_dependencies
-	echo ${CIRCLE_SHA1} > APP_GIT_COMMIT
+	echo ${CIRCLE_SHA1} > APP_SHA
 	docker build -t ${ECR_REPO_URL}:latest-${env_stub} -t ${ECR_REPO_URL}:${CIRCLE_SHA1} -f ./Dockerfile .
 
 login: init
