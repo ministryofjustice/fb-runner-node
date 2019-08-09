@@ -1,0 +1,8 @@
+{
+  "_id": "return.setup.mobile.code.expired",
+  "_type": "page.content",
+  "body": "The code we sent you was only valid for [% module.savereturn.config#smsCodeDuration %] minutes.\r\n\r\nYou will need to sign in again with your email address.\r\n\r\n[Sign in again]([% url:return.start %])",
+  "heading": "This code has expired",
+  "mountPoint": "return.setup.mobile",
+  "url": "setup.mobile.code.expired"
+}

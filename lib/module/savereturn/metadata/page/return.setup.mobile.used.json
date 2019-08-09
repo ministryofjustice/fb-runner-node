@@ -1,8 +1,0 @@
-{
-  "_id": "return.setup.mobile.used",
-  "_type": "page.content",
-  "body": "You can only use the code we sent you once.\r\n\r\n[Enter your mobile again](route:return.setup.mobile)",
-  "heading": "Code used already",
-  "mountPoint": "return.setup.mobile",
-  "url": "used"
-}

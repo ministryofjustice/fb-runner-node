@@ -1,0 +1,8 @@
+{
+  "_id": "return.setup.mobile.code.used",
+  "_type": "page.content",
+  "body": "Check your mobile for the most recent code or get a new one.\r\n\r\n[Get a new code]([% url:return.setup.mobile %])",
+  "heading": "You have already used this code",
+  "mountPoint": "return.setup.mobile",
+  "url": "setup.mobile.code.used"
+}

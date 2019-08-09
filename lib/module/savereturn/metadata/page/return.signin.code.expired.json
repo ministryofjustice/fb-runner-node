@@ -4,5 +4,5 @@
   "body": "The code we sent you only lasts for 30 minutes.\r\n\r\n[Enter your email again](route:return.start)",
   "heading": "Code expired",
   "mountPoint": "return.signin.code.sent",
-  "url": "expired"
+  "url": "signin.code.expired"
 }
