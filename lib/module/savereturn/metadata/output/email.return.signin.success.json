@@ -1,7 +1,7 @@
 {
   "_id": "email.return.signin.success",
   "_type": "emailMessage",
-  "body": "# New sign-in to your saved form\r\n\r\n[% service#name %]\r\n\r\nWe’ve noticed a new sign-in to your saved form:\r\n- Date: DATE\r\n- Time: TIME\r\n- Device: DEVICE\r\n- Location: LOCATION\r\n\r\nWe are sending this email to make sure it was you.\r\n\r\nIf you don’t recognise this activity, we recommend you add your mobile for extra security.\r\n\r\n[Add your mobile for extra security]([% url:return.setup.2fa %])",
+  "body": "# New sign-in to your saved form\r\n\r\n[% service#name %]\r\n\r\nWe’ve noticed a new sign-in to your saved form:\r\n- Date: {savereturn@loginTime, date, format=\"dddd D MMMM\"}\r\n- Time: {savereturn@loginTime, date, format=\"HH:mm\"}\r\n\r\nWe are sending this email to make sure it was you.\r\n\r\nIf you don’t recognise this activity, we recommend you add your mobile for extra security.\r\n\r\n[Add your mobile for extra security]([% url:return.setup.2fa %])",
   "subject": "[% service#name %]: New sign-in to your saved form",
   "template_name": "email.return.signin.success",
   "to": "{savereturn@email}"
