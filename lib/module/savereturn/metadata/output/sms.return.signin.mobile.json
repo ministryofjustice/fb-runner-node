@@ -1,7 +1,7 @@
 {
   "_id": "sms.return.signin.mobile",
   "_type": "smsMessage",
-  "body": "[% service#name %]: Your signin code is ((code))",
+  "body": "[% service#name %]: Your signin code is {code}",
   "template_name": "sms.return.signin.mobile",
   "to": "{savereturn@mobile}"
 }
