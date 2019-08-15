@@ -1,8 +1,8 @@
 {
-  "_id": "return.signin.magiclink.expired",
+  "_id": "return.signin.magiclink.token.expired",
   "_type": "page.content",
   "body": "Sign-in links are only valid for [% module.savereturn.config#emailTokenDuration %] hours.\r\n\r\n[Get a new link]([% url:return.start %])",
   "heading": " Your link has expired",
   "mountPoint": "return.signin.magiclink",
-  "url": "signin.magiclink.expired"
+  "url": "signin.magiclink.token.expired"
 }
