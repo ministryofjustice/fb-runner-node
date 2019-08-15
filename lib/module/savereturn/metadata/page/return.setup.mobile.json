@@ -15,7 +15,7 @@
   "heading": "Add your mobile phone",
   "mountPoint": "return.setup",
   "steps": [
-    "return.setup.mobile.sent"
+    "return.setup.mobile.validate"
   ],
   "url": "mobile"
 }

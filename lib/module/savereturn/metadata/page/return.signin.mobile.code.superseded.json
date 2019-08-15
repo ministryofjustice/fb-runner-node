@@ -3,6 +3,6 @@
   "_type": "page.content",
   "body": "We’ve sent you a new code since this one.\r\n\r\n[Start again]([% url:return.start %])",
   "heading": "Code superseded",
-  "mountPoint": "return.signin.code.sent",
+  "mountPoint": "return.signin.mobile.validate",
   "url": "signin.mobile.code.superseded"
 }

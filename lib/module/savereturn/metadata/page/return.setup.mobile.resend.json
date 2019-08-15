@@ -6,7 +6,7 @@
   "heading": "Send new security code",
   "mountPoint": "return.setup.mobile",
   "nextPage": [
-    "return.setup.mobile.sent"
+    "return.setup.mobile.validate"
   ],
   "show": {
     "identifier": "mobile_code",

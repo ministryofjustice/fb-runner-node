@@ -3,6 +3,6 @@
   "_type": "page.content",
   "body": "Check your mobile for the most recent code or sign in again.\r\n\r\n[Get a new magiclink]([% url:return.start %])",
   "heading": "You have already used this code",
-  "mountPoint": "return.signin.code.sent",
+  "mountPoint": "return.signin.mobile.validate",
   "url": "signin.mobile.code.used"
 }
