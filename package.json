@@ -88,7 +88,7 @@
     "request-promise-native": "^1.0.7",
     "serve-favicon": "^2.5.0",
     "shorthash": "0.0.2",
-    "sort-keys": "^3.0.0",
+    "sort-keys": "^4.0.0",
     "uuid": "^3.3.2",
     "write-file-atomic": "^3.0.0"
   }
