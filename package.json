@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.158-2",
+  "version": "0.0.159",
   "engines": {
     "node": "12.4.0"
   },
@@ -56,7 +56,6 @@
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "express-bunyan-logger": "^1.3.3",
-    "express-device": "^0.4.2",
     "express-session": "^1.16.2",
     "fast-deep-equal": "^2.0.1",
     "fkill": "^6.2.0",
