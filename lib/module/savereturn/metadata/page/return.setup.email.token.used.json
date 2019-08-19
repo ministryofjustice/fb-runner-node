@@ -4,5 +4,5 @@
   "body": "Sign in to continue working on your form.\r\n\r\n[Sign in]([% url:return.start %])",
   "heading": "You have already used this link",
   "mountPoint": "return.setup.email",
-  "url": "used"
+  "url": "setup.email.token.used"
 }

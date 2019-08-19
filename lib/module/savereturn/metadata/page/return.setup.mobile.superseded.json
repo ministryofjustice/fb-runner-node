@@ -1,8 +1,0 @@
-{
-  "_id": "return.setup.mobile.superseded",
-  "_type": "page.content",
-  "body": "We’ve sent you a new code since this one.\r\n\r\n[Enter your mobile again](route:return.setup.mobile)",
-  "heading": "Code superseded",
-  "mountPoint": "return.setup.mobile",
-  "url": "superseded"
-}

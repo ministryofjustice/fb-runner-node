@@ -1,11 +1,15 @@
 {
   "_id": "return.authenticated",
-  "_type": "page.form",
-  "heading": "You’ve successfully signed in",
-  "lede": "You can now continue working on your form.",
-  "mountPoint": "return.start",
-  "nextPage": [
-    "page.unit"
+  "_type": "page.content",
+  "actionType": "continue.last",
+  "components": [
+    {
+      "_id": "return.authenticated.group",
+      "_isa": "group.authenticated",
+      "_type": "group"
+    }
   ],
-  "url": "authenticated"
+  "heading": "Welcome back",
+  "mountPoint": "return.start",
+  "url": "signed-in"
 }

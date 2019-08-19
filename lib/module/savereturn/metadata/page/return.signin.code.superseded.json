@@ -1,8 +1,0 @@
-{
-  "_id": "return.signin.code.superseded",
-  "_type": "page.content",
-  "body": "We’ve sent you a new code since this one.\r\n\r\n[Enter your mobile again](route:return.start)",
-  "heading": "Code superseded",
-  "mountPoint": "return.signin.code.sent",
-  "url": "superseded"
-}

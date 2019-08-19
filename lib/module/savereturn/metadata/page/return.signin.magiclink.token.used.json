@@ -1,8 +1,8 @@
 {
-  "_id": "return.signin.magiclink.used",
+  "_id": "return.signin.magiclink.token.used",
   "_type": "page.content",
   "body": "Sign-in links can only be used to access your work once.\r\n\r\n[Get a new link]([% url:return.start %])",
   "heading": " You have already used this link",
   "mountPoint": "return.signin.magiclink",
-  "url": "used"
+  "url": "signin.magiclink.token.used"
 }

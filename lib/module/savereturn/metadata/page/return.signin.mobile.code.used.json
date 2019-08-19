@@ -1,0 +1,8 @@
+{
+  "_id": "return.signin.mobile.code.used",
+  "_type": "page.content",
+  "body": "Check your mobile for the most recent code or sign in again.\r\n\r\n[Get a new magiclink]([% url:return.start %])",
+  "heading": "You have already used this code",
+  "mountPoint": "return.signin.mobile.validate",
+  "url": "signin.mobile.code.used"
+}

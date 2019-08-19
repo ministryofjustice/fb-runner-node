@@ -1,8 +1,0 @@
-{
-  "_id": "return.signin.code.invalid",
-  "_type": "page.content",
-  "body": "There is no such token.\r\n\r\nWhat do we do now?",
-  "heading": "Invalid token",
-  "mountPoint": "return.signin.code.sent",
-  "url": "invalid"
-}

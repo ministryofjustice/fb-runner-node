@@ -1,0 +1,8 @@
+{
+  "_id": "return.signin.mobile.code.invalid",
+  "_type": "page.content",
+  "body": "There is no such token.\r\n\r\nWhat do we do now?",
+  "heading": "Invalid token",
+  "mountPoint": "return.signin.mobile.validate",
+  "url": "signin.mobile.code.invalid"
+}

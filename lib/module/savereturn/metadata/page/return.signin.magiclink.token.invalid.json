@@ -1,8 +1,8 @@
 {
-  "_id": "return.signin.magiclink.invalid",
+  "_id": "return.signin.magiclink.token.invalid",
   "_type": "page.content",
   "body": "If you copied the link from your email, check you included the full link.\r\n\r\nIf it still doesn’t work, get a new link.\r\n\r\n[Get a new link]([% url:return.start %])",
   "heading": "There is a problem with your link",
   "mountPoint": "return.signin.magiclink",
-  "url": "invalid"
+  "url": "signin.magiclink.token.invalid"
 }

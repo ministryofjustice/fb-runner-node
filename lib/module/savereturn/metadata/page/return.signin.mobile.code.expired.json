@@ -1,8 +1,8 @@
 {
-  "_id": "return.signin.code.expired",
+  "_id": "return.signin.mobile.code.expired",
   "_type": "page.content",
   "body": "The code we sent you only lasts for 30 minutes.\r\n\r\n[Enter your email again](route:return.start)",
   "heading": "Code expired",
-  "mountPoint": "return.signin.code.sent",
-  "url": "expired"
+  "mountPoint": "return.signin.mobile.validate",
+  "url": "signin.mobile.code.expired"
 }

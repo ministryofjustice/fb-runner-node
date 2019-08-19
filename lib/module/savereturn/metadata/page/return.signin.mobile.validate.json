@@ -1,20 +1,19 @@
 {
-  "_id": "return.signin.code.sent",
+  "_id": "return.signin.mobile.validate",
   "_type": "page.form",
-  "body": "We have sent a 5-digit security code to **{mobile}**. Enter your code here to open your saved form",
-  "bodyX": "We have sent a 5 digit security code by text to {mobile}.\r\n\r\nThis can take a minute or so to arrive.\r\n\r\nThis runs out in 30 minutes.",
+  "body": "We have sent a 5-digit security code to **{mobile}**.\r\n\r\nYour code is valid for [% module.savereturn.config#smsCodeDuration %] minutes",
   "components": [
     {
-      "_id": "return.signin.code.sent--text.code",
+      "_id": "return.signin.mobile.validate--text.code",
       "_type": "text",
       "label": "Security code",
       "name": "signin_code",
       "widthClassInput": "5"
     },
     {
-      "_id": "return.signin.code.sent--content.resend",
+      "_id": "return.signin.mobile.validate--content.resend",
       "_type": "content",
-      "html": "[Didn't get a code? HOW?](/returning_user_resend_code)"
+      "html": "[Didn't get a code? Get another sign in link]([% url:return.start %])"
     }
   ],
   "enableSteps": true,

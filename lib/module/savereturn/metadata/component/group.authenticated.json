@@ -1,0 +1,36 @@
+{
+  "_id": "group.authenticated",
+  "_type": "group",
+  "components": [
+    {
+      "_id": "group.authenticated.explanation",
+      "_type": "content",
+      "html": "You have [% service#dataRetentionDuration %] days to complete and submit your form.\r\n\r\nIf you have not submitted your form by {meta@expires} your work will be deleted for your security.{savereturn@mobile, select, undefined{\r\n\r\n[Add your mobile for extra security]([% url:return.setup.2fa %])} other{}}"
+    },
+    {
+      "_id": "group.authenticated.details",
+      "_type": "details",
+      "summary": "Check your saved information",
+      "open": false,
+      "components": [
+        {
+          "_id": "group.authenticated.answers",
+          "_type": "answers",
+          "hideChangeAction": true,
+          "onlyShowCompletedAnswers": true
+        },
+        {
+          "_id": "group.authenticated.content.changes",
+          "_type": "content",
+          "html": "**Need to make changes?**\r\n\r\nYou’ll be able to update your answers before submitting them"
+        }
+      ]
+    },
+    {
+      "_id": "group.authenticated.button",
+      "_type": "button",
+      "html": "[% button.continue.last %]",
+      "href": "{visited@last}"
+    }
+  ]
+}

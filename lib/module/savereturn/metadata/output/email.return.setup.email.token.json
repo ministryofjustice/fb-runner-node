@@ -1,7 +1,7 @@
 {
   "_id": "email.return.setup.email.token",
   "_type": "emailMessage",
-  "body": "# Confirm your email address\r\n\r\nForm: [% service#name %]\r\n\r\nUse this link to confirm your email address and save your work:\r\n\r\n[Confirm your email address]([% fqdn:return.setup.email.token token='((token))' %])\r\n\r\nUse this link within [% module.savereturn.config#emailTokenDuration %] hours or your work will be lost.\r\n\r\n## Add your mobile for extra security\r\n\r\nIf someone else has access to your email, you can make your form more secure using your mobile phone. You’ll be able to do this after confirming your email address.[% email.auto-generated %]",
+  "body": "# Confirm your email address\r\n\r\nForm: [% service#name %]\r\n\r\nUse this link to confirm your email address and save your work:\r\n\r\n[Confirm your email address]([% fqdn:return.setup.email.token token='{token}' %])\r\n\r\nUse this link within [% module.savereturn.config#emailTokenDuration %] hours or your work will be lost.\r\n\r\n## Add your mobile for extra security\r\n\r\nIf someone else has access to your email, you can make your form more secure using your mobile phone. You’ll be able to do this after confirming your email address.[% email.auto-generated %]",
   "from": "[% return.email.address.from %]",
   "subject": "[% service#name %]: Confirm your email address",
   "template_name": "email.return.setup.email.token",

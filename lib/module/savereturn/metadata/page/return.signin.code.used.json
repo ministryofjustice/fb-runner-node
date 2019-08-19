@@ -1,8 +1,0 @@
-{
-  "_id": "return.signin.code.used",
-  "_type": "page.content",
-  "body": "You can only use the code we sent you once.\r\n\r\n[Enter your mobile again](route:return.start)",
-  "heading": "Code used already",
-  "mountPoint": "return.signin.code.sent",
-  "url": "used"
-}

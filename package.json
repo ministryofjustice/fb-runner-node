@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.158",
+  "version": "0.0.159",
   "engines": {
     "node": "12.4.0"
   },
@@ -16,7 +16,7 @@
     "lint:lib": "eslint lib",
     "test": "npm-run-all lint test:all",
     "test:all": "npm-run-all test:unit",
-    "test:unit": "USER_DATASTORE_URL='' USER_FILESTORE_URL='' SUBMITTER_URL='' SERVICE_SECRET='' SERVICE_TOKEN='' SERVICE_SLUG='' multi-tape lib/**/*.unit.spec.js lib/**/**/*.unit.spec.js lib/middleware/**/*.unit.spec.js lib/page/**/*.unit.spec.js lib/**/**/**/*.unit.spec.js"
+    "test:unit": "find lib | grep .unit.spec.js | xargs multi-tape"
   },
   "author": "github@alex.fu2k.org",
   "license": "MIT",
