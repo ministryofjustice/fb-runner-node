@@ -40,10 +40,8 @@ Set the `COMPONENTS_VERSION` ENV var
 export COMPONENTS_VERSION='1.2.3-2'
 # use newly published next version
 export COMPONENTS_VERSION='~1.2.4-1'
-# use git commit sha
-export COMPONENTS_VERSION='https://github.com/ministryofjustice/fb-components-core#5317249ed94d46771907834cbb1c9c6b09001006'
-# use throwaway published version - don't do this, just for demonstration purposes
-export COMPONENTS_VERSION='0.0.0-1.2.3-7-alpha'
+# use git commit sha (or branch or tag)
+export COMPONENTS_VERSION='git://github.com/ministryofjustice/fb-components-core.git#5317249ed94d46771907834cbb1c9c6b09001006'
 ```
 
 
@@ -64,7 +62,7 @@ export MODULE__ministryofjustice_fb_components_core='$PATHTO/fb-components-core'
 export MODULE__govuk_frontend='$PATHTO/govuk-frontend'
 ```
 
-## Setting the components mdule
+## Setting the components module
 
 The default is `@ministryofjustice/fb-components-core`
 
