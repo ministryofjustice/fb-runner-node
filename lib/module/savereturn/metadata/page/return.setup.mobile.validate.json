@@ -8,8 +8,7 @@
       "_type": "text",
       "errors": {
         "pattern": {
-          "inline": "The code should be 5 digits",
-          "summary": "The code should be 5 digits"
+          "any": "The code should be 5 digits"
         }
       },
       "label": "Security code",

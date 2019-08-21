@@ -11,8 +11,7 @@
       "widthClassInput": "one-half",
       "errors": {
         "pattern": {
-          "summary": "Enter a telephone number in the correct format",
-          "inline": "Enter a telephone number without spaces, like 01632960001, 07700900982 or +4408081570192"
+          "any": "Enter a telephone number without spaces, like 01632960001, 07700900982 or +4408081570192"
         }
       },
       "validation": {
