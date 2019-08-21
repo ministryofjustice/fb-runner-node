@@ -1,3 +1,4 @@
+
 {
   "_id": "return.setup.mobile",
   "_type": "page.form",
@@ -6,9 +7,18 @@
     {
       "_id": "return.setup.mobile--text.mobile",
       "_type": "text",
-      "label": "Mobile number",
+      "label": "Mobile number (without spaces)",
       "name": "mobile",
-      "widthClassInput": "one-half"
+      "widthClassInput": "one-half",
+      "errors": {
+        "pattern": {
+          "summary": "Enter a telephone number in the correct format",
+          "inline": "Enter a telephone number without spaces, like 01632960001, 07700900982 or +4408081570192"
+        }
+      },
+      "validation": {
+        "pattern": "^\\+{0,1}\\d{9,16}$"
+      }
     }
   ],
   "enableSteps": true,
