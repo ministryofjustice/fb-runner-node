@@ -73,6 +73,12 @@ Run unit tests only
 npm run test:unit
 ```
 
+Run a single unit test
+
+```
+./node_modules/.bin/multi-tape lib/controller/page/type/page.summary/page.summary.controller.unit.spec.js
+```
+
 Run linting only
 ```
 npm run lint
