@@ -16,7 +16,7 @@
     "lint:lib": "eslint lib",
     "test": "npm-run-all lint test:all",
     "test:all": "npm-run-all test:unit",
-    "test:unit": "find lib | grep .unit.spec.js | xargs multi-tape"
+    "test:unit": "find lib | grep .unit.spec.js$ | xargs multi-tape"
   },
   "author": "github@alex.fu2k.org",
   "license": "MIT",
