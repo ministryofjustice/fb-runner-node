@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.159",
+  "version": "0.0.160",
   "engines": {
     "node": "12.4.0"
   },
