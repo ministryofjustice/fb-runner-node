@@ -30,6 +30,7 @@
     "tape": "^4.11.0"
   },
   "dependencies": {
+    "@ministryofjustice/fb-components-core": "~3.1.0-3",
     "@ministryofjustice/fb-nunjucks-helpers": "^0.0.22",
     "@ministryofjustice/fb-runtime-node": "^0.1.19",
     "@ministryofjustice/fb-specification": "^0.3.3",
