@@ -4,7 +4,7 @@
   "engines": {
     "node": "12.4.0"
   },
-  "description": "Form Builder Runner (Node version)",
+  "description": "Form Builder Runner (for Node)",
   "main": "lib/server/server.js",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "test:all": "npm-run-all test:unit",
     "test:unit": "find lib | grep .unit.spec.js$ | xargs multi-tape"
   },
-  "author": "github@alex.fu2k.org",
+  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "license": "MIT",
   "devDependencies": {
     "@ministryofjustice/eslint-config-fb": "^1.0.7",
