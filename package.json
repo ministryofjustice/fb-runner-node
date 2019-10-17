@@ -1,10 +1,10 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.0.160",
+  "version": "0.0.161",
   "engines": {
     "node": "12.4.0"
   },
-  "description": "Form Builder Runner (Node version)",
+  "description": "Form Builder Runner (for Node)",
   "main": "lib/server/server.js",
   "repository": {
     "type": "git",
@@ -12,27 +12,22 @@
   },
   "scripts": {
     "start": "node bin/start.js",
-    "lint": "npm-run-all lint:lib",
-    "lint:lib": "eslint lib",
-    "test": "npm-run-all lint test:all",
-    "test:all": "npm-run-all test:unit",
-    "test:unit": "find lib | grep .unit.spec.js$ | xargs multi-tape"
+    "lint": "eslint lib",
+    "lint:fix": "eslint lib --fix",
+    "test": "tap"
   },
-  "author": "github@alex.fu2k.org",
+  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "license": "MIT",
   "devDependencies": {
-    "@ministryofjustice/eslint-config-fb": "^1.0.7",
+    "@ministryofjustice/eslint-config-fb": "^1.1.2",
     "@ministryofjustice/fb-deploy-utils": "^1.0.10",
     "mock-express-request": "^0.2.2",
     "mock-express-response": "^0.2.2",
-    "multi-tape": "^1.3.0",
-    "npm-run-all": "^4.1.5",
     "rewiremock": "^3.13.7",
-    "sinon": "^7.3.2",
+    "sinon": "^7.5.0",
     "supertest": "^4.0.2",
-    "tap": "^14.4.2",
-    "tape": "^4.11.0",
-    "test-console": "^1.1.0"
+    "tap": "^14.7.1",
+    "tape": "^4.11.0"
   },
   "dependencies": {
     "@ministryofjustice/fb-nunjucks-helpers": "^0.0.22",
