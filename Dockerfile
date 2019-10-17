@@ -1,6 +1,6 @@
 FROM node:12.12.0-alpine
 
-RUN apk add bash
+RUN apk add git bash
 
 ARG UID=1001
 RUN addgroup -g ${UID} -S appgroup && \
