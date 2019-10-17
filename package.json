@@ -86,6 +86,6 @@
     "sort-keys": "^4.0.0",
     "striptags": "^3.1.1",
     "uuid": "^3.3.2",
-    "write-file-atomic": "^3.0.0"
+    "write-file-atomic": "^3.0.1"
   }
 }
