@@ -55,7 +55,7 @@
     "flat": "^4.1.0",
     "glob": "^7.1.4",
     "install": "^0.13.0",
-    "json2csv": "^4.5.2",
+    "json2csv": "^4.5.4",
     "jsonschema": "^1.2.4",
     "load-json-file": "^6.2.0",
     "lodash.get": "^4.4.2",
