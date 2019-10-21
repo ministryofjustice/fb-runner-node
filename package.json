@@ -26,7 +26,7 @@
     "rewiremock": "^3.13.7",
     "sinon": "^7.5.0",
     "supertest": "^4.0.2",
-    "tap": "^14.7.1",
+    "tap": "^14.8.0",
     "tape": "^4.11.0"
   },
   "dependencies": {
