@@ -38,7 +38,7 @@
     "@ministryofjustice/fb-user-datastore-client-node": "^0.0.27",
     "@ministryofjustice/fb-user-filestore-client-node": "^0.0.27",
     "@ministryofjustice/fb-utils-node": "^0.1.6",
-    "@promster/express": "^3.0.0",
+    "@promster/express": "^3.3.1",
     "@sentry/node": "^5.5.0",
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.12",
