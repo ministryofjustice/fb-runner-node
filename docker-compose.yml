@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+    user: "1000:1000"
+    environment:
+#      SERVICE_PATH: /app/a-form
+      SERVICE_SHA: foo
+#  -- WARNING -- these env vars can fail the tests if set
+#      SERVICE_OUTPUT_EMAIL: test@example.com
+#      SUBMITTER_URL: http://localhost:44446
+#      USER_DATASTORE_URL=http://localhost:44444
+#       USER_FILESTORE_URL: http://localhost:44445
+#       SUBMITTER_URL: http://localhost:44446
+#       SERVICE_SECRET: sekrit
+#       SERVICE_TOKEN: token
+#       SERVICE_SLUG: slug
+    volumes:
+      - '.:/app'
+      - 'node_modules:/usr/src/app/node_modules'
+    ports:
+      - "3000:3000"
+
+volumes:
+  node_modules:
