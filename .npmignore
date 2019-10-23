@@ -1,2 +1,4 @@
 .dependabot
 .circleci
+.npmrc
+.nvmrc
