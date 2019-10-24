@@ -10,7 +10,10 @@ jobs:
           name: Install
           command: npm install
       - run:
-          name: Runs ESLint on the JavaScript code and tests
+          name: Lints
+          command: npm run lint
+      - run:
+          name: Tests
           command: npm run test
   build_to_test:
     docker:
@@ -24,18 +27,6 @@ jobs:
       - run:
           name: Build test image
           command: scripts/circleci_build.sh test
-  build_to_integration:
-    docker:
-      - image: asmega/fb-builder:latest
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: npm install
-          command: npm install
-      - run:
-          name: Build integration image
-          command: scripts/circleci_build.sh integration
   build_to_live:
     docker:
       - image: asmega/fb-builder:latest
@@ -60,17 +51,10 @@ workflows:
           filters:
             branches:
               only: master
-      - confirm_integration_build:
-          type: approval
-          requires:
-            - build_to_test
-      - build_to_integration:
-          requires:
-            - confirm_integration_build
       - confirm_live_build:
           type: approval
           requires:
-            - build_to_integration
+            - build_to_test
       - build_to_live:
           requires:
             - confirm_live_build
