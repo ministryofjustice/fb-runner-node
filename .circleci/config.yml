@@ -44,13 +44,13 @@ workflows:
   version: 2
   test_and_build:
     jobs:
-      - test
-      - build_to_test:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+#      - test
+      - build_to_test
+#          requires:
+#            - test
+#          filters:
+#            branches:
+#              only: master
       - confirm_live_build:
           type: approval
           requires:
