@@ -1,3 +1,8 @@
+
+.PHONY: shell
+shell:
+	docker-compose run app bash
+
 ifdef TARGET
 TARGETDEFINED="true"
 else
