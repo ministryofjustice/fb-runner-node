@@ -1,5 +1,36 @@
 version: 2.1
 
+commands:
+  restart_runners:
+    description: "restart runners for env"
+    parameters:
+      env-name:
+        type: string
+        description: 'eg test-dev, live-production'
+      kube-token:
+        type: env_var_name
+        description: 'kube token from circleci env vars'
+    steps:
+      - kube-orb/install-kubectl
+      - run:
+          name: kubectl fetch cert
+          command: echo -n "$KUBE_CERTIFICATE_AUTHORITY" | base64 -d > .kube_certificate_authority
+      - run:
+          name: kubectl config cluster
+          command: kubectl config set-cluster "$KUBE_CLUSTER" --certificate-authority=".kube_certificate_authority" --server="$KUBE_SERVER"
+      - run:
+          name: kubectl config credentials
+          command: kubectl config set-credentials "circleci_<< parameters.env-name >>" --token="${<< parameters.kube-token >>}"
+      - run:
+          name: kubectl set context
+          command: kubectl config set-context "circleci_<< parameters.env-name >>" --cluster="$KUBE_CLUSTER" --user="circleci_<< parameters.env-name >>" --namespace="formbuilder-services-<< parameters.env-name >>"
+      - run:
+          name: kubectl use context
+          command: kubectl config use-context "circleci_<< parameters.env-name >>"
+      - run:
+          name: restart << parameters.env-name >> runners
+          command: kubectl rollout restart deployments -n formbuilder-services-<< parameters.env-name >>
+
 jobs:
   test:
     docker:
@@ -27,6 +58,19 @@ jobs:
       - run:
           name: Build test image
           command: scripts/circleci_build.sh test
+  restart_test:
+    docker:
+      - image: circleci/ruby:latest
+    steps:
+      - restart_runners:
+          env-name: test-dev
+          kube-token: KUBE_TOKEN_TEST_DEV
+      - restart_runners:
+          env-name: test-staging
+          kube-token: KUBE_TOKEN_TEST_STAGING
+      - restart_runners:
+          env-name: test-production
+          kube-token: KUBE_TOKEN_TEST_PRODUCTION
   build_to_live:
     docker:
       - image: asmega/fb-builder:latest
@@ -39,6 +83,22 @@ jobs:
       - run:
           name: Build live image
           command: scripts/circleci_build.sh live
+  restart_live:
+    docker:
+      - image: circleci/ruby:latest
+    steps:
+      - restart_runners:
+          env-name: live-dev
+          kube-token: KUBE_TOKEN_LIVE_DEV
+      - restart_runners:
+          env-name: live-staging
+          kube-token: KUBE_TOKEN_LIVE_STAGING
+      - restart_runners:
+          env-name: live-production
+          kube-token: KUBE_TOKEN_LIVE_PRODUCTION
+
+orbs:
+  kube-orb: circleci/kubernetes@0.10.0
 
 workflows:
   version: 2
@@ -51,6 +111,9 @@ workflows:
           filters:
             branches:
               only: master
+      - restart_test:
+          requires:
+            - build_to_test
       - confirm_live_build:
           type: approval
           requires:
@@ -58,3 +121,6 @@ workflows:
       - build_to_live:
           requires:
             - confirm_live_build
+      - restart_live:
+          requires:
+            - build_to_live
