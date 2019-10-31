@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "engines": {
     "node": "12.4.0"
   },
@@ -19,7 +19,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ministryofjustice/fb-components-core": "^3.1.0-8",
+    "@ministryofjustice/fb-components-core": "^3.3.0",
     "@ministryofjustice/fb-nunjucks-helpers": "0.0.23",
     "@ministryofjustice/fb-runtime-node": "^0.1.19",
     "@ministryofjustice/fb-specification": "^0.3.3",
