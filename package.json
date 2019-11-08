@@ -10,7 +10,7 @@
     "start": "node bin/start.js",
     "lint": "eslint lib",
     "lint:fix": "eslint lib --fix",
-    "test": "tap lib"
+    "test": "tap"
   },
   "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "repository": {
