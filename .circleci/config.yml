@@ -97,6 +97,14 @@ jobs:
           env-name: live-production
           kube-token: KUBE_TOKEN_LIVE_PRODUCTION
 
+  trigger_acceptance_tests:
+    docker:
+      - image: circleci/ruby:latest
+    steps:
+      - run:
+          name: "Trigger Acceptance Tests"
+          command: "curl -u ${CIRCLE_TOKEN}: -X POST https://circleci.com/api/v2/project/github/ministryofjustice/fb-acceptance-tests/pipeline -H 'Content-Type: application/json' -H 'Accept: application/json'"
+
 orbs:
   kube-orb: circleci/kubernetes@0.10.0
 
@@ -104,6 +112,10 @@ workflows:
   version: 2
   test_and_build:
     jobs:
+      - trigger_acceptance_tests:
+          filters:
+            branches:
+              only: master
       - test
       - build_to_test:
           requires:
