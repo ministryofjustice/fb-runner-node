@@ -5,7 +5,7 @@ process.env.APP_DIR = path.resolve(__dirname, '..')
 
 const start = async () => {
   try {
-    const server = require('~/server/server')
+    const server = require('~/fb-runner-node/server/server')
     await server.start()
   } catch (e) {
     // eslint-disable-next-line no-console

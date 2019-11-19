@@ -81,6 +81,6 @@
     "tape": "^4.11.0"
   },
   "_moduleAliases": {
-    "~": "./lib"
+    "~/fb-runner-node": "./lib"
   }
 }
