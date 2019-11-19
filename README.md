@@ -88,3 +88,17 @@ npm run lint
 
 See [deployment instructions](DEPLOY.md)
 
+## Module Aliases
+
+Some module paths are _aliased_.
+
+At runtime they are resolved with [`module-alias`](https://www.npmjs.com/package/module-alias). Its definitions can be found in the `_moduleAliases {}` field on `package.json`.
+
+During development the aliases can be resolved in different ways according to needs of the developer's IDE. A solution we provide is via Webpack, [which is supported automatically in WebStorm and related IDEs](https://blog.jetbrains.com/webstorm/2017/06/webstorm-2017-2-eap-172-2827/), or with some [manual steps](https://stackoverflow.com/questions/34943631/path-aliases-for-imports-in-webstorm).
+
+At start-up WebStorm will report in the *Event Log* that "Module resolution rules from `webpack.config.js` are now used for coding assistance" if the configuration is automatically identified -- if not, follow the manual steps:
+
+1. Right-click on the `lib` directory and select `Mark Directory as > Resource root`
+2. From the application menu select `Preferences > Languages & Frameworks > JavaScript > Webpack` then in the right-hand pane use the file browser to select `webpack.config.js` from the package root
+
+You shouldn't need to restart but it won't hurt.
