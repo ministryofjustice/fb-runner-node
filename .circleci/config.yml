@@ -32,6 +32,11 @@ commands:
           command: kubectl rollout restart deployments -n formbuilder-services-<< parameters.env-name >>
 
 jobs:
+  checkout:
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - checkout
   test:
     docker:
       - image: circleci/node:12.4.0
@@ -105,6 +110,20 @@ jobs:
           name: "Trigger Acceptance Tests"
           command: "curl -u ${CIRCLE_TOKEN}: -X POST https://circleci.com/api/v2/project/github/ministryofjustice/fb-acceptance-tests/pipeline -H 'Content-Type: application/json' -H 'Accept: application/json'"
 
+  publish:
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - run:
+          name: Install
+          command: npm install
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+
 orbs:
   kube-orb: circleci/kubernetes@0.10.0
 
@@ -136,3 +155,23 @@ workflows:
       - restart_live:
           requires:
             - build_to_live
+  test_and_publish:
+    jobs:
+      - checkout:
+          filters:
+            tags:
+              only: /^v.*/
+      - test:
+          requires:
+            - checkout
+          filters:
+            tags:
+              only: /^v.*/
+      - publish:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
