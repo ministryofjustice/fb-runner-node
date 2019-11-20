@@ -143,7 +143,7 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
       - build_to_test:
           requires:
             - test
