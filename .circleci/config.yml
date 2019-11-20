@@ -41,10 +41,10 @@ jobs:
           name: Install
           command: npm install
       - run:
-          name: Lints
+          name: Lint
           command: npm run lint
       - run:
-          name: Tests
+          name: Test
           command: npm run test
   build_to_test:
     docker:
@@ -105,6 +105,21 @@ jobs:
           name: "Trigger Acceptance Tests"
           command: "curl -u ${CIRCLE_TOKEN}: -X POST https://circleci.com/api/v2/project/github/ministryofjustice/fb-acceptance-tests/pipeline -H 'Content-Type: application/json' -H 'Accept: application/json'"
 
+  publish:
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - checkout    
+      - run:
+          name: Install
+          command: npm install
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+
 orbs:
   kube-orb: circleci/kubernetes@0.10.0
 
@@ -117,6 +132,14 @@ workflows:
             branches:
               only: master
       - test
+      - publish:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: master
       - build_to_test:
           requires:
             - test
