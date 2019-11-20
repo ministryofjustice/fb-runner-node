@@ -41,10 +41,10 @@ jobs:
           name: Install
           command: npm install
       - run:
-          name: Lints
+          name: Lint
           command: npm run lint
       - run:
-          name: Tests
+          name: Test
           command: npm run test
   build_to_test:
     docker:
