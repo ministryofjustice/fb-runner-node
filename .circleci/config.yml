@@ -32,11 +32,6 @@ commands:
           command: kubectl rollout restart deployments -n formbuilder-services-<< parameters.env-name >>
 
 jobs:
-  checkout:
-    docker:
-      - image: circleci/node:12.4.0
-    steps:
-      - checkout
   test:
     docker:
       - image: circleci/node:12.4.0
