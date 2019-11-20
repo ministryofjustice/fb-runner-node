@@ -136,6 +136,14 @@ workflows:
             branches:
               only: master
       - test
+      - publish:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
       - build_to_test:
           requires:
             - test
@@ -155,23 +163,3 @@ workflows:
       - restart_live:
           requires:
             - build_to_live
-  test_and_publish:
-    jobs:
-      - checkout:
-          filters:
-            tags:
-              only: /^v.*/
-      - test:
-          requires:
-            - checkout
-          filters:
-            tags:
-              only: /^v.*/
-      - publish:
-          requires:
-            - test
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
