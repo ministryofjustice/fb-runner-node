@@ -24,7 +24,7 @@
     "@ministryofjustice/fb-runtime-node": "^0.1.19",
     "@ministryofjustice/fb-specification": "^0.3.3",
     "@ministryofjustice/fb-user-datastore-client-node": "0.0.29",
-    "@ministryofjustice/fb-user-filestore-client-node": "0.0.28",
+    "@ministryofjustice/fb-user-filestore-client-node": "0.0.29",
     "@ministryofjustice/fb-utils-node": "^0.1.6",
     "@promster/express": "^4.0.0",
     "@sentry/node": "^5.7.1",
