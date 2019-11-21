@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-components-core": "^3.3.0",
+    "@ministryofjustice/fb-jwt-client-node": "0.0.29",
     "@ministryofjustice/fb-nunjucks-helpers": "0.0.24",
     "@ministryofjustice/fb-runtime-node": "^0.1.19",
     "@ministryofjustice/fb-specification": "^0.3.3",
