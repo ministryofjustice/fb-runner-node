@@ -5,9 +5,9 @@
     "node": "12.4.0"
   },
   "description": "Form Builder Runner (for Node)",
-  "main": "lib/server/server.js",
+  "main": "./index.js",
   "scripts": {
-    "start": "node bin/start.js",
+    "start": "node bin/start",
     "lint": "eslint lib",
     "lint:fix": "eslint lib --fix",
     "test": "tap"
