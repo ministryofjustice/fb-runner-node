@@ -1,7 +1,11 @@
-require('module-alias/register')
-
 const path = require('path')
-process.env.APP_DIR = path.resolve(__dirname, '..')
+const init = require('@ministryofjustice/module-alias')
+
+const APP_DIR = path.resolve(__dirname, '..')
+
+process.env.APP_DIR = APP_DIR
+
+init(APP_DIR)
 
 const start = async () => {
   try {
