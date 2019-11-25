@@ -109,7 +109,7 @@ jobs:
     docker:
       - image: circleci/node:12.4.0
     steps:
-      - checkout    
+      - checkout
       - run:
           name: Install
           command: npm install
@@ -118,7 +118,16 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: Publish package
-          command: npm publish
+          command: |
+            set -e
+
+            VERSION=$(node -p "require('./package.json').version")
+            PUBLISHED_VERSION=$(npm view @ministryofjustice/fb-runner-node version);
+
+            if [ "$VERSION" != "$PUBLISHED_VERSION" ]
+            then
+              npm publish
+            fi
 
 orbs:
   kube-orb: circleci/kubernetes@0.10.0
