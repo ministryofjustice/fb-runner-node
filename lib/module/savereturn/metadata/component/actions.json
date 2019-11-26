@@ -1,6 +1,6 @@
 {
   "_id": "actions",
-  "_isa": "@ministryofjustice/fb-components/components-core=>actions",
+  "_isa": "@ministryofjustice/fb-components=>actions",
   "_type": "actions",
   "primary": {
     "_id": "actions.primary",

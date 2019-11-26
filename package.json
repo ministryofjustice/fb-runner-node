@@ -10,7 +10,17 @@
     "start": "node bin/start",
     "lint": "eslint lib",
     "lint:fix": "eslint lib --fix",
-    "test": "tap"
+    "test": "tap",
+    "expand-all": "expand-all",
+    "expand-schema": "expand-schema",
+    "format-data": "format-data",
+    "format-schemas": "format-schemas",
+    "lint-all": "lint-all",
+    "lint-data": "lint-data",
+    "lint-schemas": "lint-schemas",
+    "test-specifications": "test-specifications",
+    "validate-specifications": "validate-specifications",
+    "validate": "validate"
   },
   "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "repository": {
@@ -19,11 +29,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ministryofjustice/fb-components-core": "^3.4.0",
+    "@ministryofjustice/fb-components": "0.0.4",
     "@ministryofjustice/fb-jwt-client-node": "0.0.29",
-    "@ministryofjustice/fb-nunjucks-helpers": "0.0.24",
     "@ministryofjustice/fb-runtime-node": "^0.1.21",
-    "@ministryofjustice/fb-specification": "^0.3.6",
     "@ministryofjustice/fb-user-datastore-client-node": "0.0.29",
     "@ministryofjustice/fb-user-filestore-client-node": "0.0.29",
     "@ministryofjustice/fb-utils-node": "^0.1.8",
@@ -78,7 +86,7 @@
     "rewiremock": "^3.13.9",
     "sinon": "^7.5.0",
     "supertest": "^4.0.2",
-    "tap": "^14.10.1",
+    "tap": "^14.10.2",
     "tape": "^4.11.0"
   },
   "_moduleAliases": {
