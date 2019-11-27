@@ -1,6 +1,6 @@
 {
   "_id": "config.header",
-  "_isa": "@ministryofjustice/fb-components-core=>config.header",
+  "_isa": "@ministryofjustice/fb-components=>config.header",
   "_type": "header",
   "description": "Save and return header for govuk template",
   "serviceName": "[% service#name %]",
