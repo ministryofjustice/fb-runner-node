@@ -66,9 +66,6 @@ jobs:
           env-name: test-dev
           kube-token: KUBE_TOKEN_TEST_DEV
       - restart_runners:
-          env-name: test-staging
-          kube-token: KUBE_TOKEN_TEST_STAGING
-      - restart_runners:
           env-name: test-production
           kube-token: KUBE_TOKEN_TEST_PRODUCTION
   build_to_live:
@@ -90,9 +87,6 @@ jobs:
       - restart_runners:
           env-name: live-dev
           kube-token: KUBE_TOKEN_LIVE_DEV
-      - restart_runners:
-          env-name: live-staging
-          kube-token: KUBE_TOKEN_LIVE_STAGING
       - restart_runners:
           env-name: live-production
           kube-token: KUBE_TOKEN_LIVE_PRODUCTION
