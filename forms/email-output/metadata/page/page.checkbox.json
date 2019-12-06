@@ -1,0 +1,27 @@
+{
+  "_id": "page.checkbox",
+  "_type": "page.form",
+  "components": [
+    {
+      "_id": "page.checkbox--checkboxes",
+      "_type": "checkboxes",
+      "items": [
+        {
+          "_id": "page.checkbox--checkboxes--checkbox.checkbox-fruit-1",
+          "_type": "checkbox",
+          "label": "Apples",
+          "name": "checkbox-apples"
+        },
+        {
+          "_id": "page.checkbox--checkboxes--checkbox.checkbox-fruit-2",
+          "_type": "checkbox",
+          "label": "Pears",
+          "name": "checkbox-pears"
+        }
+      ],
+      "legend": "Best Legend"
+    }
+  ],
+  "heading": "Some Heading",
+  "url": "checkbox"
+}

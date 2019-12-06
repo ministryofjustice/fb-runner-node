@@ -1,0 +1,13 @@
+{
+  "_id": "config.modules",
+  "_type": "config.modules",
+  "modules": [
+    {
+      "_id": "config.module.savereturn",
+      "_type": "config.module",
+      "enabled": "off",
+      "module": "savereturn",
+      "title": "Save and return"
+    }
+  ]
+}

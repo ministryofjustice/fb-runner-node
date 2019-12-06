@@ -1,0 +1,6 @@
+{
+  "_id": "button.send.complaint",
+  "_type": "string",
+  "description": "Send complaint",
+  "value": "send_complaint"
+}

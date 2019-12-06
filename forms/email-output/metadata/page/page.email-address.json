@@ -1,0 +1,29 @@
+{
+  "_id": "page.email-address",
+  "_type": "page.singlequestion",
+  "components": [
+    {
+      "_id": "page.email-address--email.auto_name__2",
+      "_type": "email",
+      "errors": {
+        "format": {},
+        "required": {
+          "any": "Enter an email address",
+          "any:cy": "Rhowch gyfeiriad e-bost yn y blwch"
+        }
+      },
+      "label": "Your email address",
+      "label:cy": "Eich cyfeiriad e-bost",
+      "name": "email_address",
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "show": {
+    "identifier": "has-email",
+    "operator": "is",
+    "value": "yes"
+  },
+  "url": "email-address"
+}

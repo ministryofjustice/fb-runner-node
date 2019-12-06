@@ -1,0 +1,17 @@
+{
+  "_id": "page.number",
+  "_type": "page.singlequestion",
+  "components": [
+    {
+      "_id": "page.number--number.auto_name__5",
+      "_type": "number",
+      "label": "How many cats?",
+      "name": "number_cats",
+      "validation": {
+        "maximum": 10000,
+        "minimum": 0
+      }
+    }
+  ],
+  "url": "number"
+}

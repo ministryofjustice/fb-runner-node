@@ -1,0 +1,33 @@
+{
+  "_id": "page.select",
+  "_type": "page.singlequestion",
+  "components": [
+    {
+      "_id": "page.select--select.auto_name__1",
+      "_type": "select",
+      "items": [
+        {
+          "_id": "page.select--select.auto_name__1--option",
+          "_type": "option",
+          "text": "Yes",
+          "value": "machine answer 1"
+        },
+        {
+          "_id": "page.select--select.auto_name__1--option--2",
+          "_type": "option",
+          "text": "No",
+          "value": "machine answer 2"
+        },
+        {
+          "_id": "page.select--select.auto_name__1--option--3",
+          "_type": "option",
+          "text": "I can't say (They can read)",
+          "value": "machine answer 3"
+        }
+      ],
+      "label": "Is your cat watching you now?",
+      "name": "cat_spy"
+    }
+  ],
+  "url": "select"
+}

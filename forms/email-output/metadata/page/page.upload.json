@@ -1,0 +1,41 @@
+{
+  "_id": "page.upload",
+  "_type": "page.singlequestion",
+  "components": [
+    {
+      "_id": "page.document-upload--fileupload.auto_name__1",
+      "_type": "fileupload",
+      "errors": {
+        "accept": {
+          "any": "The selected file must be a JPG, BMP, PNG, TIF, PDF, DOC or DOCX",
+          "any:cy": "Rhaid i'r ffeil fod yn JPG, BMP, PNG, TIF, PDF, DOC neu DOCX"
+        },
+        "maxSize": {
+          "any": "too huge",
+          "any:cy": "Rhaid i'r ffeil fod yn llai na 5MB"
+        }
+      },
+      "hint": "You can upload your documents as scanned copies or photos of the originals",
+      "hint:cy": "Gallwch lwytho eich dogfennau fel copïau wedi eu sganio neu luniau o'r gwreiddiol",
+      "label": "Upload documents",
+      "label:cy": "Llwytho dogfennau",
+      "name": "upload",
+      "validation": {
+        "required": false,
+        "accept": [
+          "text/plain",
+          "image/jpeg",
+          "image/bmp",
+          "image/x-ms-bmp",
+          "image/png",
+          "image/tiff",
+          "application/pdf",
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        ],
+        "maxSize": "5242880"
+      }
+    }
+  ],
+  "url": "/upload"
+}

@@ -1,0 +1,13 @@
+{
+  "_id": "service",
+  "_isa": "@ministryofjustice/fb-components-core=>service",
+  "_type": "config.service",
+  "languages": [
+    "en",
+    "cy"
+  ],
+  "name": "Best Form On The Web",
+  "name:cy": "Gwneud cwyn am lys neu dribiwnlys",
+  "pdfHeading": "This is a custom PDF Heading",
+  "phase": "none"
+}
