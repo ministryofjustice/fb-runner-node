@@ -1,9 +1,0 @@
-{
-  "_id": "page.complaint-sent",
-  "_type": "page.confirmation",
-  "body": "If you provided an email address, you'll receive a confirmation email.\r\n\r\n## What happens next\r\n\r\nWe try to respond to all complaints within 10 working days.\r\n\r\nTo check the progress of your complaint, contact {complaint_location}.",
-  "body:cy": "Os ydych wedi darparu cyfeiriad e-bost, byddwch yn cael e-bost yn cadarnhau bod eich cwyn wedi ei hanfon.\r\n\r\n## Beth fydd yn digwydd nesaf\r\n\r\nRydym yn ceisio ymateb i bob cwyn ymhen 10 diwrnod gwaith.\r\n\r\nI gael gweld lle'r ydym arni yn ymdrin â'ch cwyn, cysylltwch â {complaint_location}.",
-  "heading": "Details sent",
-  "heading:cy": "Anfonwyd eich cwyn",
-  "url": "complaint-sent"
-}

@@ -1,9 +1,0 @@
-{
-  "_id": "page.check-answers",
-  "_type": "page.summary",
-  "heading": "Check your answers",
-  "heading:cy": "Gwirio eich atebion",
-  "sendBody": "",
-  "sendHeading": "",
-  "url": "check-answers"
-}
