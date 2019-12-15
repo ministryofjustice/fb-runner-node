@@ -68,7 +68,7 @@
     "path-to-regexp": "^6.1.0",
     "prom-client": "^11.5.3",
     "proxyquire": "^2.1.3",
-    "replace-in-file": "^4.2.0",
+    "replace-in-file": "^5.0.2",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.8",
     "serve-favicon": "^2.5.0",
