@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "engines": {
     "node": "12.4.0"
   },
@@ -30,10 +30,10 @@
   "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-components": "^1.0.0",
-    "@ministryofjustice/fb-jwt-client-node": "0.0.34",
+    "@ministryofjustice/fb-jwt-client-node": "0.0.35",
     "@ministryofjustice/fb-runtime-node": "^0.1.24",
-    "@ministryofjustice/fb-user-filestore-client-node": "0.0.33",
-    "@ministryofjustice/fb-user-datastore-client-node": "0.0.33",
+    "@ministryofjustice/fb-user-datastore-client-node": "0.0.34",
+    "@ministryofjustice/fb-user-filestore-client-node": "0.0.34",
     "@ministryofjustice/fb-utils-node": "^0.1.8",
     "@ministryofjustice/module-alias": "^1.0.6",
     "@promster/express": "^4.0.0",
