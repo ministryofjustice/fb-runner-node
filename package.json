@@ -22,6 +22,18 @@
     "validate-specifications": "validate-specifications",
     "validate": "validate"
   },
+  "bin": {
+    "expand-all": "bin/service-data/specification/expand-all.js",
+    "expand-schema": "bin/service-data/specification/expand-schema.js",
+    "format-data": "bin/service-data/specification/format-data.js",
+    "format-schemas": "bin/service-data/specification/format-schemas.js",
+    "lint-all": "bin/service-data/specification/lint-all.js",
+    "lint-data": "bin/service-data/specification/lint-data.js",
+    "lint-schemas": "bin/service-data/specification/lint-schemas.js",
+    "test-specifications": "bin/service-data/specification/test-specifications.js",
+    "validate": "bin/service-data/specification/validate.js",
+    "validate-specifications": "bin/service-data/specification/validate-specifications.js"
+  },
   "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "repository": {
     "type": "git",
@@ -75,6 +87,7 @@
     "shorthash": "0.0.2",
     "sort-keys": "^4.0.0",
     "striptags": "^3.1.1",
+    "test-console": "^1.1.0",
     "uuid": "^3.3.3",
     "write-file-atomic": "^3.0.1"
   },
