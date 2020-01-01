@@ -1,0 +1,26 @@
+{
+  "topA": {
+    "_id": "topA",
+    "_type": "page.start",
+    "stepsHeading": "Top A section heading",
+    "steps": [
+      "stepA",
+      "stepB",
+      "stepX",
+      "stepY",
+      "stepC"
+    ]
+  },
+  "stepA": {
+    "_id": "stepA",
+    "_type": "page.singlequestion"
+  },
+  "stepB": {
+    "_id": "stepB",
+    "_type": "page.form"
+  },
+  "stepC": {
+    "_id": "stepC",
+    "_type": "page.content"
+  }
+}

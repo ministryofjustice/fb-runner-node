@@ -1,0 +1,44 @@
+[{
+    "source": "source1",
+    "instances": [{
+        "_id": "a",
+        "value": "source1 a"
+      },
+      {
+        "_id": "b",
+        "value": "source1 b"
+      },
+      {
+        "_id": "c",
+        "value": "source1 c"
+      }
+    ]
+  },
+  {
+    "source": "source3",
+    "instances": [{
+        "_id": "a",
+        "value": "source2 a"
+      },
+      {
+        "_id": "e",
+        "value": "source3 e"
+      },
+      {
+        "_id": "f",
+        "_isa": "e"
+      },
+      {
+        "_id": "g",
+        "_isa": "source2=>e"
+      },
+      {
+        "_id": "h",
+        "components": [{
+          "_id": "g--a",
+          "_isa": "e"
+        }]
+      }
+    ]
+  }
+]
