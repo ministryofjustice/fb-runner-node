@@ -1,16 +1,17 @@
 const path = require('path')
 
-const getSchemas = (specsPath = process.cwd()) => {
-  const schemaObjs = []
+module.exports = function getSchemas (specsPath = process.cwd()) {
+  const schemas = []
+
   try {
-    const packageJSON = require(path.join(specsPath, 'package.json'))
-    const specs = packageJSON.specifications
-    specs.path = specsPath
-    schemaObjs.push(specs)
+    const {
+      specifications
+    } = require(path.join(specsPath, 'package.json'))
+    specifications.path = specsPath
+    schemas.push(specifications)
   } catch (e) {
     // no package.json
   }
-  return schemaObjs
-}
 
-module.exports = getSchemas
+  return schemas
+}
