@@ -52,6 +52,8 @@
     "install": "^0.13.0",
     "jsonschema": "^1.2.5",
     "load-json-file": "^6.2.0",
+    "lodash.clone": "^4.5.0",
+    "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
