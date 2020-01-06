@@ -1,0 +1,57 @@
+{
+  "text": {
+    "category": ["control"]
+  },
+  "radios": {
+    "category": ["control"]
+  },
+  "group": {
+    "category": ["grouping"],
+    "transforms": {
+      "namespace": {
+        "propagation": "items[?(@.$control || @.$grouping)]"
+      }
+    }
+  },
+  "page.start": {
+    "category": ["page"],
+    "transforms": {
+      "namespace": {
+        "propagation": "components[?(@.$control || @.$grouping)]"
+      }
+    }
+  },
+  "page.wham": {
+    "category": ["page"],
+    "transforms": {
+      "namespace": {
+        "propagation": "components[?(@.$control || @.$grouping)]"
+      }
+    }
+  },
+  "page.singlequestion": {
+    "category": ["page"],
+    "transforms": {
+      "namespace": {
+        "propagation": "components[?(@.$control || @.$grouping)]"
+      }
+    }
+  },
+  "page.form": {
+    "category": ["page"],
+    "transforms": {
+      "namespace": {
+        "propagation": "components[?(@.$control || @.$grouping)]"
+      }
+    }
+  },
+  "page.content": {
+    "category": ["page"],
+    "transforms": {
+      "namespace": {
+        "propagation": "components[?(@.$control || @.$grouping)]"
+      }
+    }
+  },
+  "noocategory": {}
+}

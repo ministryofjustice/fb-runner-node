@@ -1,0 +1,9 @@
+{
+  "topA": {
+    "_id": "topA",
+    "_type": "page.start",
+    "steps": [
+      "stepA"
+    ]
+  }
+}
