@@ -29,7 +29,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ministryofjustice/fb-client": "^1.0.3",
+    "@ministryofjustice/fb-client": "1.0.4",
     "@ministryofjustice/fb-components": "^1.0.1",
     "@ministryofjustice/fb-runtime-node": "^0.1.24",
     "@ministryofjustice/fb-utils-node": "^0.1.8",
