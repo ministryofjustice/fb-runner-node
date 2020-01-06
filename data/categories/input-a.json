@@ -1,0 +1,67 @@
+{
+  "foo": {
+    "_id": "foo",
+    "_type": "page.wham",
+    "namespace": "foonamespace",
+    "components": [
+      {
+        "_id": "foo-group",
+        "_type": "group",
+        "namespace": "wham",
+        "items": [
+          {
+            "_id": "foo-group-a",
+            "_type": "text",
+            "name": "foo-group-a-text",
+            "show": {
+              "_id": "condition.text_is",
+              "_type": "condition",
+              "identifier": "foo",
+              "operator": "is",
+              "value": "bar"
+            }
+          }
+        ]
+      },
+      {
+        "_id": "foo-bar",
+        "_type": "text"
+      },
+      {
+        "_id": "foo-bim",
+        "_type": "content"
+      },
+      {
+        "_id": "foo-with-namespace",
+        "_type": "radios",
+        "namespace": "monkey",
+        "namespaceProtect": true,
+        "show": {
+          "_id": "gosh",
+          "any": [
+            {
+              "identifier": "foo",
+              "operator": "is",
+              "value": "bar"
+            },
+            {
+              "all": [
+                {
+                  "identifier": "bam",
+                  "operator": "equals",
+                  "value": 20
+                },
+                {
+                  "identifier": "baz",
+                  "operator": "is",
+                  "value": "bar",
+                  "negated": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

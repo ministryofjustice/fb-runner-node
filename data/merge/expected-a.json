@@ -1,0 +1,57 @@
+{
+  "a": {
+    "$source": "source3",
+    "_id": "a",
+    "value": "source3 a"
+  },
+  "e": {
+    "$source": "source3",
+    "_id": "e",
+    "value": "source3 e"
+  },
+  "f": {
+    "$source": "source3",
+    "_id": "f",
+    "_isa": "e",
+    "value": "source3 e"
+  },
+  "g": {
+    "$source": "source3",
+    "_id": "g",
+    "_isa": "source2=>e",
+    "value": "source2 e"
+  },
+  "h": {
+    "$source": "source3",
+    "_id": "h",
+    "components": [
+      {
+        "$source": "source3",
+        "_id": "g--a",
+        "value": "source3 e",
+        "_isa": "e"
+      }
+    ]
+  },
+  "i": {
+    "$source": "source3",
+    "_id": "i",
+    "_isa": "b",
+    "value": "source1 b"
+  },
+  "d": {
+    "$source": "source2",
+    "_id": "d",
+    "value": "source2 d"
+  },
+  "b": {
+    "$source": "source1",
+    "_id": "b",
+    "value": "source1 b"
+  },
+  "c": {
+    "$source": "source1",
+    "_id": "c",
+    "value": "source1 c"
+  }
+}
