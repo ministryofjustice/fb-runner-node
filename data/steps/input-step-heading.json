@@ -1,0 +1,55 @@
+{
+  "topA": {
+    "_id": "topA",
+    "_type": "page.start",
+    "stepsHeading": "Top A section heading",
+    "steps": [
+      "stepA",
+      "stepB",
+      "stepD"
+    ]
+  },
+  "stepA": {
+    "_id": "stepA",
+    "_type": "page.singlequestion",
+    "steps": [
+      "stepC"
+    ]
+  },
+  "stepB": {
+    "_id": "stepB",
+    "_type": "page.form",
+    "sectionHeading": "Step B section heading",
+    "steps": [
+      "stepE",
+      "stepF"
+    ]
+  },
+  "stepC": {
+    "_id": "stepC",
+    "_type": "page.content"
+  },
+  "stepD": {
+    "_id": "stepD",
+    "_type": "page.content",
+    "sectionHeading": ""
+  },
+  "stepE": {
+    "_id": "stepE",
+    "_type": "page.form"
+  },
+  "stepF": {
+    "_id": "stepF",
+    "_type": "page.form",
+    "sectionHeading": "Step F section heading"
+  },
+  "topB": {
+    "_id": "topB",
+    "_type": "page.content"
+  },
+  "topC": {
+    "_id": "topC",
+    "_type": "page.content",
+    "stepsHeading": "Top C"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stepC": {
+    "_id": "stepC",
+    "_type": "page.content",
+    "namespace": "namespaceC",
+    "url": "step-c",
+    "repeatable": true
+  },
+  "stepA": {
+    "_id": "stepA",
+    "_type": "page.singlequestion",
+    "steps": [
+      "stepC"
+    ],
+    "url": "step-a"
+  },
+  "stepB": {
+    "_id": "stepB",
+    "_type": "page.form",
+    "namespaceProtect": true,
+    "url": "/step-b"
+  },
+  "stepZ": {
+    "_id": "stepZ",
+    "_type": "page.form",
+    "namespace": "namespaceZ",
+    "url": "step-z"
+  },
+  "topB": {
+    "_id": "topB",
+    "_type": "page.content",
+    "steps": [
+      "stepZ"
+    ]
+  },
+  "topA": {
+    "_id": "topA",
+    "_type": "page.start",
+    "namespace": "namespaceA",
+    "steps": [
+      "stepA",
+      "stepB"
+    ],
+    "url": "top-a"
+  },
+  "topD": {
+    "_id": "topD",
+    "_type": "page.bacon"
+  },
+  "topE": {
+    "_id": "topE",
+    "_type": "page.form",
+    "namespace": "namespaceE",
+    "repeatable": true,
+    "steps": [
+      "stepF"
+    ],
+    "url": "top-e"
+  },
+  "stepF": {
+    "_id": "stepF",
+    "_type": "page.form",
+    "namespace": "namespaceF",
+    "url": "step-f"
+  },
+  "mountedG": {
+    "_id": "mountedG",
+    "_type": "page.form",
+    "mountPoint": "topA",
+    "url": "mount-g"
+  },
+  "scopeA": {
+    "_id": "scopeA",
+    "_type": "page.form",
+    "scope": "another-scope",
+    "steps": [
+      "scopeB",
+      "scopeC"
+    ],
+    "url": "scope-a"
+  },
+  "scopeB": {
+    "_id": "scopeB",
+    "_type": "page.form",
+    "url": "scope-b"
+  },
+  "scopeC": {
+    "_id": "scopeC",
+    "_type": "page.form",
+    "scope": "own-scope",
+    "url": "scope-c"
+  },
+  "mountedContextD": {
+    "_id": "mountedContextD",
+    "_type": "page.form",
+    "mountPoint": "scopeA",
+    "url": "mounted-scope-d"
+  },
+  "root": {
+    "_id": "root",
+    "_type": "page.form",
+    "url": "/"
+  },
+  "mountOnRoot": {
+    "_id": "mountOnRoot",
+    "_type": "page.form",
+    "mountPoint": "root",
+    "url": "mount-on-root"
+  }
+}

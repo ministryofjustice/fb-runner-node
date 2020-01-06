@@ -1,0 +1,20 @@
+{
+  "topA": {
+    "_id": "topA",
+    "_type": "page.start",
+    "steps": [
+      "stepA"
+    ]
+  },
+  "stepA": {
+    "_id": "stepA",
+    "_type": "page.singlequestion"
+  },
+  "topB": {
+    "_id": "topB",
+    "_type": "page.form",
+    "steps": [
+      "stepA"
+    ]
+  }
+}
