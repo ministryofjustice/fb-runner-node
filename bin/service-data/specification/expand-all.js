@@ -13,6 +13,8 @@ const mkdirp = require('mkdirp')
 const getComponentsPath = require('./get-components-path')
 const getSchemas = require('./get-schemas')
 
+const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+
 const schemaUtils = require('~/fb-runner-node/service-data/specification')
 
 shell.config.silent = true
@@ -130,7 +132,7 @@ glob(`${componentsPath}/specifications/**/*/*.schema.json`)
           shell.mkdir('-p', `${categoryDir}/${sectionDir}/images`)
           shell.cp(`${specDocPath}/${category}/${section}/images/*`, `${categoryDir}/${sectionDir}/images/.`)
         } catch (e) {
-          /* ignore shell command errors */
+          FBLogger('Shell error - continuing')
         }
       }
       sections.forEach(copyCategorySection)
@@ -177,7 +179,7 @@ glob(`${componentsPath}/specifications/**/*/*.schema.json`)
         try {
           template = fs.readFileSync(`${schemaDir}/${schemaName}.njk`).toString()
         } catch (e) {
-          /* ignore failed attempt to load template file */
+          FBLogger('Template not found error - continuing')
         }
         let examplesOutput = ''
         const addExample = (example, exampleMd) => {
@@ -208,14 +210,14 @@ ${njkSource}
         try {
           shell.cp(`${schemaDir}/*.svg`, `${schemaDocDirPath}/.`)
         } catch (e) {
-          /* ignore shell command errors */
+          FBLogger('Shell error - continuing')
         }
         const schemaMdPath = `${schemaDir}/${schemaName}.schema.md`
         let schemaMd = ''
         try {
           schemaMd = fs.readFileSync(schemaMdPath).toString()
         } catch (e) {
-          /* ignore failed attempt to load schema documentation file */
+          FBLogger('Schema documentation not found error - continuing')
         }
         let schemaProperties = ''
         const propRows = []
@@ -395,6 +397,6 @@ ${schemaCategories}
     })
   })
   .catch(e => {
-    console.log('Unexpected error', e)
+    FBLogger('Unexpected error', e)
     process.exit(1)
   })

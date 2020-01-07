@@ -1,5 +1,7 @@
 const path = require('path')
 
+const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+
 module.exports = function getSchemas (specsPath = process.cwd()) {
   const schemas = []
 
@@ -10,7 +12,7 @@ module.exports = function getSchemas (specsPath = process.cwd()) {
     specifications.path = specsPath
     schemas.push(specifications)
   } catch (e) {
-    // no package.json
+    FBLogger('`package.json` not found error')
   }
 
   return schemas
