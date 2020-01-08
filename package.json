@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "engines": {
     "node": "12.4.0"
   },
@@ -41,8 +41,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ministryofjustice/fb-client": "1.0.4",
-    "@ministryofjustice/fb-components": "1.0.4",
+    "@ministryofjustice/fb-client": "1.0.5",
+    "@ministryofjustice/fb-components": "1.0.5",
     "@ministryofjustice/fb-utils-node": "^0.1.8",
     "@ministryofjustice/module-alias": "^1.0.8",
     "@promster/express": "^4.0.0",
@@ -64,6 +64,8 @@
     "install": "^0.13.0",
     "jsonschema": "^1.2.5",
     "load-json-file": "^6.2.0",
+    "lodash.clone": "^4.5.0",
+    "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
@@ -72,7 +74,7 @@
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
-    "node-html-parser": "^1.1.16",
+    "node-html-parser": "^1.1.17",
     "nunjucks": "^3.2.0",
     "path-to-regexp": "^6.1.0",
     "prom-client": "^11.5.3",
@@ -97,7 +99,7 @@
     "sinon": "^8.0.4",
     "supertest": "^4.0.2",
     "tap": "^14.10.5",
-    "tape": "^4.12.1"
+    "tape": "^4.13.0"
   },
   "_moduleAliases": {
     "~/fb-runner-node": "./lib"
