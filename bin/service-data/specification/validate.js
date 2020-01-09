@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 
+require('@ministryofjustice/module-alias/register')
+
 const glob = require('glob-promise')
 const getComponentsPath = require('./get-components-path')
 const getSchemas = require('./get-schemas')
 
 const validateSchema = require('~/fb-runner-node/service-data/specification/validate-schema')
 
-const {FBError, FBLogger} = require('@ministryofjustice/fb-utils-node')
+const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+
+const CommonError = require('~/fb-runner-node/error')
+
+class ValidateError extends CommonError {}
 
 const componentsPath = getComponentsPath()
-
-class FBValidateError extends FBError { }
 
 FBLogger.verbose(true)
 
@@ -85,11 +89,11 @@ const {
 let specs = []
 try {
   if (schemaPaths && !idRoots) {
-    throw new FBValidateError('No value passed for --idRoot when --path passed')
+    throw new ValidateError('No value passed for --idRoot when --path passed')
   }
 
   if (!schemaPaths && idRoots) {
-    throw new FBValidateError('No value passed for --path when --idRoot passed')
+    throw new ValidateError('No value passed for --path when --idRoot passed')
   }
 
   if (!schemaPaths && !idRoots) {
@@ -99,7 +103,7 @@ try {
     }
   } else if (schemaPaths) {
     if (schemaPaths.length !== idRoots.length) {
-      throw new FBValidateError('Different number of values for --path and --idRoot passed', {
+      throw new ValidateError('Different number of values for --path and --idRoot passed', {
         data: argv
       })
     }
