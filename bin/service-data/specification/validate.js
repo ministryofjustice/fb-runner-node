@@ -12,7 +12,7 @@ const {FBLogger} = require('@ministryofjustice/fb-utils-node')
 
 const CommonError = require('~/fb-runner-node/error')
 
-class ValidateError extends CommonError { }
+class ValidateError extends CommonError {}
 
 const componentsPath = getComponentsPath()
 
