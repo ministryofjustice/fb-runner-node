@@ -11,24 +11,26 @@ const schemaObjs = getSchemas(componentsPath)
 
 const {expandSchema} = schemaUtils(schemaObjs)
 
-const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+const debug = require('debug')
+const log = debug('runner:expand-schema')
+const error = debug('runner:expand-schema')
 
-FBLogger.verbose(true)
+debug.enable('runner:*')
 
 const schemaName = process.argv[2]
 if (schemaName) {
   expandSchema(schemaName)
     .then((schema) => {
-      FBLogger(JSON.stringify(schema, null, 2))
-      FBLogger('properties', JSON.stringify(Object.keys(schema.properties), null, 2))
-      FBLogger('--------')
+      log(JSON.stringify(schema, null, 2))
+      log('properties', JSON.stringify(Object.keys(schema.properties), null, 2))
+      log('--------')
       process.exit(0)
     })
     .catch((e) => {
-      FBLogger('Unexpected error', e)
+      error('Unexpected error', e)
       process.exit(1)
     })
 } else {
-  FBLogger('Please supply a schema name')
+  error('Please supply a schema name')
   process.exit(1)
 }
