@@ -2,8 +2,6 @@
 
 require('@ministryofjustice/module-alias/register')
 
-/* eslint-disable no-console */
-
 const glob = require('glob-promise')
 const fs = require('fs')
 const path = require('path')
@@ -13,7 +11,11 @@ const mkdirp = require('mkdirp')
 const getComponentsPath = require('./get-components-path')
 const getSchemas = require('./get-schemas')
 
-const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+const debug = require('debug')
+const log = debug('runner:expand-all')
+const error = debug('runner:expand-all')
+
+debug.enable('runner:*')
 
 const schemaUtils = require('~/fb-runner-node/service-data/specification')
 
@@ -132,7 +134,7 @@ glob(`${componentsPath}/specifications/**/*/*.schema.json`)
           shell.mkdir('-p', `${categoryDir}/${sectionDir}/images`)
           shell.cp(`${specDocPath}/${category}/${section}/images/*`, `${categoryDir}/${sectionDir}/images/.`)
         } catch (e) {
-          FBLogger('Shell error - continuing')
+          error('Shell error - continuing')
         }
       }
       sections.forEach(copyCategorySection)
@@ -158,9 +160,10 @@ glob(`${componentsPath}/specifications/**/*/*.schema.json`)
 
     const categories = splitByCategory(schemas, categoryOrder)
     Object.keys(categories).forEach(category => {
-      console.log(category)
-      console.log('------------------------')
-      console.log(categories[category].map(schema => schema.$id))
+      log(category)
+      log('------------------------')
+      log(categories[category].map(schema => schema.$id))
+
       const categoryDocPath = path.join(docPath, category)
       shell.mkdir('-p', categoryDocPath)
       shell.rm('-rf', `${categoryDocPath}/*`)
@@ -179,7 +182,7 @@ glob(`${componentsPath}/specifications/**/*/*.schema.json`)
         try {
           template = fs.readFileSync(`${schemaDir}/${schemaName}.njk`).toString()
         } catch (e) {
-          FBLogger('Template not found error - continuing')
+          error('Template not found error - continuing')
         }
         let examplesOutput = ''
         const addExample = (example, exampleMd) => {
@@ -210,14 +213,14 @@ ${njkSource}
         try {
           shell.cp(`${schemaDir}/*.svg`, `${schemaDocDirPath}/.`)
         } catch (e) {
-          FBLogger('Shell error - continuing')
+          error('Shell error - continuing')
         }
         const schemaMdPath = `${schemaDir}/${schemaName}.schema.md`
         let schemaMd = ''
         try {
           schemaMd = fs.readFileSync(schemaMdPath).toString()
         } catch (e) {
-          FBLogger('Schema documentation not found error - continuing')
+          error('Schema documentation not found error - continuing')
         }
         let schemaProperties = ''
         const propRows = []
@@ -397,6 +400,6 @@ ${schemaCategories}
     })
   })
   .catch(e => {
-    FBLogger('Unexpected error', e)
+    error('Unexpected error', e)
     process.exit(1)
   })

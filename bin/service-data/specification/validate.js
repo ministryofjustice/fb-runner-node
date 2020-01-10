@@ -8,15 +8,15 @@ const getSchemas = require('./get-schemas')
 
 const validateSchema = require('~/fb-runner-node/service-data/specification/validate-schema')
 
-const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+const debug = require('debug')
+const log = debug('runner:validate')
+const error = debug('runner:validate')
 
 const CommonError = require('~/fb-runner-node/error')
 
 class ValidateError extends CommonError {}
 
 const componentsPath = getComponentsPath()
-
-FBLogger.verbose(true)
 
 /**
  * Required:
@@ -81,7 +81,7 @@ const {
   directory,
   quiet,
   allErrors,
-  debug,
+  debug: debugInfo,
   path: schemaPaths,
   idRoot: idRoots
 } = argv
@@ -115,15 +115,15 @@ try {
       })
     })
   }
-} catch (e) {
-  FBLogger(e.message, e.data)
+} catch ({message, data}) {
+  error(message, data)
   process.exit(1)
 }
 
 const options = {
   specs,
   allErrors,
-  debug
+  debug: debugInfo
 }
 
 let files
@@ -131,14 +131,14 @@ let files
 if (argv._.length) {
   const firstArg = argv._[0]
   if (firstArg.includes('*')) {
-    FBLogger(`No json files found matching ${argv._[0]}`)
+    error(`No json files found matching ${argv._[0]}`)
     process.exit(1)
   }
   files = argv._
   if (argv._.length === 1 && !firstArg.endsWith('.json')) {
     files = glob.sync(`${firstArg}/*.json`)
     if (!files.length) {
-      FBLogger(`No json files found in ${directory}`)
+      error(`No json files found in ${directory}`)
       process.exit(1)
     }
   }
@@ -155,25 +155,25 @@ if (files) {
 validateSchema(schema, options)
   .then(results => {
     if (!results) {
-      FBLogger('OK')
+      log('OK')
     } else {
       if (quiet) {
         Object.keys(results).forEach(type => {
-          FBLogger(`Expected to be ${type} but not`)
+          error(`Expected to be ${type} but not`)
           results[type].forEach(result => {
-            FBLogger(`- ${result.path}`)
+            error(`- ${result.path}`)
           })
         })
       } else {
         Object.keys(results).forEach(type => {
-          FBLogger(`Expecting ${type} input`)
-          FBLogger(results[type])
+          error(`Expecting ${type} input`)
+          error(results[type])
         })
       }
       process.exit(1)
     }
   })
   .catch(e => {
-    FBLogger('Processing the data threw an unexpected error', e)
+    error('Processing the data threw an unexpected error', e)
     process.exit(1)
   })
