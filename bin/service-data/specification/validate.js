@@ -68,7 +68,7 @@ const argv = require('yargs')
     default: false
   })
   .check((argv, options) => {
-    const {path, schema} = argv
+    const { path, schema } = argv
     if (!path && !schema && !argv._.length) {
       return false
     }
@@ -115,7 +115,7 @@ try {
       })
     })
   }
-} catch ({message, data}) {
+} catch ({ message, data }) {
   error(message, data)
   process.exit(1)
 }

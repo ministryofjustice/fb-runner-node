@@ -24,7 +24,7 @@ shell.config.silent = true
 const componentsPath = getComponentsPath()
 const schemaObjs = getSchemas(componentsPath)
 
-const {expandSchema, getSchemaName, getSchemaDir, getRawSchema} = schemaUtils(schemaObjs)
+const { expandSchema, getSchemaName, getSchemaDir, getRawSchema } = schemaUtils(schemaObjs)
 
 const localDocPath = process.argv[2] || path.resolve('../fb-documentation')
 
