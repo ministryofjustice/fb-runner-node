@@ -17,7 +17,7 @@ const jsonFileErrors = []
 
 const testJSON = (file, options = {}) => {
   return new Promise((resolve, reject) => {
-    fs.readFile(file, {encoding: 'utf8'}, (e, jsonContent) => {
+    fs.readFile(file, { encoding: 'utf8' }, (e, jsonContent) => {
       if (e) {
         jsonFileErrors.push(`Could not open file - ${file}`)
       } else {
@@ -50,7 +50,7 @@ const testJSON = (file, options = {}) => {
 const testJSONFiles = (files, options) => Promise.all(files.map(file => testJSON(file, options)))
 
 glob(`${componentsPath}/specifications/**/*/*.schema.json`)
-  .then(files => testJSONFiles(files, {_name: true}))
+  .then(files => testJSONFiles(files, { _name: true }))
   .then(() => glob(`${componentsPath}/specifications/**/data/**/*/*.json`))
   .then(testJSONFiles)
   .then(() => {

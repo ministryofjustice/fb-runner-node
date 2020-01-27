@@ -9,7 +9,7 @@ const schemaUtils = require('~/fb-runner-node/service-data/specification')
 const componentsPath = getComponentsPath()
 const schemaObjs = getSchemas(componentsPath)
 
-const {expandSchema} = schemaUtils(schemaObjs)
+const { expandSchema } = schemaUtils(schemaObjs)
 
 const debug = require('debug')
 const log = debug('runner:expand-schema')
