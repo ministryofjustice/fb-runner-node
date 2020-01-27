@@ -91,7 +91,7 @@
     "write-file-atomic": "^3.0.1"
   },
   "devDependencies": {
-    "@ministryofjustice/fb-deploy-utils": "^1.0.14",
+    "@ministryofjustice/fb-deploy-utils": "^1.0.16",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
