@@ -41,9 +41,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ministryofjustice/fb-client": "1.0.9",
-    "@ministryofjustice/fb-components": "1.0.7",
-    "@ministryofjustice/module-alias": "^1.0.9",
+    "@ministryofjustice/fb-client": "1.0.10",
+    "@ministryofjustice/fb-components": "1.0.9",
+    "@ministryofjustice/module-alias": "^1.0.11",
     "@promster/express": "^4.0.0",
     "@sentry/node": "^5.11.1",
     "body-parser": "^1.19.0",
