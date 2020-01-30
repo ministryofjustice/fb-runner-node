@@ -61,6 +61,20 @@ export MODULE__ministryofjustice_fb_components_core='/path/to/your/form-builder/
 
 If you are not developing runner features, consider using the [Form Builder Editor Console](https://github.com/ministryofjustice/fb-editor-console-electron) instead.
 
+## Debugging
+
+The node inspect can be enabled can be enabled for debugging purposes. Below is an example command to start the application with the inspector
+
+```sh
+PORT=30002 SERVICE_PATH=../leavers-form node inspect bin/start.js
+```
+
+A breakpoint can then be placed in any JS code with the following statement
+
+```js
+debugger
+```
+
 ## Testing
 
 ```
