@@ -4,10 +4,10 @@ update_configs:
   - package_manager: "javascript"
     directory: "/"
     update_schedule: "live"
-    allowed_updates: &security_updates
+    allowed_updates:
       - match:
           update_type: "security"
-    default_reviewers: &default_reviewers
+    default_reviewers:
     - asmega
     - sequencemedialimited
     - mattempty
@@ -17,13 +17,33 @@ update_configs:
   - package_manager: "docker"
     directory: "/"
     update_schedule: "live"
-    allowed_updates: *security_updates
-    default_reviewers: *default_reviewers
+    allowed_updates:
+      - match:
+          update_type: "security"
+    default_reviewers:
+    - asmega
+    - sequencemedialimited
+    - mattempty
+    - form-builder-developers
+    - tomas-stefano
+    - brenetic
   - package_manager: "javascript"
     directory: "/"
     update_schedule: "weekly"
-    default_reviewers: *default_reviewers
+    default_reviewers:
+    - asmega
+    - sequencemedialimited
+    - mattempty
+    - form-builder-developers
+    - tomas-stefano
+    - brenetic
   - package_manager: "docker"
     directory: "/"
     update_schedule: "weekly"
-    default_reviewers: *default_reviewers
+    default_reviewers:
+    - asmega
+    - sequencemedialimited
+    - mattempty
+    - form-builder-developers
+    - tomas-stefano
+    - brenetic
