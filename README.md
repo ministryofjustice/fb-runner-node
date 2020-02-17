@@ -53,6 +53,7 @@ export USER_FILESTORE_URL=http://localhost:44445
 export SUBMITTER_URL=http://localhost:44446
 export SERVICE_SECRET=sekrit
 export SERVICE_SLUG=slug
+export MODULE__ministryofjustice_fb_components_core='/path/to/your/form-builder/fb-components-core'
 ```
 
 * Within this `fb-runner-node` repo, run this command: `source .envmocks && SERVICE_PATH=/path/to/your/form npm start`
