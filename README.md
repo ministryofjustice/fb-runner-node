@@ -52,7 +52,6 @@ export USER_DATASTORE_URL=http://localhost:44444
 export USER_FILESTORE_URL=http://localhost:44445
 export SUBMITTER_URL=http://localhost:44446
 export SERVICE_SECRET=sekrit
-export SERVICE_TOKEN=token
 export SERVICE_SLUG=slug
 export MODULE__ministryofjustice_fb_components_core='/path/to/your/form-builder/fb-components-core'
 ```

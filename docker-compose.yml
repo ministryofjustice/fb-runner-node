@@ -15,7 +15,6 @@ services:
 #       USER_FILESTORE_URL: http://localhost:44445
 #       SUBMITTER_URL: http://localhost:44446
 #       SERVICE_SECRET: sekrit
-#       SERVICE_TOKEN: token
 #       SERVICE_SLUG: slug
     volumes:
       - '.:/app'

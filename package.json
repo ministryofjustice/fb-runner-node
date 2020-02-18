@@ -41,11 +41,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ministryofjustice/fb-client": "1.0.11",
+    "@ministryofjustice/fb-client": "2.0.0",
     "@ministryofjustice/fb-components": "1.0.10",
     "@ministryofjustice/module-alias": "^1.0.11",
     "@promster/express": "^4.0.0",
     "@sentry/node": "^5.12.3",
+    "aes256": "^1.0.4",
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.12",
     "bytes": "^3.1.0",
