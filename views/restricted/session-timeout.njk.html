@@ -1,1 +1,15 @@
 {% extends "base.njk.html" %}
+
+{% block main %}
+  <div class="govuk-width-container govuk-body-m">
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1>Session timed out</h1>
+          <h3>Sorry, your session has timed out due to inactivity.</h3>
+          <a href='/' class="fb-block fb-block-actions govuk-button">Start again</a>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
