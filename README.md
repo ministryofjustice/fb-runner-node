@@ -1,6 +1,6 @@
 # fb-runner-node
 
-**Form Builder Runner** creates forms from configuration data to capture user submissions.
+**Form Builder Runner** renders forms from configuration data to capture user submissions.
 
 For more information, read [the Runner’s documentation](https://github.com/ministryofjustice/form-builder/blob/master/documentation/running/running.md).
 
