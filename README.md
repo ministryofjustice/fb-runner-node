@@ -49,7 +49,6 @@ export USER_FILESTORE_URL=http://localhost:44445
 export SUBMITTER_URL=http://localhost:44446
 export SERVICE_SECRET=sekrit
 export SERVICE_SLUG=slug
-export MODULE__ministryofjustice_fb_components_core='/path/to/your/form-builder/fb-components-core'
 ```
 
 Open a terminal and change into the root directory of **Runner** then execute the command:
