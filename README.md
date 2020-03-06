@@ -1,16 +1,15 @@
 # fb-runner-node
-[![Build Status](https://travis-ci.org/ministryofjustice/fb-runner-node.svg?branch=master)](https://travis-ci.org/ministryofjustice/fb-runner-node)
 
-Form Builder Runner is an application that provides generic backend code and templates to create forms from data representations.
+**Form Builder Runner** renders forms from configuration data to capture user submissions.
 
-For more details, read the [Runner’s documentation](https://github.com/ministryofjustice/form-builder/blob/master/documentation/running/running.md)
+For more information, read [the Runner’s documentation](https://github.com/ministryofjustice/form-builder/blob/master/documentation/running/running.md).
 
 
 ## Pre-requisites
 
-  [Node](https://nodejs.org)
+[Node](https://nodejs.org) >= 12.4.0
 
-## Installing
+## Installation
 
 ```
 git clone git@github.com:ministryofjustice/fb-runner-node.git
@@ -20,32 +19,29 @@ npm install
 
 ## Usage
 
-Set the `SERVICE_PATH` environment variable to point the path of form data on your filesystem.
+The `SERVICE_PATH` environment variable describes the location on your file system of the form for **Runner** to use.
+
+To set the `SERVICE_PATH` environment variable, open a terminal and change into the root directory of **Runner**, then execute the command:
 
 ```sh
-SERVICE_PATH=/path/to/form npm start
+SERVICE_PATH=[path to form] npm start
 ```
 
-An example form can be checked out from `https://github.com/ministryofjustice/fb-example-service`
+(Where `[path to form]` is a path to the location on your file system of the form. An **Example Service** form can be cloned from `https://github.com/ministryofjustice/fb-example-service`.)
 
-By default, Form Builder Runner will use port 3000. If you want to run on a different port, set the `PORT` environment variable.
+By default, **Runner** will start on localhost port `3000`. To run on a different port, set the `PORT` environment variable:
 
 ```sh
-PORT=4321 SERVICE_PATH=/path/to/form npm start
+PORT=4321 SERVICE_PATH=[path to form] npm start
 ```
 
-### Components usage
+### Using **Runner** with **Mock Services**
 
-By default the runner uses the module `@ministryofjustice/fb-components-core`, using the version defined in `lib/constants/constant.js`
+Use [fb-mock-services](https://github.com/ministryofjustice/fb-mock-services) to mock services for **Runner**.
 
-[Read more about components usage](components.md)
+Clone the [fb-mock-services](https://github.com/ministryofjustice/fb-mock-services) repository and start the **Mock Services** app according to the instructions supplied there.
 
-### Using the fb-runnner-node with a mocked backend
-
-Use [fb-mock-services](https://github.com/ministryofjustice/fb-mock-services) to mock out the services which your local instance of fb-runner-node (this repo) communicates with.
-
-* In one terminal tab, run the [fb-mock-services](https://github.com/ministryofjustice/fb-mock-services) project according to its instructions (e.g. `MOCKENV=yes npm start`)
-* Create an `.envmocks` file within this project, the contents of which are:
+In **Runner**, create an `.envmocks` file at the root of the project:
 
 ```sh
 export USER_DATASTORE_URL=http://localhost:44444
@@ -53,26 +49,15 @@ export USER_FILESTORE_URL=http://localhost:44445
 export SUBMITTER_URL=http://localhost:44446
 export SERVICE_SECRET=sekrit
 export SERVICE_SLUG=slug
-export MODULE__ministryofjustice_fb_components_core='/path/to/your/form-builder/fb-components-core'
 ```
 
-* Within this `fb-runner-node` repo, run this command: `source .envmocks && SERVICE_PATH=/path/to/your/form npm start`
+Open a terminal and change into the root directory of **Runner** then execute the command:
 
-If you are not developing runner features, consider using the [Form Builder Editor Console](https://github.com/ministryofjustice/fb-editor-console-electron) instead.
-
-## Debugging
-
-The node inspect can be enabled can be enabled for debugging purposes. Below is an example command to start the application with the inspector
-
-```sh
-PORT=30002 SERVICE_PATH=../leavers-form node inspect bin/start.js
+```
+source .envmocks && SERVICE_PATH=[path to form] npm start
 ```
 
-A breakpoint can then be placed in any JS code with the following statement
-
-```js
-debugger
-```
+(Where `[path to form]` is a path to the location on your file system of the form.)
 
 ## Testing
 
@@ -80,34 +65,38 @@ debugger
 npm test
 ```
 
-Run unit tests only
+## Linting
 
-```
-npm run test:unit
-```
-
-Run a single unit test
-
-```
-./node_modules/.bin/multi-tape lib/controller/page/type/page.summary/page.summary.controller.unit.spec.js
-```
-
-Run linting only
 ```
 npm run lint
 ```
 
-## To deploy and run on Cloud Platforms
+## Debugging
 
-See [deployment instructions](DEPLOY.md)
+[Node inspector](https://nodejs.org/api/debugger.html) can be enabled for debugging.
+
+Open a terminal and change into the root directory of **Runner** then execute the command:
+
+```sh
+PORT=4321 SERVICE_PATH=[path to form] node inspect bin/start
+```
+(Where `[path to form]` is a path to the location on your file system of the form.)
+
+Note that the start command is _not_ `npm start`.
+
+The breakpoint statement `debugger` can then be placed in file to trigger the inspector.
+
+## Deploying to Cloud Platforms
+
+See [deployment instructions](DEPLOY.md).
 
 ## Module Aliases
 
 Some module paths are _aliased_.
 
-At runtime they are resolved with [`module-alias`](https://www.npmjs.com/package/module-alias). Its definitions can be found in the `_moduleAliases {}` field on `package.json`.
+At runtime they are resolved with [`@ministryofjustice/module-alias`](https://www.npmjs.com/package/@ministryofjustice/module-alias). (Its definitions can be found in the `_moduleAliases {}` field on `package.json`.)
 
-During development the aliases can be resolved in different ways according to needs of the developer's IDE. A solution we provide is via Webpack, [which is supported automatically in WebStorm and related IDEs](https://blog.jetbrains.com/webstorm/2017/06/webstorm-2017-2-eap-172-2827/), or with some [manual steps](https://stackoverflow.com/questions/34943631/path-aliases-for-imports-in-webstorm).
+During development aliases can be resolved in different ways according to needs of the developer's IDE. A solution we provide is via Webpack, [which is supported automatically in WebStorm and related IDEs](https://blog.jetbrains.com/webstorm/2017/06/webstorm-2017-2-eap-172-2827/), or with some [manual steps](https://stackoverflow.com/questions/34943631/path-aliases-for-imports-in-webstorm).
 
 At start-up WebStorm will report in the *Event Log* that "Module resolution rules from `webpack.config.js` are now used for coding assistance" if the configuration is automatically identified -- if not, follow the manual steps:
 
