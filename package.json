@@ -10,7 +10,7 @@
     "start": "node bin/start",
     "lint": "eslint lib bin",
     "lint:fix": "eslint lib bin --fix",
-    "test": "tap",
+    "test": "DEBUG=runner* tap",
     "expand-all": "expand-all",
     "expand-schema": "expand-schema",
     "format-data": "format-data",
