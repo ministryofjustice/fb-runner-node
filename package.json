@@ -7,7 +7,7 @@
   "description": "Form Builder Runner (for Node)",
   "main": "./index.js",
   "scripts": {
-    "start": "node bin/start",
+    "start": "DEBUG=runner* node bin/start",
     "lint": "eslint lib bin",
     "lint:fix": "eslint lib bin --fix",
     "test": "DEBUG=runner* tap",
