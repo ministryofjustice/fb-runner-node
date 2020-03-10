@@ -1,20 +1,22 @@
-const path = require('path')
-const init = require('@ministryofjustice/module-alias')
+require('@ministryofjustice/module-alias/register-module')(module)
+const server = require('~/fb-runner-node/server/server')
 
-const APP_DIR = path.resolve(__dirname, '..')
+const debug = require('debug')
+const log = debug('runner:start:log')
+const error = debug('runner:start:error')
 
-process.env.APP_DIR = APP_DIR
+async function start () {
+  log('Runner starting ...')
 
-init(APP_DIR)
-
-const start = async () => {
   try {
-    const server = require('~/fb-runner-node/server/server')
     await server.start()
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e)
+
+    log('... Done')
+  } catch ({ message }) {
+    error(message)
+
     process.exit(1)
   }
 }
-start()
+
+module.exports = start()

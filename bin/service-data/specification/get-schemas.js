@@ -1,8 +1,8 @@
 const path = require('path')
 
 const debug = require('debug')
-const log = debug('runner:get-schema')
-const error = debug('runner:get-schema')
+const log = debug('runner:get-schema:log')
+const error = debug('runner:get-schema:error')
 
 module.exports = function getSchemas (specsPath = process.cwd()) {
   const schemas = []

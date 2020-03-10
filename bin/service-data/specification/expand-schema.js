@@ -12,8 +12,8 @@ const schemaObjs = getSchemas(componentsPath)
 const { expandSchema } = schemaUtils(schemaObjs)
 
 const debug = require('debug')
-const log = debug('runner:expand-schema')
-const error = debug('runner:expand-schema')
+const log = debug('runner:expand-schema:log')
+const error = debug('runner:expand-schema:error')
 
 debug.enable('runner:*')
 

@@ -1,16 +1,16 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.1.41",
+  "version": "0.1.42",
   "engines": {
     "node": "12.4.0"
   },
   "description": "Form Builder Runner (for Node)",
   "main": "./index.js",
   "scripts": {
-    "start": "node bin/start",
+    "start": "DEBUG=runner* node bin/start",
     "lint": "eslint lib bin",
     "lint:fix": "eslint lib bin --fix",
-    "test": "tap",
+    "test": "DEBUG=runner* tap",
     "expand-all": "expand-all",
     "expand-schema": "expand-schema",
     "format-data": "format-data",
@@ -71,7 +71,7 @@
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
-    "node-html-parser": "^1.2.8",
+    "node-html-parser": "^1.2.12",
     "nunjucks": "^3.2.0",
     "path-to-regexp": "^6.1.0",
     "prom-client": "^12.0.0",
@@ -96,7 +96,7 @@
     "mock-express-request": "^0.2.2",
     "mock-express-response": "^0.2.2",
     "rewiremock": "^3.13.9",
-    "sinon": "^9.0.0",
+    "sinon": "^9.0.1",
     "supertest": "^4.0.2",
     "tap": "^14.10.6",
     "tape": "^4.13.2"
