@@ -9,8 +9,8 @@ const getSchemas = require('./get-schemas')
 const validateSchema = require('~/fb-runner-node/service-data/specification/validate-schema')
 
 const debug = require('debug')
-const log = debug('runner:validate')
-const error = debug('runner:validate')
+const log = debug('runner:validate:log')
+const error = debug('runner:validate:error')
 
 const CommonError = require('~/fb-runner-node/error')
 

@@ -6,8 +6,8 @@ const fs = require('fs')
 const jsonlint = require('jsonlint')
 
 const debug = require('debug')
-const log = debug('runner:lint-schemas')
-const error = debug('runner:lint-schemas')
+const log = debug('runner:lint-schemas:log')
+const error = debug('runner:lint-schemas:error')
 
 const getComponentsPath = require('./get-components-path')
 

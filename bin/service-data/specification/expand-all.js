@@ -12,8 +12,8 @@ const getComponentsPath = require('./get-components-path')
 const getSchemas = require('./get-schemas')
 
 const debug = require('debug')
-const log = debug('runner:expand-all')
-const error = debug('runner:expand-all')
+const log = debug('runner:expand-all:log')
+const error = debug('runner:expand-all:error')
 
 debug.enable('runner:*')
 
