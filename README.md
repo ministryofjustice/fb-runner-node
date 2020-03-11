@@ -44,12 +44,42 @@ Clone the [fb-mock-services](https://github.com/ministryofjustice/fb-mock-servic
 In **Runner**, create an `.envmocks` file at the root of the project:
 
 ```sh
+export SERVICE_SLUG=slug
+export SERVICE_SECRET=secret
+export SERVICE_TOKEN=token
 export USER_DATASTORE_URL=http://localhost:44444
 export USER_FILESTORE_URL=http://localhost:44445
 export SUBMITTER_URL=http://localhost:44446
-export SERVICE_SECRET=sekrit
-export SERVICE_SLUG=slug
 ```
+
+Open a terminal and change into the root directory of **Runner** then execute the command:
+
+```
+source .envmocks && SERVICE_PATH=[path to form] npm start
+```
+
+(Where `[path to form]` is a path to the location on your file system of the form.)
+
+### Using **Runner** with **Docker Services**
+
+Use [fb-acceptance-tests](https://github.com/ministryofjustice/fb-acceptance-tests) to mock services for **Runner**.
+
+Clone the [fb-acceptance-tests](https://github.com/ministryofjustice/fb-acceptance-tests) repository and execute the **make serve** command according to the instructions supplied there.
+
+In **Runner**, create an `.envmocks` file at the root of the project:
+
+```sh
+export SERVICE_SLUG=slug
+export SERVICE_SECRET=secret
+export SERVICE_TOKEN=token
+export USER_DATASTORE_URL=http://localhost:10001
+export USER_FILESTORE_URL=http://localhost:10002
+export SUBMITTER_URL=http://localhost:10003
+export ENCODED_PRIVATE_KEY=[encoded private key]
+export ENCODED_PUBLIC_KEY=[encoded public key]
+```
+
+Where `[encoded private key]` and `[encoded public key]` are the same as the values supplied to the services in the `docker-compose.yml` file at the root of the `fb-acceptance-test` project. (Currently, they are also contained in `.env.example` file at the root of _this_ project.)
 
 Open a terminal and change into the root directory of **Runner** then execute the command:
 
