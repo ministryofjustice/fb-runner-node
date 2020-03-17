@@ -4,6 +4,7 @@ public/
 APP_SHA
 
 .env
+.envmocks
 WORKINGNOTES/
 
 # Logs
