@@ -59,6 +59,7 @@
     "express-basic-auth": "^1.2.0",
     "fast-deep-equal": "^3.1.1",
     "glob": "^7.1.6",
+    "jsonpath": "^1.0.2",
     "jsonschema": "^1.2.5",
     "load-json-file": "^6.2.0",
     "lodash.clone": "^4.5.0",
