@@ -5,7 +5,6 @@ update_configs:
     directory: "/"
     update_schedule: "live"
     default_reviewers:
-    - sequencemedialimited
     - mattempty
     - form-builder-developers
     - tomas-stefano
@@ -14,7 +13,6 @@ update_configs:
     directory: "/"
     update_schedule: "daily"
     default_reviewers:
-    - sequencemedialimited
     - mattempty
     - form-builder-developers
     - tomas-stefano
