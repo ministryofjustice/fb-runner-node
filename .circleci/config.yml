@@ -150,9 +150,7 @@ workflows:
             - test
           filters:
             branches:
-              only:
-                - master
-                - add-maintenance-page
+              only: master
       - restart_test:
           requires:
             - build_to_test
