@@ -132,11 +132,13 @@ workflows:
   version: 2
   test_and_build:
     jobs:
+      - test
       - trigger_acceptance_tests:
+          requires:
+            - test
           filters:
             branches:
               only: master
-      - test
       - publish:
           requires:
             - test
