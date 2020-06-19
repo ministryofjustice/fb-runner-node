@@ -101,7 +101,7 @@
     "yargs": "^15.3.1"
   },
   "devDependencies": {
-    "@ministryofjustice/fb-deploy-utils": "^1.0.16",
+    "@ministryofjustice/fb-deploy-utils": "^1.1.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.2.0",
     "eslint-config-standard": "^14.1.1",
