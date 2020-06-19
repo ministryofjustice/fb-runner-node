@@ -173,9 +173,7 @@ workflows:
             - test
           filters:
             branches:
-              only:
-                - master
-                - deploy-to-pentest
+              only: master
       - restart_pentest:
           requires:
             - build_to_pentest
