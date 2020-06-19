@@ -71,6 +71,27 @@ jobs:
       - restart_runners:
           env-name: test-production
           kube-token: KUBE_TOKEN_TEST_PRODUCTION
+  build_to_pentest:
+    docker: *ecr_image
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: npm install
+          command: npm install
+      - run:
+          name: Build pentest image
+          command: scripts/circleci_build.sh pentest
+  restart_pentest:
+    docker:
+      - image: circleci/ruby:latest
+    steps:
+      - restart_runners:
+          env-name: pentest-dev
+          kube-token: KUBE_TOKEN_PENTEST_DEV
+      - restart_runners:
+          env-name: pentest-production
+          kube-token: KUBE_TOKEN_PENTEST_PRODUCTION
   build_to_live:
     docker: *ecr_image
     steps:
@@ -147,6 +168,15 @@ workflows:
               only: /^v.*/
             branches:
               only: master
+      - build_to_pentest:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+      - restart_pentest:
+          requires:
+            - build_to_pentest
       - build_to_test:
           requires:
             - test

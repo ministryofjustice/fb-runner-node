@@ -17,8 +17,8 @@ test:
 	$(eval export env_stub=test)
 	@true
 
-integration:
-	$(eval export env_stub=integration)
+pentest:
+	$(eval export env_stub=pentest)
 	@true
 
 live:
@@ -29,7 +29,7 @@ target:
 ifeq ($(TARGETDEFINED), "true")
 	$(eval export env_stub=${TARGET})
 	@true
-else 
+else
 	$(info Must set TARGET)
 	@false
 endif
