@@ -17,10 +17,6 @@ test:
 	$(eval export env_stub=test)
 	@true
 
-pentest:
-	$(eval export env_stub=pentest)
-	@true
-
 live:
 	$(eval export env_stub=live)
 	@true
