@@ -60,3 +60,10 @@ jspm_packages
 
 # WebStorm, etc
 .idea
+
+## Ignore files form integration tests
+Dockerfile.forms
+Procfile
+Procfile.local
+forms/
+integration/
