@@ -2,7 +2,7 @@
   "name": "@ministryofjustice/fb-runner-node",
   "version": "0.3.3",
   "engines": {
-    "node": ">=12.4.0"
+    "node": ">=14.5.0"
   },
   "description": "Form Builder Runner (for Node)",
   "main": "./index.js",
