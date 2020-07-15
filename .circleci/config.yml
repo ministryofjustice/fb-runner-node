@@ -152,7 +152,9 @@ workflows:
             - test
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - xss-test
       - restart_test:
           requires:
             - build_to_test
