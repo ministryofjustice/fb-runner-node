@@ -47,6 +47,7 @@ In **Runner**, create an `.envmocks` file at the root of the project:
 export SERVICE_SLUG=slug
 export SERVICE_SECRET=secret
 export SERVICE_TOKEN=token
+export SUBMISSION_ENCRYPTION_KEY=key
 export USER_DATASTORE_URL=http://localhost:44444
 export USER_FILESTORE_URL=http://localhost:44445
 export SUBMITTER_URL=http://localhost:44446
