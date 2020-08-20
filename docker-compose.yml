@@ -16,6 +16,7 @@ services:
 #       SUBMITTER_URL: http://localhost:44446
 #       SERVICE_SECRET: sekrit
 #       SERVICE_SLUG: slug
+#       SUBMISSION_ENCRYPTION_KEY: key
     volumes:
       - '.:/app'
       - 'node_modules:/usr/src/app/node_modules'
