@@ -30,6 +30,9 @@ commands:
       - run:
           name: restart << parameters.env-name >> runners
           command: kubectl rollout restart deployments -n formbuilder-services-<< parameters.env-name >>
+      - run:
+          name: restart << parameters.env-name >> runner
+          command: kubectl get deploy --output name -n formbuilder-services-<< parameters.env-name >> | xargs -n1 -t kubectl rollout status -n formbuilder-services-<< parameters.env-name >>
 
 jobs:
   test:
@@ -94,12 +97,20 @@ jobs:
           kube-token: KUBE_TOKEN_LIVE_PRODUCTION
 
   trigger_acceptance_tests:
-    docker:
-      - image: circleci/ruby:latest
+    working_directory: ~/circle/git/fb-runner-node
+    docker: *ecr_image
     steps:
+      - checkout
+      - setup_remote_docker
+      - add_ssh_keys:
+          fingerprints:
+            - "e3:25:34:15:2b:c4:d3:b7:c3:94:9f:50:dd:c3:0f:de"
+      - run:
+          name: cloning deploy scripts
+          command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
       - run:
           name: "Trigger Acceptance Tests"
-          command: "curl -u ${CIRCLE_TOKEN}: -X POST https://circleci.com/api/v2/project/github/ministryofjustice/fb-acceptance-tests/pipeline -H 'Content-Type: application/json' -H 'Accept: application/json'"
+          command: './deploy-scripts/bin/acceptance_tests'
 
   publish:
     docker:
@@ -133,12 +144,6 @@ workflows:
   test_and_build:
     jobs:
       - test
-      - trigger_acceptance_tests:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
       - publish:
           requires:
             - test
@@ -146,16 +151,27 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              only: master
+              only:
+                - master
       - build_to_test:
           requires:
             - test
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - add-acceptance-test-ci-mode
       - restart_test:
           requires:
             - build_to_test
+      - trigger_acceptance_tests:
+          requires:
+            - restart_test
+          filters:
+            branches:
+              only:
+                - master
+                - add-acceptance-test-ci-mode
       - confirm_live_build:
           type: approval
           requires:
