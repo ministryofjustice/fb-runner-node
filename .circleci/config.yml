@@ -31,7 +31,7 @@ commands:
           name: restart << parameters.env-name >> runners
           command: kubectl rollout restart deployments -n formbuilder-services-<< parameters.env-name >>
       - run:
-          name: restart << parameters.env-name >> runner
+          name: rollout status deployment << parameters.env-name >> runner
           command: kubectl get deploy --output name -n formbuilder-services-<< parameters.env-name >> | xargs -n1 -t kubectl rollout status -n formbuilder-services-<< parameters.env-name >>
 
 jobs:
@@ -160,7 +160,6 @@ workflows:
             branches:
               only:
                 - master
-                - add-acceptance-test-ci-mode
       - restart_test:
           requires:
             - build_to_test
@@ -171,11 +170,10 @@ workflows:
             branches:
               only:
                 - master
-                - add-acceptance-test-ci-mode
       - confirm_live_build:
           type: approval
           requires:
-            - build_to_test
+            - trigger_acceptance_tests
       - build_to_live:
           requires:
             - confirm_live_build
