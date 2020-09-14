@@ -1,39 +1,5 @@
 version: 2.1
 
-commands:
-  restart_runners:
-    description: "restart runners for env"
-    parameters:
-      env-name:
-        type: string
-        description: 'eg test-dev, live-production'
-      kube-token:
-        type: env_var_name
-        description: 'kube token from circleci env vars'
-    steps:
-      - kube-orb/install-kubectl
-      - run:
-          name: kubectl fetch cert
-          command: echo -n "$KUBE_CERTIFICATE_AUTHORITY" | base64 -d > .kube_certificate_authority
-      - run:
-          name: kubectl config cluster
-          command: kubectl config set-cluster "$KUBE_CLUSTER" --certificate-authority=".kube_certificate_authority" --server="$KUBE_SERVER"
-      - run:
-          name: kubectl config credentials
-          command: kubectl config set-credentials "circleci_<< parameters.env-name >>" --token="${<< parameters.kube-token >>}"
-      - run:
-          name: kubectl set context
-          command: kubectl config set-context "circleci_<< parameters.env-name >>" --cluster="$KUBE_CLUSTER" --user="circleci_<< parameters.env-name >>" --namespace="formbuilder-services-<< parameters.env-name >>"
-      - run:
-          name: kubectl use context
-          command: kubectl config use-context "circleci_<< parameters.env-name >>"
-      - run:
-          name: restart << parameters.env-name >> runners
-          command: kubectl rollout restart deployments -n formbuilder-services-<< parameters.env-name >>
-      - run:
-          name: rollout status deployment << parameters.env-name >> runner
-          command: kubectl get deploy --output name -n formbuilder-services-<< parameters.env-name >> | xargs -n1 -t kubectl rollout status -n formbuilder-services-<< parameters.env-name >>
-
 jobs:
   test:
     docker:
@@ -49,52 +15,80 @@ jobs:
       - run:
           name: Test
           command: npm run test
-  build_to_test:
+  build_and_deploy_to_test:
     docker: &ecr_image
-      - image: $AWS_ECR_ACCOUNT_URL
+      - image: $AWS_BUILD_IMAGE_ECR_ACCOUNT_URL
         aws_auth:
-          aws_access_key_id: $AWS_ACCESS_KEY_ID
-          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
+          aws_access_key_id: $AWS_BUILD_IMAGE_ACCESS_KEY_ID
+          aws_secret_access_key: $AWS_BUILD_IMAGE_SECRET_ACCESS_KEY
     steps:
       - checkout
       - setup_remote_docker
+      - add_ssh_keys:
+          fingerprints:
+            - "e3:25:34:15:2b:c4:d3:b7:c3:94:9f:50:dd:c3:0f:de"
       - run:
-          name: npm install
-          command: npm install
+          name: Setup base environment variable
+          command: |
+            echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
+            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_e32534152bc4d3b7c3949f50ddc30fde" >> $BASH_ENV
       - run:
-          name: Build test image
-          command: scripts/circleci_build.sh test
-  restart_test:
-    docker:
-      - image: circleci/ruby:latest
-    steps:
-      - restart_runners:
-          env-name: test-dev
-          kube-token: KUBE_TOKEN_TEST_DEV
-      - restart_runners:
-          env-name: test-production
-          kube-token: KUBE_TOKEN_TEST_PRODUCTION
-  build_to_live:
+          name: cloning deploy scripts
+          command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
+      - run:
+          name: build and push docker images
+          environment:
+            ENVIRONMENT_NAME: test
+          command: './deploy-scripts/bin/build'
+      - run:
+          name: Restart the runners test dev
+          environment:
+            PLATFORM_ENV: test
+            DEPLOYMENT_ENV: dev
+            K8S_NAMESPACE: formbuilder-services-test-dev
+          command: './deploy-scripts/bin/restart_all_pods'
+      - run:
+          name: Restart the runners in test production
+          environment:
+            PLATFORM_ENV: test
+            DEPLOYMENT_ENV: production
+            K8S_NAMESPACE: formbuilder-services-test-production
+          command: './deploy-scripts/bin/restart_all_pods'
+  build_and_deploy_to_live:
     docker: *ecr_image
     steps:
       - checkout
       - setup_remote_docker
+      - add_ssh_keys:
+          fingerprints:
+            - "e3:25:34:15:2b:c4:d3:b7:c3:94:9f:50:dd:c3:0f:de"
       - run:
-          name: npm install
-          command: npm install
+          name: Setup base environment variable
+          command: |
+            echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
+            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_e32534152bc4d3b7c3949f50ddc30fde" >> $BASH_ENV
       - run:
-          name: Build live image
-          command: scripts/circleci_build.sh live
-  restart_live:
-    docker:
-      - image: circleci/ruby:latest
-    steps:
-      - restart_runners:
-          env-name: live-dev
-          kube-token: KUBE_TOKEN_LIVE_DEV
-      - restart_runners:
-          env-name: live-production
-          kube-token: KUBE_TOKEN_LIVE_PRODUCTION
+          name: cloning deploy scripts
+          command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
+      - run:
+          name: build and push docker images
+          environment:
+            ENVIRONMENT_NAME: live
+          command: './deploy-scripts/bin/build'
+      - run:
+          name: Restart the runners live dev
+          environment:
+            PLATFORM_ENV: live
+            DEPLOYMENT_ENV: dev
+            K8S_NAMESPACE: formbuilder-services-live-dev
+          command: './deploy-scripts/bin/restart_all_pods'
+      - run:
+          name: Restart the runners in live production
+          environment:
+            PLATFORM_ENV: test
+            DEPLOYMENT_ENV: production
+            K8S_NAMESPACE: formbuilder-services-live-production
+          command: './deploy-scripts/bin/restart_all_pods'
 
   trigger_acceptance_tests:
     working_directory: ~/circle/git/fb-runner-node
@@ -153,19 +147,16 @@ workflows:
             branches:
               only:
                 - master
-      - build_to_test:
+      - build_and_deploy_to_test:
           requires:
             - test
           filters:
             branches:
               only:
                 - master
-      - restart_test:
-          requires:
-            - build_to_test
       - trigger_acceptance_tests:
           requires:
-            - restart_test
+            - build_and_deploy_to_test
           filters:
             branches:
               only:
@@ -174,9 +165,6 @@ workflows:
           type: approval
           requires:
             - trigger_acceptance_tests
-      - build_to_live:
+      - build_and_deploy_to_live:
           requires:
             - confirm_live_build
-      - restart_live:
-          requires:
-            - build_to_live
