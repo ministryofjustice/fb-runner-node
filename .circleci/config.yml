@@ -85,7 +85,7 @@ jobs:
       - run:
           name: Restart the runners in live production
           environment:
-            PLATFORM_ENV: test
+            PLATFORM_ENV: live
             DEPLOYMENT_ENV: production
             K8S_NAMESPACE: formbuilder-services-live-production
           command: './deploy-scripts/bin/restart_all_pods'
