@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  slack: circleci/slack@3.4.2
 
 jobs:
   test:
@@ -15,6 +17,11 @@ jobs:
       - run:
           name: Test
           command: npm run test
+      - slack/status: &slack_status
+          fail_only: true
+          only_for_branches: master
+          failure_message: ":facepalm:  Failed job $CIRCLE_JOB  :homer-disappear:"
+          include_job_number_field: false
   build_and_deploy_to_test:
     docker: &ecr_image
       - image: $AWS_BUILD_IMAGE_ECR_ACCOUNT_URL
@@ -24,15 +31,15 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - add_ssh_keys:
+      - add_ssh_keys: &ssh_keys
           fingerprints:
             - "e3:25:34:15:2b:c4:d3:b7:c3:94:9f:50:dd:c3:0f:de"
-      - run:
+      - run: &base_environment_variables
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
             echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_e32534152bc4d3b7c3949f50ddc30fde" >> $BASH_ENV
-      - run:
+      - run: &deploy_scripts
           name: cloning deploy scripts
           command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
       - run:
@@ -54,22 +61,15 @@ jobs:
             DEPLOYMENT_ENV: production
             K8S_NAMESPACE: formbuilder-services-test-production
           command: './deploy-scripts/bin/restart_all_pods'
+      - slack/status: *slack_status
   build_and_deploy_to_live:
     docker: *ecr_image
     steps:
       - checkout
       - setup_remote_docker
-      - add_ssh_keys:
-          fingerprints:
-            - "e3:25:34:15:2b:c4:d3:b7:c3:94:9f:50:dd:c3:0f:de"
-      - run:
-          name: Setup base environment variable
-          command: |
-            echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_e32534152bc4d3b7c3949f50ddc30fde" >> $BASH_ENV
-      - run:
-          name: cloning deploy scripts
-          command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
+      - add_ssh_keys: *ssh_keys
+      - run: *base_environment_variables
+      - run: *deploy_scripts
       - run:
           name: build and push docker images
           environment:
@@ -89,6 +89,11 @@ jobs:
             DEPLOYMENT_ENV: production
             K8S_NAMESPACE: formbuilder-services-live-production
           command: './deploy-scripts/bin/restart_all_pods'
+      - slack/status:
+          only_for_branches: master
+          success_message: ":rocket:  Successfully deployed to Live  :guitar:"
+          failure_message: ":alert:  Failed to deploy to Live  :try_not_to_cry:"
+          include_job_number_field: false
 
   trigger_acceptance_tests:
     working_directory: ~/circle/git/fb-runner-node
@@ -96,15 +101,11 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - add_ssh_keys:
-          fingerprints:
-            - "e3:25:34:15:2b:c4:d3:b7:c3:94:9f:50:dd:c3:0f:de"
-      - run:
-          name: cloning deploy scripts
-          command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
+      - run: *deploy_scripts
       - run:
           name: "Trigger Acceptance Tests"
           command: './deploy-scripts/bin/acceptance_tests'
+      - slack/status: *slack_status
 
   publish:
     docker:
@@ -128,10 +129,9 @@ jobs:
             if [ "$VERSION" != "$PUBLISHED_VERSION" ]
             then
               npm publish
+              curl -X POST -H 'Content-type: application/json' --data '{"text":":woohoo:  Successfully published fb-runner-node $VERSION  :ship_it_parrot:"}' "$SLACK_WEBHOOK"
             fi
-
-orbs:
-  kube-orb: circleci/kubernetes@0.10.0
+      - slack/status: *slack_status
 
 workflows:
   version: 2
@@ -161,6 +161,11 @@ workflows:
             branches:
               only:
                 - master
+      - slack/approval-notification:
+          message: ":portalorangeparrot:  Deployment to Live pending approval  :portalblueparrot:"
+          include_job_number_field: false
+          requires:
+            - trigger_acceptance_tests
       - confirm_live_build:
           type: approval
           requires:
