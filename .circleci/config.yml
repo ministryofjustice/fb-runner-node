@@ -107,6 +107,16 @@ jobs:
           command: './deploy-scripts/bin/acceptance_tests'
       - slack/status: *slack_status
 
+  smoke_tests:
+    docker: *ecr_image
+    steps:
+      - setup_remote_docker
+      - run: *deploy_scripts
+      - run:
+          name: Run smoke tests
+          command: './deploy-scripts/bin/smoke_tests'
+      - slack/status: *slack_status
+
   publish:
     docker:
       - image: circleci/node:12.4.0
@@ -173,3 +183,6 @@ workflows:
       - build_and_deploy_to_live:
           requires:
             - confirm_live_build
+      - smoke_tests:
+          requires:
+            - build_and_deploy_to_live
