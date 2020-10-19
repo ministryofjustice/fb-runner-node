@@ -6,14 +6,14 @@ update_configs:
     update_schedule: "live"
     default_reviewers:
     - mattempty
-    - form-builder-developers
     - tomas-stefano
     - brenetic
+    - njseeto
   - package_manager: "docker"
     directory: "/"
     update_schedule: "daily"
     default_reviewers:
     - mattempty
-    - form-builder-developers
     - tomas-stefano
     - brenetic
+    - njseeto
