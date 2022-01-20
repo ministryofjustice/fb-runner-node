@@ -20,6 +20,7 @@ updates:
   open-pull-requests-limit: 10
   allow:
     - dependency-type: security
+    - dependency-type: production
   reviewers:
   - mattempty
   - brenetic
