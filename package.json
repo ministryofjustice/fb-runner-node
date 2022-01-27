@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-runner-node",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "engines": {
     "node": ">=14.5.0"
   },
@@ -42,7 +42,7 @@
   "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-client": "2.1.4",
-    "@ministryofjustice/fb-components": "1.4.3",
+    "@ministryofjustice/fb-components": "1.4.4",
     "@ministryofjustice/module-alias": "^1.0.21",
     "@promster/express": "^4.1.2",
     "@sentry/node": "^5.15.0",
