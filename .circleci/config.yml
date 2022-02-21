@@ -54,7 +54,7 @@ jobs:
             DEPLOYMENT_ENV: dev
             K8S_NAMESPACE: formbuilder-services-test-dev
             RUNNER_TYPE: fb-runner-node
-          command: './deploy-scripts/bin/restart_all_pods'
+          command: './deploy-scripts/bin/eks_restart_all_pods'
       - run:
           name: Restart the runners in test production
           environment:
@@ -62,7 +62,7 @@ jobs:
             DEPLOYMENT_ENV: production
             K8S_NAMESPACE: formbuilder-services-test-production
             RUNNER_TYPE: fb-runner-node
-          command: './deploy-scripts/bin/restart_all_pods'
+          command: './deploy-scripts/bin/eks_restart_all_pods'
       - slack/status: *slack_status
   build_and_deploy_to_live:
     docker: *ecr_image
@@ -84,7 +84,7 @@ jobs:
             DEPLOYMENT_ENV: dev
             K8S_NAMESPACE: formbuilder-services-live-dev
             RUNNER_TYPE: fb-runner-node
-          command: './deploy-scripts/bin/restart_all_pods'
+          command: './deploy-scripts/bin/eks_restart_all_pods'
       - run:
           name: Restart the runners in live production
           environment:
@@ -92,7 +92,7 @@ jobs:
             DEPLOYMENT_ENV: production
             K8S_NAMESPACE: formbuilder-services-live-production
             RUNNER_TYPE: fb-runner-node
-          command: './deploy-scripts/bin/restart_all_pods'
+          command: './deploy-scripts/bin/eks_restart_all_pods'
       - slack/status:
           only_for_branches: master
           success_message: ":rocket:  Successfully deployed to Live  :guitar:"
