@@ -188,10 +188,10 @@ workflows:
   version: 2
   test_and_build:
     jobs:
-      - test
+      # - test
       - publish:
-          requires:
-            - test
+          # requires:
+          #   - test
           filters:
             tags:
               only: /^v.*/
@@ -199,8 +199,8 @@ workflows:
               only:
                 - master
       - build_and_push_image_test:
-          requires:
-            - test
+          # requires:
+          #   - test
           filters:
             branches:
               only:
@@ -209,13 +209,13 @@ workflows:
       - deploy_to_test_dev:
           requires:
             - build_and_push_image_test
-      - deploy_to_test_production:
-          requires:
-            - build_and_push_image_test
+      # - deploy_to_test_production:
+      #     requires:
+      #       - build_and_push_image_test
       - trigger_acceptance_tests:
           requires:
             - deploy_to_test_dev
-            - deploy_to_test_production
+            # - deploy_to_test_production
       # - build_and_push_image_live:
       #     requires:
       #       - trigger_acceptance_tests
