@@ -5,7 +5,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/node:12.4.0
+      - image: cimg/node:12.4.0
     steps:
       - checkout
       - run:
@@ -160,7 +160,7 @@ jobs:
       - slack/status: *slack_status
   publish:
     docker:
-      - image: circleci/node:12.4.0
+      - image: cimg/node:12.4.0
     steps:
       - checkout
       - run:
