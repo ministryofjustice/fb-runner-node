@@ -3,7 +3,7 @@
 const glob = require('glob-promise')
 const fs = require('fs')
 
-const jsonlint = require('jsonlint')
+const jsonlint = require('jsonlint-mod')
 
 const debug = require('debug')
 const log = debug('runner:lint-schemas:log')

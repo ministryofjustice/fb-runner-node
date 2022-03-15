@@ -42,7 +42,7 @@
   "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-client": "2.1.5",
-    "@ministryofjustice/fb-components": "1.4.7",
+    "@ministryofjustice/fb-components": "1.4.8",
     "@ministryofjustice/module-alias": "^1.0.22",
     "@promster/express": "^4.1.2",
     "@sentry/node": "^5.15.0",
@@ -65,7 +65,7 @@
     "glob-promise": "^3.4.0",
     "json-schema-merge-allof": "^0.7.0",
     "json-schema-ref-parser": "^9.0.1",
-    "jsonlint": "^1.6.3",
+    "jsonlint-mod": "^1.7.6",
     "jsonpath": "^1.0.2",
     "jsonschema": "^1.2.5",
     "load-json-file": "^6.2.0",
