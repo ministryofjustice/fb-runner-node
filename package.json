@@ -93,7 +93,7 @@
     "shorthash": "0.0.2",
     "sort-keys": "^4.0.0",
     "striptags": "^3.1.1",
-    "tap": "^14.10.7",
+    "tap": "^16.0.0",
     "type-is": "^1.6.18",
     "uuid": "^8.0.0",
     "write-file-atomic": "^3.0.3",
