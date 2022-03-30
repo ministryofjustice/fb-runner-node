@@ -42,7 +42,7 @@
   "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-client": "2.1.6",
-    "@ministryofjustice/fb-components": "1.4.13",
+    "@ministryofjustice/fb-components": "1.4.14",
     "@ministryofjustice/module-alias": "^1.0.22",
     "@promster/express": "^4.1.2",
     "@sentry/node": "^5.15.0",
