@@ -7,7 +7,7 @@ For more information, read [the Runner’s documentation](https://github.com/min
 
 ## Pre-requisites
 
-[Node](https://nodejs.org) >= 12.4.0
+[Node](https://nodejs.org) >= 14.20.1 <15.0.0
 
 ## Installation
 
