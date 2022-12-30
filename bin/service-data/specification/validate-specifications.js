@@ -33,7 +33,7 @@ schemas.forEach(schema => {
 
     return validateSchema(schema, options)
       .then(results => {
-        t.is(results, undefined, 'should have no errors')
+        t.equal(results, undefined, 'should have no errors')
       })
   })
 })
