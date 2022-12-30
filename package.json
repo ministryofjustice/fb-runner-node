@@ -98,7 +98,7 @@
     "uuid": "^8.3.2",
     "write-file-atomic": "^3.0.3",
     "xtend": "^4.0.2",
-    "yargs": "^16.2.0"
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
     "eslint": "^8.30.0",
