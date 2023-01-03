@@ -44,7 +44,7 @@
     "@ministryofjustice/fb-client": "2.1.7",
     "@ministryofjustice/fb-components": "1.4.15",
     "@ministryofjustice/module-alias": "^1.1.0",
-    "@promster/express": "^4.1.2",
+    "@promster/express": "4.1.11",
     "@sentry/node": "^5.30.0",
     "aes256": "^1.1.0",
     "ajv": "^6.12.6",
