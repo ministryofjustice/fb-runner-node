@@ -67,7 +67,7 @@
     "json-schema-ref-parser": "^9.0.1",
     "jsonlint-mod": "^1.7.6",
     "jsonpath": "^1.1.1",
-    "jsonschema": "^1.2.11",
+    "jsonschema": "^1.4.1",
     "load-json-file": "^6.2.0",
     "lodash.clone": "^4.5.0",
     "lodash.clonedeep": "^4.5.0",
