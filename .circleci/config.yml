@@ -51,7 +51,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      # - add_ssh_keys: &ssh_keys
       #     fingerprints:
       #       - "23:32:9f:ec:18:81:11:3a:3b:02:b7:ad:21:2a:b2:71"
       - run: *base_environment_variables
@@ -70,7 +69,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      # - add_ssh_keys: *ssh_keys
       - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
@@ -100,7 +98,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      # - add_ssh_keys: *ssh_keys
       - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
@@ -121,7 +118,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      # - add_ssh_keys: *ssh_keys
       - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
