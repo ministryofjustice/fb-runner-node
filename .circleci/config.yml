@@ -36,7 +36,6 @@ jobs:
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_e32534152bc4d3b7c3949f50ddc30fde" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
           command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
@@ -51,9 +50,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: &ssh_keys
-          fingerprints:
-            - "e3:25:34:15:2b:c4:d3:b7:c3:94:9f:50:dd:c3:0f:de"
       - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
@@ -70,7 +66,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: *ssh_keys
       - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
@@ -100,7 +95,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: *ssh_keys
       - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
@@ -121,7 +115,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: *ssh_keys
       - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
@@ -189,6 +182,8 @@ workflows:
     jobs:
       - test
       - publish:
+          context: &context
+            - moj-forms
           requires:
             - test
           filters:
@@ -198,6 +193,7 @@ workflows:
               only:
                 - master
       - build_and_push_image_test:
+          context: *context
           requires:
             - test
           filters:
@@ -205,36 +201,45 @@ workflows:
               only:
                 - master
       - deploy_to_test_dev:
+          context: *context
           requires:
             - build_and_push_image_test
       - deploy_to_test_production:
+          context: *context
           requires:
             - build_and_push_image_test
       - trigger_acceptance_tests:
+          context: *context
           requires:
             - deploy_to_test_dev
             - deploy_to_test_production
       - build_and_push_image_live:
+          context: *context
           requires:
             - trigger_acceptance_tests
       - slack/approval-notification:
           message: ":portalorangeparrot:  Deployment to Live pending approval  :portalblueparrot:"
           include_job_number_field: false
+          context: *context
           requires:
             - trigger_acceptance_tests
       - confirm_live_build:
           type: approval
+          context: *context
           requires:
             - trigger_acceptance_tests
       - deploy_to_live_dev:
+          context: *context
           requires:
             - confirm_live_build
             - build_and_push_image_live
       - deploy_to_live_production:
+          context: *context
           requires:
             - confirm_live_build
             - build_and_push_image_live
       - smoke_tests:
+          context: *context
           requires:
             - deploy_to_live_dev
             - deploy_to_live_production
