@@ -32,11 +32,11 @@ jobs:
       - checkout
       - setup_remote_docker: &remote_docker
           docker_layer_caching: true
-      - run: &base_environment_variables
-          name: Setup base environment variable
-          command: |
-            echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_23329fec1881113a3b02b7ad212ab271" >> $BASH_ENV
+      # - run: &base_environment_variables
+      #     name: Setup base environment variable
+      #     command: |
+      #       echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
+      #       echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_23329fec1881113a3b02b7ad212ab271" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
           command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
@@ -51,10 +51,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: &ssh_keys
-          fingerprints:
-            - "23:32:9f:ec:18:81:11:3a:3b:02:b7:ad:21:2a:b2:71"
-      - run: *base_environment_variables
+      # - add_ssh_keys: &ssh_keys
+      #     fingerprints:
+      #       - "23:32:9f:ec:18:81:11:3a:3b:02:b7:ad:21:2a:b2:71"
+      # - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
           name: Restart the runners test dev
@@ -70,8 +70,8 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: *ssh_keys
-      - run: *base_environment_variables
+      # - add_ssh_keys: *ssh_keys
+      # - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
           name: Restart the runners in test production
@@ -87,7 +87,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - run: *base_environment_variables
+      # - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
           name: build and push docker images
@@ -100,8 +100,8 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: *ssh_keys
-      - run: *base_environment_variables
+      # - add_ssh_keys: *ssh_keys
+      # - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
           name: Restart the runners live dev
@@ -121,8 +121,8 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker: *remote_docker
-      - add_ssh_keys: *ssh_keys
-      - run: *base_environment_variables
+      # - add_ssh_keys: *ssh_keys
+      # - run: *base_environment_variables
       - run: *deploy_scripts
       - run:
           name: Restart the runners in live production
@@ -207,6 +207,7 @@ workflows:
             branches:
               only:
                 - master
+                - rotate-secrets
       - deploy_to_test_dev:
           context: *context
           requires:
