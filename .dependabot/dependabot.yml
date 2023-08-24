@@ -8,9 +8,10 @@ updates:
     timezone: Europe/London
   open-pull-requests-limit: 10
   reviewers:
-  - brenetic
   - mattempty
-  - njseeto
+  - chrispymm
+  - H3ll3m4
+  - StevenLeighton21
 - package-ecosystem: npm
   directory: "/"
   schedule:
@@ -23,5 +24,6 @@ updates:
     - dependency-type: production
   reviewers:
   - mattempty
-  - brenetic
-  - njseeto
+  - chrispymm
+  - H3ll3m4
+  - StevenLeighton21
