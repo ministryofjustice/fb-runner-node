@@ -233,7 +233,6 @@ workflows:
             branches:
               only:
                 - master
-                - ecr-migration
       - deploy_to_test_dev:
           context: *context
           requires:
@@ -247,33 +246,33 @@ workflows:
           requires:
             - deploy_to_test_dev
             - deploy_to_test_production
-      # - build_and_push_image_live:
-      #     context: *context
-      #     requires:
-      #       - trigger_acceptance_tests
-      # - slack/approval-notification:
-      #     message: ":portalorangeparrot:  Deployment to Live pending approval  :portalblueparrot:"
-      #     include_job_number_field: false
-      #     context: *context
-      #     requires:
-      #       - trigger_acceptance_tests
-      # - confirm_live_build:
-      #     type: approval
-      #     context: *context
-      #     requires:
-      #       - trigger_acceptance_tests
-      # - deploy_to_live_dev:
-      #     context: *context
-      #     requires:
-      #       - confirm_live_build
-      #       - build_and_push_image_live
-      # - deploy_to_live_production:
-      #     context: *context
-      #     requires:
-      #       - confirm_live_build
-      #       - build_and_push_image_live
-      # - smoke_tests:
-      #     context: *context
-      #     requires:
-      #       - deploy_to_live_dev
-      #       - deploy_to_live_production
+      - build_and_push_image_live:
+          context: *context
+          requires:
+            - trigger_acceptance_tests
+      - slack/approval-notification:
+          message: ":portalorangeparrot:  Deployment to Live pending approval  :portalblueparrot:"
+          include_job_number_field: false
+          context: *context
+          requires:
+            - trigger_acceptance_tests
+      - confirm_live_build:
+          type: approval
+          context: *context
+          requires:
+            - trigger_acceptance_tests
+      - deploy_to_live_dev:
+          context: *context
+          requires:
+            - confirm_live_build
+            - build_and_push_image_live
+      - deploy_to_live_production:
+          context: *context
+          requires:
+            - confirm_live_build
+            - build_and_push_image_live
+      - smoke_tests:
+          context: *context
+          requires:
+            - deploy_to_live_dev
+            - deploy_to_live_production
